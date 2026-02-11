@@ -1,6 +1,6 @@
 # Technical Architecture Reference
 
-**Digital Marketing Pro** -- Claude Code Plugin v1.2.0
+**Digital Marketing Pro** -- Claude Code Plugin v1.4.0
 
 This document describes the internal architecture of the Digital Marketing Pro plugin for developers and contributors. It covers file structure, the WAT framework mapping, component anatomy, the hook system, script conventions, data persistence, adaptive scoring, and extension points.
 
@@ -11,11 +11,11 @@ This document describes the internal architecture of the Digital Marketing Pro p
 ```
 digital-marketing-pro/
 ├── .claude-plugin/
-│   └── plugin.json                    # Plugin manifest (v1.2.0)
+│   └── plugin.json                    # Plugin manifest (v1.4.0)
 ├── .mcp.json                          # 12 MCP server configurations
 ├── hooks/
 │   └── hooks.json                     # 3 lifecycle hooks
-├── agents/                            # 10 specialist agents
+├── agents/                            # 13 specialist agents
 │   ├── marketing-strategist.md
 │   ├── content-creator.md
 │   ├── seo-specialist.md
@@ -25,10 +25,13 @@ digital-marketing-pro/
 │   ├── growth-engineer.md
 │   ├── influencer-manager.md
 │   ├── competitive-intel.md
-│   └── pr-outreach.md
-├── scripts/                           # 14 Python scripts + requirements
+│   ├── pr-outreach.md
+│   ├── email-specialist.md            # NEW in v1.4.0
+│   ├── cro-specialist.md              # NEW in v1.4.0
+│   └── social-media-manager.md        # NEW in v1.4.0
+├── scripts/                           # 15 Python scripts + requirements
 │   ├── setup.py                       # Brand management, initialization
-│   ├── campaign-tracker.py            # Campaign persistence
+│   ├── campaign-tracker.py            # Campaign persistence + violation tracking
 │   ├── adaptive-scorer.py             # Context-aware scoring weights
 │   ├── brand-voice-scorer.py          # Voice consistency analysis
 │   ├── content-scorer.py              # Content quality scoring
@@ -41,20 +44,25 @@ digital-marketing-pro/
 │   ├── readability-analyzer.py        # Readability metrics
 │   ├── schema-generator.py            # JSON-LD schema markup
 │   ├── utm-generator.py               # UTM parameters + QR codes
+│   ├── guidelines-manager.py          # Brand guidelines CRUD (v1.3.0)
 │   └── requirements.txt               # Python dependencies
-├── skills/                            # 33 skill directories
+├── skills/                            # 36 skill directories
 │   ├── context-engine/                # Shared intelligence layer
 │   │   ├── SKILL.md
 │   │   ├── industry-profiles.md       # 22 industries
 │   │   ├── compliance-rules.md        # 16 jurisdictions + 10 industries
 │   │   ├── platform-specs.md          # 20+ platforms
 │   │   ├── scoring-rubrics.md         # 7 scoring frameworks
-│   │   └── intelligence-layer.md      # Learning system docs
+│   │   ├── intelligence-layer.md      # Learning system docs
+│   │   └── guidelines-framework.md    # Guidelines structure reference (v1.3.0)
 │   ├── brand-setup/SKILL.md           # Brand profile creation
 │   ├── switch-brand/SKILL.md          # Brand switching
 │   ├── [13 modules]/                  # Core marketing modules
 │   │   ├── SKILL.md                   # Module definition
 │   │   └── *.md                       # Reference knowledge files
+│   ├── import-guidelines/SKILL.md     # Guideline import (v1.3.0)
+│   ├── import-sop/SKILL.md           # SOP import (v1.3.0)
+│   ├── import-template/SKILL.md      # Template import (v1.3.0)
 │   └── [17 commands]/                 # Slash command skills
 │       └── SKILL.md                   # Command definition
 ├── docs/                              # Documentation
@@ -64,11 +72,13 @@ digital-marketing-pro/
 └── LICENSE
 ```
 
-**Total: 163 files** (150 original plugin files + 13 documentation files).
+**Total: 171 files** (158 plugin files + 13 documentation files).
 
 The 13 modules are: content-engine, campaign-orchestrator, paid-advertising, analytics-insights, aeo-geo, audience-intelligence, cro, digital-pr, funnel-architect, growth-engineering, influencer-creator, reputation-management, and emerging-channels.
 
-The 17 commands are: ad-creative, aeo-audit, audience-profile, campaign-plan, competitor-analysis, content-brief, content-calendar, crisis-response, email-sequence, funnel-audit, influencer-brief, landing-page-audit, launch-plan, performance-report, pr-pitch, seo-audit, and social-strategy.
+The 22 commands are: ad-creative, aeo-audit, audience-profile, campaign-plan, competitor-analysis, content-brief, content-calendar, crisis-response, email-sequence, funnel-audit, import-guidelines, import-sop, import-template, influencer-brief, landing-page-audit, launch-plan, performance-report, pr-pitch, seo-audit, social-strategy, and switch-brand.
+
+The 13 agents are: marketing-strategist, content-creator, seo-specialist, analytics-analyst, brand-guardian, media-buyer, growth-engineer, influencer-manager, competitive-intel, pr-outreach, email-specialist, cro-specialist, and social-media-manager.
 
 ---
 
@@ -92,18 +102,22 @@ Together, SKILL.md files and hooks form the "instructions" layer that the AI age
 
 ### Agents (agents/*.md)
 
-Ten specialist agents with distinct expertise areas and behavior rules. Each agent:
+Thirteen specialist agents with distinct expertise areas and behavior rules. Each agent:
 
 1. Loads brand context before producing any output (Rule 1 in every agent)
-2. Follows domain-specific guidelines (6-8 behavior rules)
+2. Follows domain-specific guidelines (8-11 behavior rules including guideline enforcement)
 3. Produces structured output in a defined format
-4. Recommends handoffs to other agents when work crosses domains
+4. Calls Python scripts for deterministic scoring and analysis
+5. Queries MCP servers for live data when available
+6. Loads brand guidelines and enforces restrictions
+7. Persists campaign data and insights via campaign-tracker.py
+8. Recommends handoffs to other agents when work crosses domains
 
 Multiple agents can collaborate on a single task. For example, the `/dm:campaign-plan` command invokes both marketing-strategist and media-buyer agents.
 
 ### Tools (scripts/*.py)
 
-Fourteen Python scripts handle deterministic execution: scoring, formatting, data persistence, and analysis. Every script:
+Fifteen Python scripts handle deterministic execution: scoring, formatting, data persistence, and analysis. Every script:
 
 - Accepts CLI arguments via argparse
 - Produces JSON output to stdout
@@ -130,7 +144,7 @@ description: "One sentence describing when to invoke this module."
 [Trigger patterns -- natural language phrases that route to this module]
 
 ## Brand Context (Auto-Applied)
-[8-step brand context loading sequence -- identical across all 13 modules:
+[9-step brand context loading sequence -- identical across all 13 modules:
  1. Check session context for brand summary
  2. Load full profile from ~/.claude-marketing/brands/{slug}/profile.json
  3. Apply brand voice (formality, energy, humor, authority)
@@ -138,7 +152,8 @@ description: "One sentence describing when to invoke this module."
  5. Reference industry benchmarks via context-engine/industry-profiles.md
  6. Use platform specs via context-engine/platform-specs.md
  7. Check campaign history via campaign-tracker.py
- 8. Fallback message if no brand exists]
+ 8. Fallback message if no brand exists
+ 9. Check and enforce brand guidelines if guidelines/_manifest.json exists]
 
 ## Required Context
 [What information the module needs from the user or brand profile]
@@ -150,7 +165,7 @@ description: "One sentence describing when to invoke this module."
 [List of .md files in this module's directory that inform its output]
 ```
 
-The Brand Context block is standardized across all 13 modules to ensure consistent brand-aware behavior. If you modify this block, update it in all module SKILL.md files.
+The Brand Context block is standardized across all 13 modules to ensure consistent brand-aware behavior. Step 9 (guideline enforcement) was added in v1.3.0. If you modify this block, update it in all module SKILL.md files.
 
 ---
 
@@ -192,7 +207,7 @@ Step 1 is always explicit brand context loading with the full file path. This wa
 
 ## 5. Agent Definitions
 
-Each agent file in `agents/` follows this structure:
+Each agent file in `agents/` follows this structure (updated in v1.4.0):
 
 ```markdown
 ---
@@ -210,31 +225,53 @@ description: "Invoke when the user needs [specialty area]."
 ## Behavior Rules
 1. Always load brand context first. [Specific instructions for checking
    ~/.claude-marketing/brands/ and applying brand profile data]
-2-8. [Domain-specific behavioral guidelines]
+2-N. [Domain-specific behavioral guidelines]
+N. Check brand guidelines for content. [Load guidelines/_manifest.json,
+   apply restrictions, voice rules, and channel styles]
 
 ## Output Format
 [How this agent structures its deliverables]
 
-## Collaboration
-[When and how this agent hands off to other specialist agents]
+## Tools & Scripts                         # NEW in v1.4.0
+[Which Python scripts to call, with exact CLI commands, arguments, and when to use them.
+ All paths use ${CLAUDE_PLUGIN_ROOT}/scripts/script-name.py]
+
+## MCP Integrations                        # NEW in v1.4.0
+[Which MCP servers to query for live data. All marked as optional.]
+
+## Brand Data & Campaign Memory            # NEW in v1.4.0
+[Which persistent files to load from ~/.claude-marketing/brands/{slug}/:
+ Always load: profile.json, guidelines/_manifest.json
+ Load when relevant: campaigns/, competitors.json, insights.json, audiences.json]
+
+## Reference Files                         # NEW in v1.4.0
+[Which context-engine reference files to consult for this domain:
+ scoring-rubrics.md, platform-specs.md, industry-profiles.md, etc.]
+
+## Cross-Agent Collaboration               # NEW in v1.4.0
+[Specific handoff recommendations: which agents to coordinate with, what data to pass,
+ and when to request collaboration]
 ```
 
 ### Agent Roster
 
-| Agent | Activates On | Primary Frameworks |
-|-------|-------------|-------------------|
-| marketing-strategist | Strategy, planning, positioning, GTM | SOSTAC, RACE, AARRR |
-| content-creator | Writing, copywriting, content production | PAS, AIDA, storytelling |
-| seo-specialist | SEO, AEO, GEO, keywords, technical SEO | E-E-A-T, topic clusters |
-| analytics-analyst | Metrics, KPIs, reports, anomalies | Attribution, MMM, incrementality |
-| brand-guardian | Compliance, voice consistency, quality | Brand scorecards, voice scales |
-| media-buyer | Ad platforms, budget, bidding, targeting | ROAS, CPM/CPC modeling |
-| growth-engineer | PLG, referrals, viral loops, retention | AARRR, ICE scoring, cohort analysis |
-| influencer-manager | Creator partnerships, UGC, briefs | Tier frameworks, FTC compliance |
-| competitive-intel | Competitor analysis, market positioning | Perceptual maps, SWOT, gap analysis |
-| pr-outreach | Media relations, press releases, pitches | Newsjacking, PESO model |
+| Agent | Activates On | Primary Frameworks | Key Scripts |
+|-------|-------------|-------------------|-------------|
+| marketing-strategist | Strategy, planning, positioning, GTM | SOSTAC, RACE, AARRR | utm-generator, campaign-tracker |
+| content-creator | Writing, copywriting, content production | PAS, AIDA, storytelling | brand-voice-scorer, content-scorer, social-post-formatter, headline-analyzer, email-preview |
+| seo-specialist | SEO, AEO, GEO, keywords, technical SEO | E-E-A-T, topic clusters | keyword-clusterer, schema-generator, ai-visibility-checker, competitor-scraper |
+| analytics-analyst | Metrics, KPIs, reports, anomalies | Attribution, MMM, incrementality | utm-generator, adaptive-scorer, campaign-tracker |
+| brand-guardian | Compliance, voice consistency, quality | Brand scorecards, voice scales | brand-voice-scorer, content-scorer, readability-analyzer, adaptive-scorer |
+| media-buyer | Ad platforms, budget, bidding, targeting | ROAS, CPM/CPC modeling | utm-generator, content-scorer, headline-analyzer |
+| growth-engineer | PLG, referrals, viral loops, retention | AARRR, ICE scoring, cohort analysis | content-scorer, utm-generator |
+| influencer-manager | Creator partnerships, UGC, briefs | Tier frameworks, FTC compliance | social-post-formatter, content-scorer, brand-voice-scorer |
+| competitive-intel | Competitor analysis, market positioning | Perceptual maps, SWOT, gap analysis | competitor-scraper, keyword-clusterer |
+| pr-outreach | Media relations, press releases, pitches | Newsjacking, PESO model | content-scorer, readability-analyzer, headline-analyzer |
+| email-specialist | Email marketing, deliverability, automation | Lifecycle, RFM, A/B testing | email-preview, content-scorer, readability-analyzer, brand-voice-scorer, headline-analyzer, adaptive-scorer |
+| cro-specialist | CRO, landing pages, A/B testing, pricing | Hypothesis testing, Bayesian analysis | content-scorer, headline-analyzer, readability-analyzer, adaptive-scorer |
+| social-media-manager | Social media, community, content calendars | Platform-native strategy, algorithm signals | social-post-formatter, content-scorer, headline-analyzer, brand-voice-scorer |
 
-Every agent's Rule 1 mandates loading brand context before producing output. This is the single most important architectural invariant in the plugin.
+Every agent's Rule 1 mandates loading brand context before producing output. Every agent has a guideline enforcement rule. Every agent references campaign-tracker.py and guidelines-manager.py. These are the three most important architectural invariants in the agent system.
 
 ---
 
@@ -249,6 +286,7 @@ The shared intelligence layer lives at `skills/context-engine/` and provides ref
 | platform-specs.md | 8 social platforms with character limits and format specs, email specifications, 5 ad platform requirements, 11 schema markup types | ~1200 lines |
 | scoring-rubrics.md | 7 scoring frameworks: content quality, ad effectiveness, email performance, landing page conversion, social engagement, PR impact, and brand voice consistency | ~400 lines |
 | intelligence-layer.md | Adaptive learning system architecture -- how insights accumulate and inform future scoring | ~200 lines |
+| guidelines-framework.md | Brand guidelines structure -- how to organize, store, and apply voice guides, restrictions, channel styles, and templates (v1.3.0) | ~300 lines |
 
 **Critical note:** All modules reference these files. A change to compliance-rules.md affects compliance checking across the entire plugin. A change to platform-specs.md affects every content-producing module. Test broadly after modifying context-engine files.
 
@@ -282,7 +320,7 @@ Three lifecycle hooks are defined in `hooks/hooks.json`. They wrap every Claude 
 
 ## 8. Script Architecture
 
-All 14 scripts in `scripts/` follow consistent conventions.
+All 15 scripts in `scripts/` follow consistent conventions.
 
 ### Conventions
 
@@ -296,7 +334,7 @@ All 14 scripts in `scripts/` follow consistent conventions.
 
 | Tier | Dependencies | Scripts |
 |------|-------------|---------|
-| Zero deps (always work) | Python stdlib only | setup.py, campaign-tracker.py, utm-generator.py (basic mode), schema-generator.py |
+| Zero deps (always work) | Python stdlib only | setup.py, campaign-tracker.py, utm-generator.py (basic mode), schema-generator.py, guidelines-manager.py |
 | Lite | nltk, textstat | brand-voice-scorer.py, content-scorer.py, readability-analyzer.py, headline-analyzer.py |
 | Full | + requests, beautifulsoup4, qrcode, Pillow | competitor-scraper.py, utm-generator.py (QR mode), email-preview.py |
 | Optional | + openai, anthropic | ai-visibility-checker.py (API mode) |
@@ -370,9 +408,18 @@ All persistent data lives in `~/.claude-marketing/`, never in the plugin directo
 │       │   └── {id}-{date}.json       # Individual campaigns
 │       ├── performance/
 │       │   └── {id}-{timestamp}.json  # Performance snapshots
+│       ├── guidelines/                # Brand guidelines (v1.3.0)
+│       │   ├── _manifest.json         # Rule counts, categories, metadata
+│       │   ├── voice-and-tone.md      # Writing style rules
+│       │   ├── messaging.md           # Approved positioning, proof points
+│       │   ├── restrictions.md        # Banned words, restricted claims
+│       │   ├── channel-styles.md      # Per-platform tone overrides
+│       │   └── visual-identity.md     # Visual brand rules
+│       ├── templates/                 # Custom deliverable templates (v1.3.0)
 │       ├── content-library/           # Reusable content
 │       └── voice-samples/             # Brand voice examples
-├── templates/                         # Custom templates
+├── sops/                              # Agency-level SOPs (v1.3.0)
+├── templates/                         # Global templates
 └── industry-data/                     # Cached benchmarks
 ```
 

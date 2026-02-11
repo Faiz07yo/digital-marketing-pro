@@ -1,6 +1,6 @@
 # Digital Marketing Pro — Claude Code & Cowork Plugin
 
-[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.4.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-optional-yellow.svg)](#python-dependencies-optional)
 [![Cowork](https://img.shields.io/badge/cowork-compatible-purple.svg)](docs/claude-interfaces.md#claude-cowork-full-support)
@@ -34,7 +34,7 @@ Digital Marketing Pro transforms Claude into a full-stack marketing intelligence
 - **10 business models** supported (B2B SaaS, eCommerce, Local, Agency, Creator, Enterprise, Non-Profit, Marketplace, DTC, B2B Services)
 - **22 industry profiles** with benchmarks and compliance rules
 - **16 privacy law jurisdictions** auto-applied (GDPR, CCPA, PIPL, DPDPA, and more)
-- **10 specialist agents** that activate based on conversation context
+- **13 specialist agents** that activate based on conversation context, call Python scripts for scoring, query MCP servers for live data, enforce brand guidelines, and persist campaign learnings
 - **Brand guidelines enforcement** — import voice guides, restrictions, channel styles, messaging frameworks; automatically applied across all modules
 - **Deliverable templates** and **agency SOPs** — custom output formats and workflow definitions
 - **22 slash commands** for direct access to common workflows
@@ -82,7 +82,7 @@ On first use, the plugin will:
 The plugin works fully without any Python installation. All marketing knowledge, frameworks, agent capabilities, and slash commands work out of the box.
 
 **Knowledge-only mode (0 MB, no install)** — Default
-All 13 modules, 10 agents, 22 commands, and 87 reference knowledge files work with zero dependencies.
+All 13 modules, 13 agents, 22 commands, and 87 reference knowledge files work with zero dependencies.
 
 **Lite mode (~15 MB)** — Enables scoring scripts
 ```
@@ -260,9 +260,9 @@ The plugin stores brand data at `~/.claude-marketing/`:
 
 ```
 digital-marketing-pro/
-├── .claude-plugin/plugin.json    # Plugin manifest (v1.3.0)
+├── .claude-plugin/plugin.json    # Plugin manifest (v1.4.0)
 ├── skills/                       # 36 skill directories (13 modules + 22 commands + context engine)
-├── agents/                       # 10 specialist agents
+├── agents/                       # 13 specialist agents
 ├── hooks/hooks.json              # Session lifecycle, compliance gates, and guideline checks
 ├── scripts/                      # 15 Python execution scripts + requirements.txt
 ├── .mcp.json                     # Optional MCP integrations config

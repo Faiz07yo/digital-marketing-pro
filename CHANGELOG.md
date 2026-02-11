@@ -4,6 +4,30 @@ All notable changes to the Digital Marketing Pro plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses [Semantic Versioning](https://semver.org/).
 
+## [1.4.0] - 2026-02-11
+
+### Added
+- **3 new specialist agents** — Email Specialist, CRO Specialist, and Social Media Manager, bringing the total from 10 to 13 agents
+  - `agents/email-specialist.md` — deliverability engineering, automation architecture, lifecycle sequences, A/B testing, list hygiene, CAN-SPAM/GDPR/CASL compliance
+  - `agents/cro-specialist.md` — landing page optimization, A/B testing methodology, form optimization, pricing psychology, checkout optimization, statistical analysis
+  - `agents/social-media-manager.md` — platform-native strategy (8 platforms), content calendars, algorithm optimization, community management, social commerce, UGC curation
+
+### Changed
+- **All 13 agents upgraded** from ~30-37 lines to ~100-120 lines each with 5 new functional sections:
+  - **Tools & Scripts** — exact CLI commands for calling the plugin's 15 Python scripts with arguments and usage context
+  - **MCP Integrations** — which of the 12 MCP servers each agent should query (all marked optional)
+  - **Brand Data & Campaign Memory** — which persistent files to load from `~/.claude-marketing/brands/{slug}/`
+  - **Reference Files** — which context-engine reference files to consult for each domain
+  - **Cross-Agent Collaboration** — specific handoff recommendations between agents
+- 8 agents gained **guideline enforcement behavior rules** (marketing-strategist, seo-specialist, media-buyer, analytics-analyst, competitive-intel, pr-outreach, growth-engineer, influencer-manager) — all 13 agents now enforce brand guidelines
+- All 13 agents now reference `campaign-tracker.py` for campaign memory and `guidelines-manager.py` for brand guideline loading
+- `brand-guardian.md` gained rule 11 (campaign memory pattern analysis) and expanded tool integration (6 scripts)
+- `content-creator.md` gained rule 10 (campaign memory) and expanded tool integration (9 scripts)
+- `.claude-plugin/plugin.json` version bumped from 1.3.0 to 1.4.0
+- `README.md` updated agent count references (10 → 13), version badge
+- `docs/getting-started.md` updated agent count references and version
+- `docs/architecture.md` updated to v1.4.0 — agent roster expanded, agent definition structure updated with 5 new sections, file counts updated
+
 ## [1.3.0] - 2026-02-11
 
 ### Added

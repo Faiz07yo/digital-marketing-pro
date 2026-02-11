@@ -1,6 +1,6 @@
 # Digital Marketing Pro — Claude Code & Cowork Plugin
 
-[![Version](https://img.shields.io/badge/version-1.2.1-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-optional-yellow.svg)](#python-dependencies-optional)
 [![Cowork](https://img.shields.io/badge/cowork-compatible-purple.svg)](docs/claude-interfaces.md#claude-cowork-full-support)
@@ -35,8 +35,10 @@ Digital Marketing Pro transforms Claude into a full-stack marketing intelligence
 - **22 industry profiles** with benchmarks and compliance rules
 - **16 privacy law jurisdictions** auto-applied (GDPR, CCPA, PIPL, DPDPA, and more)
 - **10 specialist agents** that activate based on conversation context
-- **19 slash commands** for direct access to common workflows
-- **14 Python scripts** for deterministic execution (scoring, analysis, generation)
+- **Brand guidelines enforcement** — import voice guides, restrictions, channel styles, messaging frameworks; automatically applied across all modules
+- **Deliverable templates** and **agency SOPs** — custom output formats and workflow definitions
+- **22 slash commands** for direct access to common workflows
+- **15 Python scripts** for deterministic execution (scoring, analysis, generation, guidelines management)
 - **12 MCP integrations** for connecting your own marketing accounts (GA4, Search Console, Google Ads, Meta, HubSpot, Mailchimp, etc.)
 - **Persistent brand memory** that learns across sessions
 - **Adaptive scoring** that adjusts to your industry, business model, and goals
@@ -80,7 +82,7 @@ On first use, the plugin will:
 The plugin works fully without any Python installation. All marketing knowledge, frameworks, agent capabilities, and slash commands work out of the box.
 
 **Knowledge-only mode (0 MB, no install)** — Default
-All 13 modules, 10 agents, 19 commands, and 86 reference knowledge files work with zero dependencies.
+All 13 modules, 10 agents, 22 commands, and 87 reference knowledge files work with zero dependencies.
 
 **Lite mode (~15 MB)** — Enables scoring scripts
 ```
@@ -102,7 +104,13 @@ Adds everything in lite mode plus: competitor scraping (`beautifulsoup4`, `reque
 ```
 Interactive brand profiling — answers questions about your brand identity, voice, audience, channels, and goals. Choose quick mode (5 questions) or full mode (17 questions).
 
-### 2. Start Marketing
+### 2. Import Your Guidelines (Optional)
+```
+/dm:import-guidelines
+```
+Import your brand's voice guide, restrictions, channel styles, or messaging framework. These are enforced automatically across all content. See the [Brand Guidelines Guide](docs/brand-guidelines.md).
+
+### 3. Start Marketing
 Just talk naturally. The plugin detects intent and activates the right modules:
 
 - "Help me plan a Q2 campaign" → Campaign Orchestrator + Marketing Strategist
@@ -120,13 +128,14 @@ See the [Getting Started Guide](docs/getting-started.md) for a full walkthrough 
 1. **Session Start** — Plugin automatically loads your brand context:
    - Checks Python dependencies (optional — plugin works without them)
    - Displays brand summary: name, industry, voice settings, channels, goals, compliance, competitors
+   - Loads brand guidelines summary (rule counts, restrictions, templates, SOPs)
    - This context is available throughout the session — you do not need to re-explain your brand
 
 2. **During the Session** — Ask for marketing help naturally:
    - Plugin matches your request to the right module(s) and agent(s)
-   - Brand voice, compliance rules, and industry benchmarks are auto-applied
+   - Brand voice, compliance rules, industry benchmarks, and guidelines are auto-applied
    - Past campaign data and insights are checked for relevant context
-   - Content is automatically checked for brand alignment when written (PreToolUse hook)
+   - Content is automatically checked for brand alignment and guideline compliance when written (PreToolUse hook)
 
 3. **Session End** — Key insights auto-saved to your brand profile:
    - Marketing decisions and learnings persist across sessions
@@ -138,16 +147,19 @@ See the [Getting Started Guide](docs/getting-started.md) for a full walkthrough 
 Session Start
   → setup.py --summary
   → Rich brand context injected (voice, industry, compliance, goals)
+  → Guidelines summary loaded (restrictions, channel styles, templates, SOPs)
 
 User Request ("write me a LinkedIn post")
   → Content Engine module activated
   → Brand voice auto-applied (formality, authority, tone)
+  → Brand guidelines enforced (restrictions checked, channel style applied)
   → Compliance rules checked for target markets
   → Platform specs loaded (character limits, best practices)
   → Content created on-brand
 
 Session End
   → Insights saved to brand profile
+  → Guideline violations logged for pattern analysis
   → Available in next session
 ```
 
@@ -165,6 +177,7 @@ See the [Multi-Brand & Agency Guide](docs/multi-brand-guide.md) for detailed wor
 | Guide | Description |
 |-------|-------------|
 | [Getting Started](docs/getting-started.md) | Installation, first brand setup, first marketing task — with worked examples |
+| [Brand Guidelines](docs/brand-guidelines.md) | Importing voice guides, restrictions, channel styles, templates, and agency SOPs |
 | [Multi-Brand & Agency Guide](docs/multi-brand-guide.md) | Multi-brand corporations (P&G pattern) and agency multi-client workflows |
 | [Strategy & KPI Mapping](docs/strategy-and-kpis.md) | Business objectives → KPI frameworks → campaign strategy → measurement loop |
 | [Integrations Guide](docs/integrations-guide.md) | MCP setup for GA4, HubSpot, Google Ads, Meta, and 8 more — including multi-CRM patterns |
@@ -211,6 +224,9 @@ All commands use the `/dm:` prefix. If another plugin shares a command name, use
 | `/dm:influencer-brief` | Create influencer campaign brief |
 | `/dm:crisis-response` | Rapid crisis response plan |
 | `/dm:social-strategy` | Social media strategy |
+| `/dm:import-guidelines` | Import brand guidelines, restrictions, and channel styles |
+| `/dm:import-template` | Import deliverable templates (reports, proposals, briefs) |
+| `/dm:import-sop` | Import agency SOPs and workflow definitions |
 | `/dm:switch-brand` | Switch active brand (multi-client) |
 
 ## Persistent Memory
@@ -227,10 +243,13 @@ The plugin stores brand data at `~/.claude-marketing/`:
 │   │   ├── campaigns/            # Past campaign data (indexed for fast lookup)
 │   │   ├── performance/          # Performance snapshots over time
 │   │   ├── insights.json         # Marketing learnings (last 200)
+│   │   ├── guidelines/           # Brand guidelines, restrictions, channel styles
+│   │   ├── templates/            # Custom deliverable templates
 │   │   ├── content-library/      # Content inventory
 │   │   └── voice-samples/        # Brand voice examples
 │   └── _active-brand.json        # Currently active brand
-├── templates/                    # Custom templates
+├── sops/                         # Agency-level SOPs (apply across all brands)
+├── templates/                    # Global templates
 ├── industry-data/                # Cached benchmarks
 └── settings.json                 # Plugin preferences
 ```
@@ -241,13 +260,13 @@ The plugin stores brand data at `~/.claude-marketing/`:
 
 ```
 digital-marketing-pro/
-├── .claude-plugin/plugin.json    # Plugin manifest (v1.2.1)
-├── skills/                       # 33 skill directories (13 modules + 19 commands + context engine)
+├── .claude-plugin/plugin.json    # Plugin manifest (v1.3.0)
+├── skills/                       # 36 skill directories (13 modules + 22 commands + context engine)
 ├── agents/                       # 10 specialist agents
-├── hooks/hooks.json              # Session lifecycle and compliance gates
-├── scripts/                      # 14 Python execution scripts + requirements.txt
+├── hooks/hooks.json              # Session lifecycle, compliance gates, and guideline checks
+├── scripts/                      # 15 Python execution scripts + requirements.txt
 ├── .mcp.json                     # Optional MCP integrations config
-├── docs/                         # 10 documentation guides
+├── docs/                         # 11 documentation guides
 ├── README.md
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md

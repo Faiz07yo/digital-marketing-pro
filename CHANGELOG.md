@@ -4,6 +4,43 @@ All notable changes to the Digital Marketing Pro plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses [Semantic Versioning](https://semver.org/).
 
+## [1.3.0] - 2026-02-11
+
+### Added
+- **Brand Guidelines System** — persistent per-brand guidelines that go beyond numeric voice scores to capture detailed rules, restrictions, and styles
+  - 5 built-in guideline categories: voice & tone, messaging, restrictions, channel styles, visual identity — plus custom guidelines
+  - `_manifest.json` index with rule counts, metadata, and category tracking
+  - Channel styles override base voice settings per platform (LinkedIn can be formal while Instagram is casual)
+  - Automatic enforcement across all 13 modules, 22 commands, and content review
+- **Deliverable Templates** — custom output formats for reports, proposals, briefs, and other deliverables
+  - Per-brand template storage at `~/.claude-marketing/brands/{slug}/templates/`
+  - Commands check for matching templates before using default formats
+- **Agency SOPs** — workflow definitions that apply across all clients
+  - Stored at `~/.claude-marketing/sops/` (agency-level, not per-brand)
+  - Content approval workflows, campaign checklists, escalation procedures, QA processes
+- **Guideline Violation Tracking** — `campaign-tracker.py` now tracks guideline violations with severity, category, and suggestions for pattern analysis
+- `scripts/guidelines-manager.py` — new CLI script for guidelines, templates, and SOP CRUD operations (stdlib-only, no new dependencies)
+- `skills/context-engine/guidelines-framework.md` — reference file for structuring and applying brand guidelines
+- `/dm:import-guidelines` command — interactive import of brand guidelines, restrictions, and channel styles
+- `/dm:import-sop` command — import agency SOPs and workflow definitions
+- `/dm:import-template` command — import deliverable templates for custom output formats
+- `docs/brand-guidelines.md` — comprehensive guide for guidelines, templates, and SOPs with worked examples
+- Brand Context point 9 in all 13 module SKILL.md files — automatic guideline checking and enforcement
+- Guidelines summary line in SessionStart brand output (rule counts, restriction counts, template counts)
+
+### Changed
+- All 22 command SKILL.md files: step 1 extended to load guidelines, templates, and SOPs alongside brand profile
+- `hooks/hooks.json` SessionStart: now also runs `guidelines-manager.py --action summary` for guideline context
+- `hooks/hooks.json` PreToolUse: now checks `restrictions.md` for banned words and restricted claims in content
+- `hooks/hooks.json` SessionEnd: now logs guideline violations via `campaign-tracker.py --action save-violation`
+- `agents/brand-guardian.md`: added rules 9-10 for guideline restriction checking and SOP compliance verification
+- `agents/content-creator.md`: added rule 9 for applying guidelines, messaging framework, and channel styles before writing
+- `scripts/setup.py`: `init_memory_dirs()` now creates `sops/` directory; `create_brand()` now creates `guidelines/` and `templates/` subdirectories; `print_brand_summary()` now outputs guidelines summary line
+- `scripts/campaign-tracker.py`: added `save-violation` and `get-violations` actions with severity/category filtering
+- `docs/getting-started.md`: added section 5 "Importing Your Brand Guidelines" with walkthrough, updated section numbers, added guidelines to Next Steps
+- `README.md`: added 3 new commands to Commands table, updated Key Differentiators, updated architecture tree, added Documentation table entry
+- `.claude-plugin/plugin.json` version bumped from 1.2.1 to 1.3.0
+
 ## [1.2.1] - 2026-02-11
 
 ### Added

@@ -15,6 +15,8 @@ Usage:
     python campaign-tracker.py --brand acme --action save-insight --data '{"type": "learning", ...}'
     python campaign-tracker.py --brand acme --action get-insights
     python campaign-tracker.py --brand acme --action save-performance --data '{"campaign_id": "...", ...}'
+    python campaign-tracker.py --brand acme --action save-violation --data '{"rule": "...", "category": "restrictions", ...}'
+    python campaign-tracker.py --brand acme --action get-violations --category restrictions --severity high
 """
 
 import argparse
@@ -198,16 +200,92 @@ def get_insights(slug, insight_type=None, limit=20):
     return {"insights": insights, "total": len(insights)}
 
 
+def save_violation(slug, data):
+    """Save a guideline violation for tracking and pattern analysis."""
+    brand_dir, err = get_brand_dir(slug)
+    if err:
+        return {"error": err}
+
+    violations_path = brand_dir / "guideline-violations.json"
+    violations = []
+    if violations_path.exists():
+        try:
+            violations = json.loads(violations_path.read_text())
+        except json.JSONDecodeError:
+            violations = []
+
+    violation = {
+        "recorded_at": datetime.now().isoformat(),
+        "rule": data.get("rule", ""),
+        "category": data.get("category", ""),
+        "severity": data.get("severity", "medium"),
+        "content": data.get("content", ""),
+        "suggestion": data.get("suggestion", ""),
+        "source": data.get("source", "session"),
+        "module": data.get("module", ""),
+    }
+    violations.append(violation)
+
+    # Keep last 500 violations
+    violations = violations[-500:]
+    violations_path.write_text(json.dumps(violations, indent=2))
+
+    return {"status": "saved", "total_violations": len(violations)}
+
+
+def get_violations(slug, category=None, severity=None, limit=50):
+    """Retrieve guideline violations for a brand."""
+    brand_dir, err = get_brand_dir(slug)
+    if err:
+        return {"error": err}
+
+    violations_path = brand_dir / "guideline-violations.json"
+    if not violations_path.exists():
+        return {"violations": [], "total": 0, "note": "No violations recorded."}
+
+    try:
+        violations = json.loads(violations_path.read_text())
+    except json.JSONDecodeError:
+        return {"error": "Violations file corrupted."}
+
+    if category:
+        violations = [v for v in violations if v.get("category") == category]
+    if severity:
+        violations = [v for v in violations if v.get("severity") == severity]
+
+    # Return most recent first
+    violations = list(reversed(violations[-limit:]))
+
+    # Summary stats
+    severity_counts = {}
+    category_counts = {}
+    for v in violations:
+        sev = v.get("severity", "medium")
+        cat = v.get("category", "unknown")
+        severity_counts[sev] = severity_counts.get(sev, 0) + 1
+        category_counts[cat] = category_counts.get(cat, 0) + 1
+
+    return {
+        "violations": violations,
+        "total": len(violations),
+        "by_severity": severity_counts,
+        "by_category": category_counts,
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description="Campaign data persistence for Digital Marketing Pro")
     parser.add_argument("--brand", required=True, help="Brand slug")
     parser.add_argument("--action", required=True,
                         choices=["save-campaign", "list-campaigns", "get-campaign",
-                                 "save-performance", "save-insight", "get-insights"],
+                                 "save-performance", "save-insight", "get-insights",
+                                 "save-violation", "get-violations"],
                         help="Action to perform")
     parser.add_argument("--data", help="JSON data (for save actions)")
     parser.add_argument("--id", help="Campaign ID (for get-campaign)")
     parser.add_argument("--type", dest="insight_type", help="Filter insights by type")
+    parser.add_argument("--category", help="Filter violations by guideline category")
+    parser.add_argument("--severity", help="Filter violations by severity (low/medium/high)")
     parser.add_argument("--limit", type=int, default=20, help="Max items to return")
     args = parser.parse_args()
 
@@ -255,6 +333,20 @@ def main():
 
     elif args.action == "get-insights":
         result = get_insights(args.brand, args.insight_type, args.limit)
+
+    elif args.action == "save-violation":
+        if not args.data:
+            print(json.dumps({"error": "Provide --data with violation JSON"}))
+            sys.exit(1)
+        try:
+            data = json.loads(args.data)
+        except json.JSONDecodeError:
+            print(json.dumps({"error": "Invalid JSON in --data"}))
+            sys.exit(1)
+        result = save_violation(args.brand, data)
+
+    elif args.action == "get-violations":
+        result = get_violations(args.brand, args.category, args.severity, args.limit)
 
     json.dump(result, sys.stdout, indent=2)
     print()

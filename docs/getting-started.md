@@ -1,6 +1,6 @@
 # Getting Started with Digital Marketing Pro
 
-**Version 1.2.1** | A plugin for Claude Code and Claude Cowork
+**Version 1.3.0** | A plugin for Claude Code and Claude Cowork
 
 Digital Marketing Pro transforms Claude into a marketing command center that knows your brand, understands your industry, and produces strategy and content that sounds like you wrote it. This guide walks you through installation, brand setup, and your first marketing task.
 
@@ -12,11 +12,12 @@ Digital Marketing Pro transforms Claude into a marketing command center that kno
 2. [Installation](#2-installation)
 3. [First Run --- What Happens](#3-first-run--what-happens)
 4. [Your First Brand Profile](#4-your-first-brand-profile)
-5. [Your First Marketing Task](#5-your-first-marketing-task)
-6. [Understanding the Session Lifecycle](#6-understanding-the-session-lifecycle)
-7. [Python Dependencies (Optional)](#7-python-dependencies-optional)
-8. [Available Commands](#8-available-commands)
-9. [Next Steps](#9-next-steps)
+5. [Importing Your Brand Guidelines (Optional)](#5-importing-your-brand-guidelines-optional)
+6. [Your First Marketing Task](#6-your-first-marketing-task)
+7. [Understanding the Session Lifecycle](#7-understanding-the-session-lifecycle)
+8. [Python Dependencies (Optional)](#8-python-dependencies-optional)
+9. [Available Commands](#9-available-commands)
+10. [Next Steps](#10-next-steps)
 
 ---
 
@@ -256,7 +257,39 @@ You can also run Full Setup later to fill in sections you skipped. It will prese
 
 ---
 
-## 5. Your First Marketing Task
+## 5. Importing Your Brand Guidelines (Optional)
+
+If your brand has a style guide, messaging framework, restriction list, or channel-specific rules, you can import them now. Guidelines go beyond the numeric voice scores in your brand profile — they capture the detailed rules that make content authentically on-brand.
+
+```
+/dm:import-guidelines
+```
+
+You can paste content from existing documents or describe rules conversationally:
+
+```
+You: Here's our brand voice guide: We're friendly but professional.
+     Never use jargon. Always explain technical concepts simply.
+     Sentences should be under 20 words.
+```
+
+The plugin extracts the rules, structures them into the right category, and saves them. They are then enforced automatically when creating content.
+
+**What you can import:**
+- **Voice & tone rules** — writing style, dos/don'ts, readability rules
+- **Restrictions** — banned words, restricted claims, mandatory disclaimers
+- **Channel styles** — per-channel tone and format rules (LinkedIn vs. Instagram vs. email)
+- **Messaging frameworks** — approved key messages, taglines, positioning
+- **Deliverable templates** — custom formats for reports, proposals, briefs (`/dm:import-template`)
+- **Agency SOPs** — approval workflows, launch checklists, escalation procedures (`/dm:import-sop`)
+
+Guidelines persist across sessions — import once, enforced every time. You can always add more later.
+
+> See `docs/brand-guidelines.md` for the full guide with worked examples and all guideline categories.
+
+---
+
+## 6. Your First Marketing Task
 
 Now that your brand profile is set up, try asking for some real marketing deliverables. You do not need to use any special commands --- just describe what you need in plain language.
 
@@ -308,7 +341,7 @@ Every response is automatically shaped by your brand profile. You never have to 
 
 ---
 
-## 6. Understanding the Session Lifecycle
+## 7. Understanding the Session Lifecycle
 
 Digital Marketing Pro operates across three phases in every Claude Code or Cowork session. Understanding this lifecycle helps you get the most out of the plugin.
 
@@ -361,7 +394,7 @@ printed                  (just ask for things)        session
 
 ---
 
-## 7. Python Dependencies (Optional)
+## 8. Python Dependencies (Optional)
 
 Digital Marketing Pro is designed to work at full capability without Python. All 13 marketing modules, 10 specialist agents, and 19 slash commands function using the plugin's built-in reference knowledge. Python adds bonus scoring and automation features.
 
@@ -424,7 +457,7 @@ Python: full (all deps)        (full mode)
 
 ---
 
-## 8. Available Commands
+## 9. Available Commands
 
 Digital Marketing Pro provides 19 slash commands, all prefixed with `/dm:`. You can type these directly in your Claude Code session.
 
@@ -491,11 +524,13 @@ The plugin's 13 modules will activate based on the intent of your request, wheth
 
 ---
 
-## 9. Next Steps
+## 10. Next Steps
 
 You are set up and ready to go. Here are some resources for when you want to go deeper.
 
 ### Guides
+
+- **Importing brand guidelines** --- If your brand has a voice guide, restriction list, or channel-specific style rules, see `docs/brand-guidelines.md` for the full guide on importing guidelines, templates, and agency SOPs.
 
 - **Managing multiple brands** --- If you work with more than one brand or run an agency, see `docs/multi-brand-guide.md` for brand switching, side-by-side comparison, and multi-client workflows.
 
@@ -538,4 +573,4 @@ If something is not working as expected:
 
 ---
 
-*Digital Marketing Pro v1.2.1 --- Built for marketing professionals who want strategy and execution that stays on-brand, every time. Works in Claude Code and Claude Cowork.*
+*Digital Marketing Pro v1.3.0 --- Built for marketing professionals who want strategy and execution that stays on-brand, every time. Works in Claude Code and Claude Cowork.*

@@ -49,6 +49,7 @@ def init_memory_dirs():
         BRANDS_DIR,
         MEMORY_ROOT / "templates",
         MEMORY_ROOT / "industry-data",
+        MEMORY_ROOT / "sops",
     ]
     for d in dirs:
         d.mkdir(parents=True, exist_ok=True)
@@ -160,6 +161,52 @@ def print_brand_summary():
             print(f"Campaigns: {camp_count} total")
         else:
             print("Campaigns: None yet")
+
+        # Guidelines summary
+        gl_manifest = BRANDS_DIR / slug / "guidelines" / "_manifest.json"
+        tmpl_dir = BRANDS_DIR / slug / "templates"
+        sops_dir = MEMORY_ROOT / "sops"
+        gl_parts = []
+        if gl_manifest.exists():
+            try:
+                gl = json.loads(gl_manifest.read_text())
+                total_rules = gl.get("total_rules", 0)
+                cats = len(gl.get("categories", {}))
+                custom = len(gl.get("custom_files", []))
+                restrictions = gl.get("categories", {}).get("restrictions", {})
+                banned = restrictions.get("banned_words", 0)
+                gl_parts.append(f"{total_rules} rules across {cats} categories")
+                if banned:
+                    gl_parts.append(f"{banned} restrictions")
+                if custom:
+                    gl_parts.append(f"{custom} custom files")
+            except Exception:
+                gl_parts.append("configured (manifest error)")
+        tmpl_count = 0
+        if tmpl_dir.exists():
+            tmpl_manifest = tmpl_dir / "_manifest.json"
+            if tmpl_manifest.exists():
+                try:
+                    tmpl_count = len(json.loads(tmpl_manifest.read_text()).get("templates", {}))
+                except Exception:
+                    pass
+        if tmpl_count:
+            gl_parts.append(f"{tmpl_count} templates")
+        sop_count = 0
+        if sops_dir.exists():
+            sop_manifest = sops_dir / "_manifest.json"
+            if sop_manifest.exists():
+                try:
+                    sop_count = len(json.loads(sop_manifest.read_text()).get("sops", {}))
+                except Exception:
+                    pass
+        if sop_count:
+            gl_parts.append(f"{sop_count} SOPs")
+        if gl_parts:
+            print(f"Guidelines: {' · '.join(gl_parts)}")
+        else:
+            print("Guidelines: Not configured")
+
         print(f"Profile: {profile_path}")
         print("===")
         return True
@@ -245,8 +292,9 @@ def create_brand(name, slug=None):
     brand_dir.mkdir(parents=True, exist_ok=True)
 
     # Create subdirectories
-    for subdir in ["campaigns", "performance", "content-library", "voice-samples"]:
-        (brand_dir / subdir).mkdir(exist_ok=True)
+    for subdir in ["campaigns", "performance", "content-library", "voice-samples",
+                   "guidelines", "guidelines/custom", "templates"]:
+        (brand_dir / subdir).mkdir(parents=True, exist_ok=True)
 
     profile = {
         "brand_name": name,

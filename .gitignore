@@ -22,8 +22,6 @@ ehthumbs.db
 
 # Development artifacts
 .memory/
-.mcp_new.json
-mcp_config.json
 
 # Environment
 .env
@@ -38,3 +36,18 @@ token.json
 .tmp/
 *.tmp
 *.bak
+*.orig
+
+# Logs
+*.log
+logs/
+
+# Node (MCP servers use npx)
+node_modules/
+.npm/
+
+# Python testing
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/

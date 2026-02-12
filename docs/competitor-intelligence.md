@@ -1,6 +1,6 @@
 # Competitor Intelligence Guide
 
-**Digital Marketing Pro v1.2.0** | Turning publicly available data into strategic advantage
+**Digital Marketing Pro v1.9.0** | Turning publicly available data into strategic advantage
 
 Competitor intelligence is not about copying what others do. It is about understanding the market landscape well enough to make smarter decisions --- identifying gaps your competitors have missed, anticipating their next moves, and positioning your brand where competition is weakest and opportunity is highest.
 
@@ -494,7 +494,7 @@ If you have either (or both) of these integrations configured, the plugin's comp
 - Content gap analysis across multiple competitors simultaneously
 - Historical ranking data for trend analysis
 
-**Without MCP integrations**, the plugin still delivers strong competitive analysis using the scraper data, your input, the competitive-intel agent's analytical frameworks, and the 86 reference knowledge files. The MCP integrations add quantitative depth, not a fundamentally different analysis.
+**Without MCP integrations**, the plugin still delivers strong competitive analysis using the scraper data, your input, the competitive-intel agent's analytical frameworks, and the 117 reference knowledge files. The MCP integrations add quantitative depth, not a fundamentally different analysis.
 
 ### Automatic insight persistence
 
@@ -623,4 +623,4 @@ Each cycle makes the system smarter. Insights saved today become context for tom
 
 ---
 
-*Digital Marketing Pro v1.2.0 --- Competitive intelligence that turns market awareness into strategic advantage.*
+*Digital Marketing Pro v1.9.0 --- Competitive intelligence that turns market awareness into strategic advantage.*

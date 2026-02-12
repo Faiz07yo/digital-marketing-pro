@@ -120,5 +120,4 @@ If the user doesn't specify a category, analyze the content and route it to the 
 ## Reference Files
 
 - `skills/context-engine/guidelines-framework.md` — Full framework for structuring and applying guidelines
-- `skills/context-engine/brand-profile-schema.md` — Brand profile fields that guidelines may reference
 - `scripts/guidelines-manager.py` — CLI for guideline CRUD operations

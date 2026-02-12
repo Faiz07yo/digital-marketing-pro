@@ -33,7 +33,7 @@ That is it. Everything else is optional.
 **Optional but nice to have:**
 
 - **Python 3.8 or newer** --- unlocks advanced scoring features like brand voice analysis and content readability. The plugin works perfectly without Python; you just get bonus capabilities if it is installed.
-- **No API keys required** --- the plugin ships with 87 reference knowledge files that power all 13 marketing modules. The optional MCP integrations (Google Analytics, Search Console, Meta Ads, and others) use your own account credentials and can be configured later.
+- **No API keys required** --- the plugin ships with 117 reference knowledge files that power all 16 marketing modules. The optional MCP integrations (Google Analytics, Search Console, Meta Ads, and others) use your own account credentials and can be configured later.
 
 > **Bottom line:** If you can run Claude Code or Claude Cowork, you can use this plugin right now.
 
@@ -411,7 +411,7 @@ Digital Marketing Pro is designed to work at full capability without Python. All
 This is what you get out of the box. No setup required.
 
 You have access to:
-- All 16 marketing modules with 118 reference knowledge files
+- All 16 marketing modules with 117 reference knowledge files
 - All 42 `/dm:` slash commands
 - All 13 specialist agents
 - Brand profiling, session hooks, and campaign tracking
@@ -545,7 +545,7 @@ Slash commands are useful for structured, templated outputs. But you can also ju
 "I need to respond to negative reviews on Google"
 ```
 
-The plugin's 13 modules will activate based on the intent of your request, whether or not you use a slash command. The commands simply give you a direct shortcut to a specific workflow.
+The plugin's 16 modules will activate based on the intent of your request, whether or not you use a slash command. The commands simply give you a direct shortcut to a specific workflow.
 
 ---
 
@@ -559,11 +559,11 @@ You are set up and ready to go. Here are some resources for when you want to go 
 
 - **Managing multiple brands** --- If you work with more than one brand or run an agency, see `docs/multi-brand-guide.md` for brand switching, side-by-side comparison, and multi-client workflows.
 
-- **Connecting your marketing tools** --- The plugin supports 12 MCP server integrations (Google Analytics, Search Console, Google Ads, Meta Ads, HubSpot, Mailchimp, LinkedIn, Slack, Stripe, SEMrush, Ahrefs, and Sheets). See `docs/integrations-guide.md` to connect your accounts.
+- **Connecting your marketing tools** --- The plugin supports 18 MCP server integrations (Google Analytics, Search Console, Google Ads, Meta Ads, HubSpot, Mailchimp, LinkedIn, Slack, Stripe, SEMrush, Ahrefs, Sheets, TikTok Ads, Shopify, WordPress, Salesforce, Looker Studio, and ActiveCampaign). See `docs/integrations-guide.md` to connect your accounts.
 
 - **KPI-driven strategy** --- Learn how to set up marketing KPI frameworks, build reporting dashboards, and track campaign performance over time in `docs/strategy-and-kpis.md`.
 
-- **Understanding the architecture** --- For a technical deep dive into how the 13 modules, 13 agents, context engine, and hook system work together, see `docs/architecture.md`.
+- **Understanding the architecture** --- For a technical deep dive into how the 16 modules, 13 agents, context engine, and hook system work together, see `docs/architecture.md`.
 
 - **Using Cowork** --- If you are using Claude Cowork (or considering it), see `docs/claude-interfaces.md` for Cowork-specific capabilities like document creation, visual page review, and a comparison with Anthropic's official marketing plugin.
 

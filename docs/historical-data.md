@@ -439,4 +439,4 @@ The best marketing teams learn from their own data. This system makes sure nothi
 
 ---
 
-*Digital Marketing Pro v1.2.0 --- Built for marketing professionals who want strategy and execution that stays on-brand, every time.*
+*Digital Marketing Pro v1.9.0 --- Built for marketing professionals who want strategy and execution that stays on-brand, every time.*

@@ -548,4 +548,4 @@ The sweet spot is using the plugin's data layer for **institutional knowledge** 
 
 ---
 
-*Digital Marketing Pro v1.2.0 -- Data Analysis & Insights Guide*
+*Digital Marketing Pro v1.9.0 -- Data Analysis & Insights Guide*

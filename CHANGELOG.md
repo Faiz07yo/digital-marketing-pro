@@ -16,7 +16,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
   - `/dm:case-study-plan` (`skills/case-study-plan/SKILL.md`) — structured case study creation workflow with CSR framework, interview questions, format variations (PDF/web/slide/video), distribution strategy
   - `/dm:attribution-model` (`skills/attribution-model/SKILL.md`) — multi-touch attribution setup with model selection (last-touch/first-touch/linear/time-decay/position-based/data-driven/MMM), credit distribution rules, platform implementation guides
   - `/dm:creative-testing-framework` (`skills/creative-testing-framework/SKILL.md`) — systematic creative testing strategy with testing matrix, holdout controls, sample size per variant, significance thresholds, iteration cadence
-- **2 new reference knowledge files** bringing the total from 116 to 118:
+- **2 new reference knowledge files** bringing the total from 115 to 117:
   - `skills/paid-advertising/media-planning.md` — media planning framework, channel allocation methodology, flighting strategies (continuous/pulsing/fighting), budget waves, creative rotation cadence, cross-channel synergy
   - `skills/content-engine/video-scripting.md` — platform-specific video formats (YouTube/TikTok/Reels/Shorts/LinkedIn), script structures (AIDA/PAS), 12 hook formulas, timestamp annotation, visual direction, accessibility, CTA placement
 
@@ -28,10 +28,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 - `mcp_config.json` — legacy 12-server MCP config (replaced by `.mcp.json` in v1.8.0)
 
 ### Changed
-- `.claude-plugin/plugin.json` version bumped from 1.8.0 to 1.9.0, command count 34 → 42, reference files 116 → 118
-- `README.md` updated: version badge 1.8.0 → 1.9.0, command count 34 → 42, reference files 116 → 118, 8 new command rows in commands table, architecture tree updated
+- `.claude-plugin/plugin.json` version bumped from 1.8.0 to 1.9.0, command count 34 → 42, reference files 115 → 117
+- `README.md` updated: version badge 1.8.0 → 1.9.0, command count 34 → 42, reference files 115 → 117, 8 new command rows in commands table, architecture tree updated
 - `docs/getting-started.md` version 1.8.0 → 1.9.0, command count and reference file counts updated
-- `docs/architecture.md` version 1.8.0 → 1.9.0, file tree updated, file count 233 → 241, command list updated with 8 new entries
+- `docs/architecture.md` version 1.8.0 → 1.9.0, file tree updated, file count 233 → 243, command list updated with 8 new entries
 
 ## [1.8.0] - 2026-02-12
 
@@ -42,7 +42,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
   - `skills/marketing-automation/lead-scoring.md` — explicit and implicit scoring, negative scoring, score thresholds (cold/warm/MQL/SQL), progressive profiling, decay, sales handoff rules
   - `skills/marketing-automation/nurture-sequences.md` — lifecycle stages, 7 sequence types with cadence and content mapping, multi-channel nurture, timing science, template sequences
   - `skills/marketing-automation/marketing-ops.md` — data hygiene, tech stack management, deliverability (SPF/DKIM/DMARC), compliance automation, MAP comparison matrix (HubSpot/ActiveCampaign/Klaviyo/Mailchimp/Marketo/Pardot)
-- **15 new reference knowledge files** across 10 existing modules, bringing reference files from 96 to 116:
+- **15 new reference knowledge files** across 10 existing modules, bringing reference files from 96 to 115:
   - `skills/paid-advertising/microsoft-ads.md` — Bing Ads, Microsoft Audience Network, LinkedIn profile targeting, Import from Google Ads
   - `skills/paid-advertising/retargeting-audiences.md` — audience segments, platform-specific retargeting, sequential messaging, frequency capping, privacy impact
   - `skills/analytics-insights/dashboard-design.md` — dashboard hierarchy (executive/operational/campaign), visualization best practices, alert thresholds, tool recommendations
@@ -67,7 +67,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
   - `activecampaign` — ActiveCampaign email automation, lead scoring, CRM contacts, automation workflows
 
 ### Changed
-- `.claude-plugin/plugin.json` version bumped from 1.7.0 to 1.8.0, module count 15 → 16, reference files 96 → 116, MCP integrations 12 → 18
+- `.claude-plugin/plugin.json` version bumped from 1.7.0 to 1.8.0, module count 15 → 16, reference files 96 → 115, MCP integrations 12 → 18
 - `.mcp.json` expanded with 6 new server entries
 - `README.md` updated: version badge 1.7.0 → 1.8.0, module count 15 → 16, new module row, MCP count 12 → 18, 6 new MCP rows, architecture tree updated
 - `docs/getting-started.md` version 1.7.0 → 1.8.0, module count and reference file counts updated

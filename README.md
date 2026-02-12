@@ -85,7 +85,7 @@ On first use, the plugin will:
 The plugin works fully without any Python installation. All marketing knowledge, frameworks, agent capabilities, and slash commands work out of the box.
 
 **Knowledge-only mode (0 MB, no install)** — Default
-All 16 modules, 13 agents, 42 commands, and 118 reference knowledge files work with zero dependencies.
+All 16 modules, 13 agents, 42 commands, and 117 reference knowledge files work with zero dependencies.
 
 **Lite mode (~15 MB)** — Enables scoring scripts
 ```

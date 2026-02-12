@@ -1,8 +1,8 @@
 # Integrations & CRM Guide
 
-> **Digital Marketing Pro** v1.2.0 | For marketing operations managers
+> **Digital Marketing Pro** v1.9.0 | For marketing operations managers
 >
-> This guide covers all 12 MCP integrations available in the plugin, how to configure them, how to manage credentials across multiple clients, and what the plugin can do with or without live connections.
+> This guide covers all 18 MCP integrations available in the plugin, how to configure them, how to manage credentials across multiple clients, and what the plugin can do with or without live connections.
 
 ---
 
@@ -34,9 +34,9 @@ In practical terms: instead of you manually pulling a GA4 report, pasting it int
 
 ### How the Plugin Uses MCP
 
-The plugin ships with a `.mcp.json` configuration file that defines 12 MCP server connections. Each one maps to a marketing platform or productivity tool. None of them are active by default. They activate only when you set the required environment variables for that service.
+The plugin ships with a `.mcp.json` configuration file that defines 18 MCP server connections. Each one maps to a marketing platform or productivity tool. None of them are active by default. They activate only when you set the required environment variables for that service.
 
-This is the key design principle: **the plugin works fully without any integrations enabled.** All 13 skill modules, 86 reference knowledge files, scoring scripts, brand voice analysis, compliance checking, and campaign planning features operate entirely offline using built-in benchmarks and reference data. MCP integrations layer real data on top of that foundation.
+This is the key design principle: **the plugin works fully without any integrations enabled.** All 16 skill modules, 117 reference knowledge files, scoring scripts, brand voice analysis, compliance checking, and campaign planning features operate entirely offline using built-in benchmarks and reference data. MCP integrations layer real data on top of that foundation.
 
 ### What Happens Under the Hood
 
@@ -412,7 +412,7 @@ The `.mcp.json` file supports a single set of credentials per MCP server. If you
 
 ### Current Limitation (Stated Honestly)
 
-There is no built-in per-brand MCP credential switching in v1.2.0. When you switch brands with `/dm:switch-brand`, the brand profile, voice settings, compliance rules, and campaign history all switch. But the MCP credentials do not automatically change. The environment variables remain whatever was set when the session started.
+There is no built-in per-brand MCP credential switching in v1.9.0. When you switch brands with `/dm:switch-brand`, the brand profile, voice settings, compliance rules, and campaign history all switch. But the MCP credentials do not automatically change. The environment variables remain whatever was set when the session started.
 
 This is a known gap. Below are four workaround patterns, ordered from simplest to most robust.
 
@@ -535,7 +535,7 @@ The plugin is designed to be fully functional with zero MCP connections enabled.
 
 | Capability | What Powers It |
 |---|---|
-| Content creation (briefs, calendars, social posts, email sequences) | 13 skill modules + `platform-specs.md` (format specs for 15+ platforms) |
+| Content creation (briefs, calendars, social posts, email sequences) | 16 skill modules + `platform-specs.md` (format specs for 15+ platforms) |
 | Brand voice scoring | `brand-voice-scorer.py` + local brand profile |
 | Content quality scoring | `content-scorer.py` + `scoring-rubrics.md` |
 | Campaign planning and strategy | Skill modules + `industry-profiles.md` (22 industries) |
@@ -650,4 +650,4 @@ When connecting MCP integrations that access personal data (especially GA4, HubS
 
 ---
 
-*Digital Marketing Pro v1.2.0 -- Integrations & CRM Guide*
+*Digital Marketing Pro v1.9.0 -- Integrations & CRM Guide*

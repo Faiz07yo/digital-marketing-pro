@@ -353,7 +353,7 @@ def create_brand(name, slug=None):
     profile_path.write_text(json.dumps(profile, indent=2))
 
     # Create empty supporting files
-    for fname in ["audiences.json", "competitors.json"]:
+    for fname in ["audiences.json", "competitors.json", "insights.json"]:
         fpath = brand_dir / fname
         if not fpath.exists():
             fpath.write_text("[]")

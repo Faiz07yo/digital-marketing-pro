@@ -1,6 +1,6 @@
 # Technical Architecture Reference
 
-**Digital Marketing Pro** -- Claude Code Plugin v1.8.0
+**Digital Marketing Pro** -- Claude Code Plugin v1.9.0
 
 This document describes the internal architecture of the Digital Marketing Pro plugin for developers and contributors. It covers file structure, the WAT framework mapping, component anatomy, the hook system, script conventions, data persistence, adaptive scoring, and extension points.
 
@@ -11,7 +11,7 @@ This document describes the internal architecture of the Digital Marketing Pro p
 ```
 digital-marketing-pro/
 ├── .claude-plugin/
-│   └── plugin.json                    # Plugin manifest (v1.8.0)
+│   └── plugin.json                    # Plugin manifest (v1.9.0)
 ├── .mcp.json                          # 18 MCP server configurations
 ├── hooks/
 │   └── hooks.json                     # 3 lifecycle hooks
@@ -65,7 +65,7 @@ digital-marketing-pro/
 │   ├── link-profile-analyzer.py     # Backlink profile health scoring (v1.8.0)
 │   ├── revenue-forecaster.py        # Revenue forecasting models (v1.8.0)
 │   └── requirements.txt               # Python dependencies
-├── skills/                            # 51 skill directories
+├── skills/                            # 59 skill directories
 │   ├── context-engine/                # Shared intelligence layer
 │   │   ├── SKILL.md
 │   │   ├── industry-profiles.md       # 22 industries
@@ -82,7 +82,7 @@ digital-marketing-pro/
 │   ├── import-guidelines/SKILL.md     # Guideline import (v1.3.0)
 │   ├── import-sop/SKILL.md           # SOP import (v1.3.0)
 │   ├── import-template/SKILL.md      # Template import (v1.3.0)
-│   └── [29 commands]/                 # Slash command skills
+│   └── [37 commands]/                 # Slash command skills
 │       └── SKILL.md                   # Command definition
 ├── docs/                              # Documentation
 ├── README.md
@@ -91,11 +91,11 @@ digital-marketing-pro/
 └── LICENSE
 ```
 
-**Total: 233 files** (220 plugin files + 13 documentation files).
+**Total: 241 files** (228 plugin files + 13 documentation files).
 
 The 16 modules are: content-engine, campaign-orchestrator, paid-advertising, analytics-insights, aeo-geo, audience-intelligence, cro, digital-pr, funnel-architect, growth-engineering, influencer-creator, reputation-management, emerging-channels, technical-seo, local-seo, and marketing-automation.
 
-The 34 commands are: ab-test-plan, ad-creative, aeo-audit, audience-profile, budget-optimizer, campaign-plan, client-proposal, competitor-analysis, content-brief, content-calendar, content-repurpose, crisis-response, email-sequence, funnel-audit, import-guidelines, import-sop, import-template, influencer-brief, keyword-research, landing-page-audit, launch-plan, local-seo-audit, martech-audit, performance-report, pr-pitch, retargeting-strategy, review-response, roi-calculator, seo-audit, social-strategy, switch-brand, tech-seo-audit, and webinar-plan.
+The 42 commands are: ab-test-plan, ad-creative, aeo-audit, attribution-model, audience-profile, budget-optimizer, campaign-plan, case-study-plan, client-onboarding, client-proposal, competitor-analysis, content-brief, content-calendar, content-repurpose, creative-testing-framework, crisis-response, email-sequence, executive-dashboard, funnel-audit, import-guidelines, import-sop, import-template, influencer-brief, keyword-research, landing-page-audit, launch-plan, local-seo-audit, martech-audit, media-plan, performance-report, pr-pitch, qbr-plan, retargeting-strategy, review-response, roi-calculator, seo-audit, social-strategy, switch-brand, tech-seo-audit, video-script, webinar-plan, and brand-setup.
 
 The 13 agents are: marketing-strategist, content-creator, seo-specialist, analytics-analyst, brand-guardian, media-buyer, growth-engineer, influencer-manager, competitive-intel, pr-outreach, email-specialist, cro-specialist, and social-media-manager.
 

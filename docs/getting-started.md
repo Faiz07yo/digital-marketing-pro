@@ -1,6 +1,6 @@
 # Getting Started with Digital Marketing Pro
 
-**Version 1.8.0** | A plugin for Claude Code and Claude Cowork
+**Version 1.9.0** | A plugin for Claude Code and Claude Cowork
 
 Digital Marketing Pro transforms Claude into a marketing command center that knows your brand, understands your industry, and produces strategy and content that sounds like you wrote it. This guide walks you through installation, brand setup, and your first marketing task.
 
@@ -86,9 +86,9 @@ For full details on Cowork capabilities (document creation, visual review, app i
 After running either command, you should see output similar to this:
 
 ```
-Installing plugin: digital-marketing-pro v1.8.0
+Installing plugin: digital-marketing-pro v1.9.0
   - 16 marketing modules loaded
-  - 34 slash commands registered (/dm:*)
+  - 42 slash commands registered (/dm:*)
   - 13 specialist agents available
   - 3 event hooks configured (SessionStart, PreToolUse, SessionEnd)
 
@@ -396,7 +396,7 @@ printed                  (just ask for things)        session
 
 ## 8. Python Dependencies (Optional)
 
-Digital Marketing Pro is designed to work at full capability without Python. All 16 marketing modules, 13 specialist agents, and 34 slash commands function using the plugin's built-in reference knowledge. Python adds bonus scoring and automation features.
+Digital Marketing Pro is designed to work at full capability without Python. All 16 marketing modules, 13 specialist agents, and 42 slash commands function using the plugin's built-in reference knowledge. Python adds bonus scoring and automation features.
 
 ### Three dependency modes
 
@@ -411,8 +411,8 @@ Digital Marketing Pro is designed to work at full capability without Python. All
 This is what you get out of the box. No setup required.
 
 You have access to:
-- All 16 marketing modules with 116 reference knowledge files
-- All 34 `/dm:` slash commands
+- All 16 marketing modules with 118 reference knowledge files
+- All 42 `/dm:` slash commands
 - All 13 specialist agents
 - Brand profiling, session hooks, and campaign tracking
 - Industry benchmarks, compliance rules, and platform specifications
@@ -459,7 +459,7 @@ Python: full (all deps)        (full mode)
 
 ## 9. Available Commands
 
-Digital Marketing Pro provides 34 slash commands, all prefixed with `/dm:`. You can type these directly in your Claude Code session.
+Digital Marketing Pro provides 42 slash commands, all prefixed with `/dm:`. You can type these directly in your Claude Code session.
 
 ### Brand Management
 
@@ -476,6 +476,9 @@ Digital Marketing Pro provides 34 slash commands, all prefixed with `/dm:`. You 
 | `/dm:launch-plan` | Create a product or feature launch playbook across pre-launch, launch day, and post-launch phases |
 | `/dm:social-strategy` | Develop a platform-specific social media strategy with content pillars and growth plan |
 | `/dm:competitor-analysis` | Run a multi-dimensional competitive analysis covering content, SEO, ads, social, and positioning |
+| `/dm:media-plan` | Holistic paid media planning with channel allocation, flight scheduling, and creative rotation |
+| `/dm:client-onboarding` | Post-sale client onboarding workflow with kickoff agenda, discovery questionnaire, and 30-60-90 plan |
+| `/dm:qbr-plan` | Quarterly Business Review preparation with performance retrospective and strategic recommendations |
 
 ### Content Creation
 
@@ -485,6 +488,8 @@ Digital Marketing Pro provides 34 slash commands, all prefixed with `/dm:`. You 
 | `/dm:content-calendar` | Build a monthly or quarterly content calendar with platform assignments and repurposing workflows |
 | `/dm:email-sequence` | Create a complete email sequence with subject lines, body copy, timing, and segmentation |
 | `/dm:ad-creative` | Produce platform-specific ad copy variations with quality scoring for Google, Meta, LinkedIn, and TikTok |
+| `/dm:video-script` | Video marketing script writing for YouTube, TikTok, Reels, and LinkedIn with hooks and timestamps |
+| `/dm:case-study-plan` | Structured case study creation with CSR framework, interview questions, and distribution strategy |
 
 ### Analysis and Audits
 
@@ -523,6 +528,9 @@ Digital Marketing Pro provides 34 slash commands, all prefixed with `/dm:`. You 
 | `/dm:retargeting-strategy` | Build retargeting campaign architecture with audience segmentation and frequency capping |
 | `/dm:martech-audit` | Audit marketing technology stack across 11 functions with overlap detection and gap analysis |
 | `/dm:budget-optimizer` | Data-driven budget reallocation with diminishing returns modeling and efficiency ranking |
+| `/dm:attribution-model` | Multi-touch attribution setup with model selection and credit distribution rules |
+| `/dm:creative-testing-framework` | Systematic creative testing strategy with testing matrix and holdout controls |
+| `/dm:executive-dashboard` | C-suite dashboard design with business-outcome metrics and alert thresholds |
 | `/dm:client-proposal` | Generate agency client proposal with situation analysis, strategy, scope, and pricing |
 | `/dm:review-response` | Draft brand-aligned review responses with tone templates and escalation detection |
 | `/dm:webinar-plan` | End-to-end webinar planning with promotion timeline, email sequences, and post-event nurture |
@@ -593,4 +601,4 @@ If something is not working as expected:
 
 ---
 
-*Digital Marketing Pro v1.8.0 --- Built for marketing professionals who want strategy and execution that stays on-brand, every time. Works in Claude Code and Claude Cowork.*
+*Digital Marketing Pro v1.9.0 --- Built for marketing professionals who want strategy and execution that stays on-brand, every time. Works in Claude Code and Claude Cowork.*

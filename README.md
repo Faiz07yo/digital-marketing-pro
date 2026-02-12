@@ -1,6 +1,6 @@
 # Digital Marketing Pro — Claude Code & Cowork Plugin
 
-[![Version](https://img.shields.io/badge/version-1.8.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.9.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-optional-yellow.svg)](#python-dependencies-optional)
 [![Cowork](https://img.shields.io/badge/cowork-compatible-purple.svg)](docs/claude-interfaces.md#claude-cowork-full-support)
@@ -40,7 +40,7 @@ Digital Marketing Pro transforms Claude into a full-stack marketing intelligence
 - **13 specialist agents** that activate based on conversation context, call 34 Python scripts for scoring, query MCP servers for live data, enforce brand guidelines, and persist campaign learnings
 - **Brand guidelines enforcement** — import voice guides, restrictions, channel styles, messaging frameworks; automatically applied across all modules
 - **Deliverable templates** and **agency SOPs** — custom output formats and workflow definitions
-- **34 slash commands** for direct access to common workflows
+- **42 slash commands** for direct access to common workflows — covering the complete agency lifecycle from client onboarding to QBRs
 - **34 Python scripts** for deterministic execution (scoring, analysis, generation, guidelines management, email testing, A/B testing, social optimization, technical SEO auditing, local SEO checking, ROI calculation, budget optimization, CLV analysis, revenue forecasting, content repurposing, review response drafting, link profile analysis, ad budget pacing)
 - **18 MCP integrations** for connecting your own marketing accounts (GA4, Search Console, Google Ads, Meta, HubSpot, Mailchimp, TikTok Ads, Shopify, Salesforce, and more)
 - **Persistent brand memory** that learns across sessions
@@ -85,7 +85,7 @@ On first use, the plugin will:
 The plugin works fully without any Python installation. All marketing knowledge, frameworks, agent capabilities, and slash commands work out of the box.
 
 **Knowledge-only mode (0 MB, no install)** — Default
-All 16 modules, 13 agents, 34 commands, and 116 reference knowledge files work with zero dependencies.
+All 16 modules, 13 agents, 42 commands, and 118 reference knowledge files work with zero dependencies.
 
 **Lite mode (~15 MB)** — Enables scoring scripts
 ```
@@ -216,6 +216,9 @@ All commands use the `/dm:` prefix. If another plugin shares a command name, use
 | `/dm:tech-seo-audit` | Technical SEO audit (Core Web Vitals, crawlability, indexation, redirects, security) |
 | `/dm:local-seo-audit` | Local SEO audit (GBP, NAP consistency, citations, local pack, reviews) |
 | `/dm:aeo-audit` | AI visibility audit |
+| `/dm:attribution-model` | Multi-touch attribution setup with model selection and credit distribution |
+| `/dm:case-study-plan` | Structured case study creation with CSR framework and distribution strategy |
+| `/dm:client-onboarding` | Post-sale onboarding workflow with kickoff agenda and access checklist |
 | `/dm:competitor-analysis` | Competitor deep-dive |
 | `/dm:ad-creative` | Generate ad copy variations |
 | `/dm:email-sequence` | Design email sequence |
@@ -236,11 +239,16 @@ All commands use the `/dm:` prefix. If another plugin shares a command name, use
 | `/dm:roi-calculator` | Campaign ROI calculation with multi-touch attribution |
 | `/dm:ab-test-plan` | A/B test planning with sample size and hypothesis framework |
 | `/dm:content-repurpose` | Content repurposing strategy with derivative format matrix |
+| `/dm:creative-testing-framework` | Systematic creative testing strategy with testing matrix and holdout controls |
+| `/dm:executive-dashboard` | C-suite dashboard design with business-outcome metrics and alert thresholds |
 | `/dm:retargeting-strategy` | Retargeting campaign architecture with audience segmentation |
 | `/dm:martech-audit` | Marketing technology stack audit with gap analysis |
+| `/dm:media-plan` | Holistic paid media planning with channel allocation and flight scheduling |
 | `/dm:budget-optimizer` | Data-driven budget reallocation with diminishing returns modeling |
+| `/dm:qbr-plan` | Quarterly Business Review preparation with performance retrospective |
 | `/dm:client-proposal` | Agency client proposal with strategy, scope, and pricing |
 | `/dm:review-response` | Brand-aligned review response drafting with tone templates |
+| `/dm:video-script` | Video marketing script writing for YouTube, TikTok, Reels, and LinkedIn |
 | `/dm:webinar-plan` | End-to-end webinar planning with promotion and nurture strategy |
 | `/dm:switch-brand` | Switch active brand (multi-client) |
 
@@ -275,8 +283,8 @@ The plugin stores brand data at `~/.claude-marketing/`:
 
 ```
 digital-marketing-pro/
-├── .claude-plugin/plugin.json    # Plugin manifest (v1.8.0)
-├── skills/                       # 51 skill directories (16 modules + 34 commands + context engine)
+├── .claude-plugin/plugin.json    # Plugin manifest (v1.9.0)
+├── skills/                       # 59 skill directories (16 modules + 42 commands + context engine)
 ├── agents/                       # 13 specialist agents
 ├── hooks/hooks.json              # Session lifecycle, compliance gates, and guideline checks
 ├── scripts/                      # 34 Python execution scripts + requirements.txt

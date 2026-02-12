@@ -4,6 +4,35 @@ All notable changes to the Digital Marketing Pro plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses [Semantic Versioning](https://semver.org/).
 
+## [1.9.0] - 2026-02-12
+
+### Added
+- **8 new slash commands** bringing the total from 34 to 42 — closing the agency operations gap:
+  - `/dm:client-onboarding` (`skills/client-onboarding/SKILL.md`) — post-sale onboarding workflow with kickoff meeting agenda, discovery questionnaire, stakeholder mapping, access checklist, 30-60-90 day expectations setting
+  - `/dm:qbr-plan` (`skills/qbr-plan/SKILL.md`) — Quarterly Business Review preparation with performance retrospective, strategic recommendations, upsell opportunities, next quarter roadmap
+  - `/dm:media-plan` (`skills/media-plan/SKILL.md`) — holistic paid media planning across channels with flight dates, budget waves, creative rotation, channel allocation, contingency reserves
+  - `/dm:video-script` (`skills/video-script/SKILL.md`) — video marketing script writing for YouTube, TikTok, Instagram Reels, LinkedIn with hook variants, timestamps, visual direction, accessibility
+  - `/dm:executive-dashboard` (`skills/executive-dashboard/SKILL.md`) — C-suite dashboard design with business-outcome north-star metrics, visualization recommendations, alert thresholds, narrative guidance
+  - `/dm:case-study-plan` (`skills/case-study-plan/SKILL.md`) — structured case study creation workflow with CSR framework, interview questions, format variations (PDF/web/slide/video), distribution strategy
+  - `/dm:attribution-model` (`skills/attribution-model/SKILL.md`) — multi-touch attribution setup with model selection (last-touch/first-touch/linear/time-decay/position-based/data-driven/MMM), credit distribution rules, platform implementation guides
+  - `/dm:creative-testing-framework` (`skills/creative-testing-framework/SKILL.md`) — systematic creative testing strategy with testing matrix, holdout controls, sample size per variant, significance thresholds, iteration cadence
+- **2 new reference knowledge files** bringing the total from 116 to 118:
+  - `skills/paid-advertising/media-planning.md` — media planning framework, channel allocation methodology, flighting strategies (continuous/pulsing/fighting), budget waves, creative rotation cadence, cross-channel synergy
+  - `skills/content-engine/video-scripting.md` — platform-specific video formats (YouTube/TikTok/Reels/Shorts/LinkedIn), script structures (AIDA/PAS), 12 hook formulas, timestamp annotation, visual direction, accessibility, CTA placement
+
+### Fixed
+- `scripts/setup.py` `create_brand()` function now initializes `insights.json` file when creating new brands — previously this file was referenced by all 13 agents and context-engine but not auto-created, causing errors on first insight save
+
+### Removed
+- `.mcp_new.json` — empty orphan file from development
+- `mcp_config.json` — legacy 12-server MCP config (replaced by `.mcp.json` in v1.8.0)
+
+### Changed
+- `.claude-plugin/plugin.json` version bumped from 1.8.0 to 1.9.0, command count 34 → 42, reference files 116 → 118
+- `README.md` updated: version badge 1.8.0 → 1.9.0, command count 34 → 42, reference files 116 → 118, 8 new command rows in commands table, architecture tree updated
+- `docs/getting-started.md` version 1.8.0 → 1.9.0, command count and reference file counts updated
+- `docs/architecture.md` version 1.8.0 → 1.9.0, file tree updated, file count 233 → 241, command list updated with 8 new entries
+
 ## [1.8.0] - 2026-02-12
 
 ### Added

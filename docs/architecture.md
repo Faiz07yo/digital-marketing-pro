@@ -91,7 +91,7 @@ digital-marketing-pro/
 └── LICENSE
 ```
 
-**Total: 243 files** (230 plugin files + 13 documentation files).
+**Total: 246 files** (230 plugin files + 13 documentation/repo files + 3 issue templates).
 
 The 16 modules are: content-engine, campaign-orchestrator, paid-advertising, analytics-insights, aeo-geo, audience-intelligence, cro, digital-pr, funnel-architect, growth-engineering, influencer-creator, reputation-management, emerging-channels, technical-seo, local-seo, and marketing-automation.
 

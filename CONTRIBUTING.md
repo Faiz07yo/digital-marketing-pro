@@ -176,7 +176,7 @@ When updating these files, ensure all modules that reference them still work cor
 - [ ] Scripts exit with code 0 (even on missing optional deps)
 - [ ] Brand context loading path is explicit in all command skills
 - [ ] No hardcoded file paths (use `~/.claude-marketing/` or `${CLAUDE_PLUGIN_ROOT}`)
-- [ ] File count hasn't changed unexpectedly (currently 243 files including docs)
+- [ ] File count hasn't changed unexpectedly (currently 246 files including docs)
 
 ## Code of Conduct
 

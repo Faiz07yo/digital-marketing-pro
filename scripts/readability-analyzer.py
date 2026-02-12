@@ -26,9 +26,13 @@ try:
     import textstat
 except ImportError:
     print(json.dumps({
-        "error": "Missing dependency: textstat. Install with: pip install textstat"
+        "fallback": True,
+        "error": "textstat_not_installed",
+        "message": "textstat not installed. Readability analysis requires: pip install textstat",
+        "overall_score": None,
+        "recommendation": "Install textstat for automated readability analysis, or evaluate manually using grade-level and reading-ease guidelines."
     }))
-    sys.exit(1)
+    sys.exit(0)
 
 # ---------------------------------------------------------------------------
 # Audience profiles — ideal readability ranges

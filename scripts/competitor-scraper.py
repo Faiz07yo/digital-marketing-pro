@@ -12,14 +12,24 @@ from urllib.parse import urlparse, urljoin
 try:
     import requests
 except ImportError:
-    print(json.dumps({"error": "Missing dependency: pip install requests"}))
-    sys.exit(1)
+    print(json.dumps({
+        "fallback": True,
+        "error": "requests_not_installed",
+        "message": "requests not installed. Competitor scraping requires: pip install requests beautifulsoup4",
+        "recommendation": "Install dependencies for automated scraping, or analyze competitor pages manually."
+    }))
+    sys.exit(0)
 
 try:
     from bs4 import BeautifulSoup
 except ImportError:
-    print(json.dumps({"error": "Missing dependency: pip install beautifulsoup4"}))
-    sys.exit(1)
+    print(json.dumps({
+        "fallback": True,
+        "error": "beautifulsoup4_not_installed",
+        "message": "beautifulsoup4 not installed. Competitor scraping requires: pip install beautifulsoup4",
+        "recommendation": "Install dependencies for automated scraping, or analyze competitor pages manually."
+    }))
+    sys.exit(0)
 
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",

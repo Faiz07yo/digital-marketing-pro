@@ -54,6 +54,14 @@ Structure media recommendations as: Platform, Campaign Objective, Audience Strat
   `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category restrictions`
   When: Before writing ad copy — check for word and claim restrictions
 
+- **ad-budget-pacer.py** — Track ad spend pacing against budget
+  `python "${CLAUDE_PLUGIN_ROOT}/scripts/ad-budget-pacer.py" --budget 30000 --period-days 30 --days-elapsed 15 --spend-to-date 12000`
+  When: Campaign management — check pacing status and project end-of-period spend
+
+- **budget-optimizer.py** — Optimize budget allocation across ad channels
+  `python "${CLAUDE_PLUGIN_ROOT}/scripts/budget-optimizer.py" --channels '[{"name":"Google Ads","spend":5000,"conversions":150,"revenue":22500}]' --total-budget 15000`
+  When: Budget reallocation — generate efficiency-ranked recommendations with diminishing returns modeling
+
 ## MCP Integrations
 
 - **google-ads** (optional): Campaign performance, keyword data, quality scores, auction insights — essential for optimization

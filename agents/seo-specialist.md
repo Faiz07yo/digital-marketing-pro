@@ -72,6 +72,10 @@ Structure SEO recommendations as: Priority (Quick Win / Strategic / Fill-In), Op
   `python "${CLAUDE_PLUGIN_ROOT}/scripts/local-seo-checker.py" --nap '{"name":"Business","address":"123 Main St","phone":"555-1234"}' --citations '[{"source":"Yelp","name":"Business","address":"123 Main Street","phone":"5551234"}]'`
   When: Local SEO audits — check NAP consistency across citations and score GBP completeness
 
+- **link-profile-analyzer.py** — Analyze backlink profile quality and health
+  `python "${CLAUDE_PLUGIN_ROOT}/scripts/link-profile-analyzer.py" --links '[{"url":"https://example.com","anchor_text":"brand name","domain":"example.com","da":45,"follow":true}]'`
+  When: Link audits — assess domain diversity, authority distribution, anchor text health, follow ratio
+
 ## MCP Integrations
 
 - **google-search-console** (optional): Real ranking data, impressions, CTR, position for specific queries — replaces estimates with actuals

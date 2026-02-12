@@ -4,6 +4,42 @@ All notable changes to the Digital Marketing Pro plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses [Semantic Versioning](https://semver.org/).
 
+## [1.7.0] - 2026-02-12
+
+### Added
+- **10 new slash commands** bringing the total from 24 to 34:
+  - `/dm:keyword-research` (`skills/keyword-research/SKILL.md`) — guided keyword research with clustering, intent mapping, and content gap analysis
+  - `/dm:roi-calculator` (`skills/roi-calculator/SKILL.md`) — campaign ROI calculation with 5 attribution models and budget efficiency ranking
+  - `/dm:ab-test-plan` (`skills/ab-test-plan/SKILL.md`) — A/B test planning with hypothesis framework, sample size calculation, and test duration estimation
+  - `/dm:content-repurpose` (`skills/content-repurpose/SKILL.md`) — content repurposing strategy with derivative format matrix, effort estimates, and publishing calendar
+  - `/dm:retargeting-strategy` (`skills/retargeting-strategy/SKILL.md`) — retargeting campaign architecture with audience segmentation, frequency capping, and creative sequencing
+  - `/dm:martech-audit` (`skills/martech-audit/SKILL.md`) — marketing technology stack audit across 11 functions with overlap detection and gap analysis
+  - `/dm:budget-optimizer` (`skills/budget-optimizer/SKILL.md`) — data-driven budget reallocation with diminishing returns modeling and efficiency ranking
+  - `/dm:client-proposal` (`skills/client-proposal/SKILL.md`) — agency client proposal generation with situation analysis, strategy, scope, timeline, and pricing
+  - `/dm:review-response` (`skills/review-response/SKILL.md`) — brand-aligned review response drafting with tone templates, escalation detection, and multi-variant output
+  - `/dm:webinar-plan` (`skills/webinar-plan/SKILL.md`) — end-to-end webinar planning with promotion timeline, email sequences, and post-event nurture strategy
+- **8 new Python scripts** (all zero-dependency, stdlib-only), bringing the total from 26 to 34:
+  - `scripts/roi-calculator.py` — campaign ROI with 5 attribution models (last_touch, first_touch, linear, time_decay, position_based), LTV:CAC ratio, budget efficiency ranking
+  - `scripts/budget-optimizer.py` — budget reallocation using diminishing returns model (square-root scaling), efficiency-proportional allocation, minimum spend thresholds
+  - `scripts/clv-calculator.py` — customer lifetime value with 3 models (simple, contractual, cohort), LTV:CAC health assessment, segment-weighted analysis
+  - `scripts/content-repurposer.py` — 9 source content types mapping to 4-8 derivative formats, auto-generated content calendar, ROI multiplier calculation
+  - `scripts/review-response-drafter.py` — 5-tier rating response logic, 4 tone modifiers, escalation detection (health/safety, legal, profanity), 3 response variants per review
+  - `scripts/ad-budget-pacer.py` — spend pacing with linear projection, trend analysis (7-day moving average, weekend patterns), per-channel pacing, severity classification
+  - `scripts/link-profile-analyzer.py` — domain diversity, authority bucketing (5 DA ranges), follow/nofollow ratio, anchor text classification (6 categories), profile health score 0-100
+  - `scripts/revenue-forecaster.py` — linear regression + growth rate models, blended forecast, seasonal multipliers, confidence ranges (±15% widening by 3% per month)
+
+### Changed
+- **5 agent files updated** with new script references in "Tools & Scripts" section:
+  - `agents/analytics-analyst.md` — added roi-calculator.py, clv-calculator.py, budget-optimizer.py, revenue-forecaster.py, ad-budget-pacer.py
+  - `agents/media-buyer.md` — added ad-budget-pacer.py, budget-optimizer.py
+  - `agents/content-creator.md` — added content-repurposer.py, review-response-drafter.py
+  - `agents/marketing-strategist.md` — added roi-calculator.py, budget-optimizer.py, revenue-forecaster.py
+  - `agents/seo-specialist.md` — added link-profile-analyzer.py
+- `.claude-plugin/plugin.json` version bumped from 1.6.0 to 1.7.0, command count 24 → 34, script count 26 → 34
+- `README.md` updated: version badge 1.6.0 → 1.7.0, command count 24 → 34, script count 26 → 34, 10 new command rows in commands table, architecture tree updated
+- `docs/getting-started.md` version 1.6.0 → 1.7.0, command count and script count updated
+- `docs/architecture.md` version 1.6.0 → 1.7.0, file tree updated with new scripts, file count 195 → 213, command list updated, agent roster updated, dependency tier table updated
+
 ## [1.6.0] - 2026-02-12
 
 ### Added

@@ -52,6 +52,26 @@ Structure analytical outputs as: Key Findings (3-5 bullet executive summary), De
   `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get-template --name performance-report`
   When: Before building reports — check for custom report templates
 
+- **roi-calculator.py** — Calculate campaign ROI with multi-touch attribution
+  `python "${CLAUDE_PLUGIN_ROOT}/scripts/roi-calculator.py" --channels '[{"name":"Google Ads","spend":5000,"conversions":150,"revenue":22500}]' --attribution linear`
+  When: ROI analysis — calculate channel-level and blended ROI with 5 attribution models
+
+- **clv-calculator.py** — Calculate customer lifetime value
+  `python "${CLAUDE_PLUGIN_ROOT}/scripts/clv-calculator.py" --model simple --avg-purchase-value 80 --purchase-frequency 12 --customer-lifespan 5 --cac 200`
+  When: LTV analysis — calculate CLV using simple, contractual, or cohort models with LTV:CAC ratio
+
+- **budget-optimizer.py** — Optimize budget allocation across channels
+  `python "${CLAUDE_PLUGIN_ROOT}/scripts/budget-optimizer.py" --channels '[{"name":"Google Ads","spend":5000,"conversions":150,"revenue":22500}]' --total-budget 15000`
+  When: Budget optimization — generate data-driven reallocation recommendations with diminishing returns modeling
+
+- **revenue-forecaster.py** — Forecast marketing revenue from historical data
+  `python "${CLAUDE_PLUGIN_ROOT}/scripts/revenue-forecaster.py" --historical '[{"month":"2026-01","revenue":50000,"spend":15000}]' --forecast-months 3`
+  When: Revenue forecasting — project revenue using linear regression and growth rate models
+
+- **ad-budget-pacer.py** — Track ad spend pacing against budget
+  `python "${CLAUDE_PLUGIN_ROOT}/scripts/ad-budget-pacer.py" --budget 30000 --period-days 30 --days-elapsed 15 --spend-to-date 12000`
+  When: Budget pacing analysis — check if spend is on track with projection and trend analysis
+
 ## MCP Integrations
 
 - **google-analytics** (optional): GA4 traffic, conversion, audience, and behavior data — primary data source for web analytics

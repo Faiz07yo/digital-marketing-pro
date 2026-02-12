@@ -72,6 +72,14 @@ Deliver content with: the final copy (formatted for its platform), a scoring bre
   `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category messaging`
   When: Before writing — load messaging framework, voice rules, restrictions
 
+- **content-repurposer.py** — Plan content repurposing across channels
+  `python "${CLAUDE_PLUGIN_ROOT}/scripts/content-repurposer.py" --content-type blog --title "10 Tips" --platforms '["twitter","linkedin","instagram"]'`
+  When: Content repurposing — generate derivative format matrix with effort estimates and publishing calendar
+
+- **review-response-drafter.py** — Draft review responses with tone templates
+  `python "${CLAUDE_PLUGIN_ROOT}/scripts/review-response-drafter.py" --review "Great service!" --rating 5 --platform google --tone warm`
+  When: Review response writing — generate brand-aligned responses with alternative versions and escalation detection
+
 ## MCP Integrations
 
 - **google-sheets** (optional): Export content calendars, editorial plans, and content inventories to shared spreadsheets

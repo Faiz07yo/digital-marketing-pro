@@ -1,6 +1,6 @@
 # Digital Marketing Pro — Claude Code & Cowork Plugin
 
-[![Version](https://img.shields.io/badge/version-1.6.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.7.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-optional-yellow.svg)](#python-dependencies-optional)
 [![Cowork](https://img.shields.io/badge/cowork-compatible-purple.svg)](docs/claude-interfaces.md#claude-cowork-full-support)
@@ -36,11 +36,11 @@ Digital Marketing Pro transforms Claude into a full-stack marketing intelligence
 - **10 business models** supported (B2B SaaS, eCommerce, Local, Agency, Creator, Enterprise, Non-Profit, Marketplace, DTC, B2B Services)
 - **22 industry profiles** with benchmarks and compliance rules
 - **16 privacy law jurisdictions** auto-applied (GDPR, CCPA, PIPL, DPDPA, and more)
-- **13 specialist agents** that activate based on conversation context, call 26 Python scripts for scoring, query MCP servers for live data, enforce brand guidelines, and persist campaign learnings
+- **13 specialist agents** that activate based on conversation context, call 34 Python scripts for scoring, query MCP servers for live data, enforce brand guidelines, and persist campaign learnings
 - **Brand guidelines enforcement** — import voice guides, restrictions, channel styles, messaging frameworks; automatically applied across all modules
 - **Deliverable templates** and **agency SOPs** — custom output formats and workflow definitions
-- **24 slash commands** for direct access to common workflows
-- **26 Python scripts** for deterministic execution (scoring, analysis, generation, guidelines management, email testing, A/B testing, social optimization, technical SEO auditing, local SEO checking)
+- **34 slash commands** for direct access to common workflows
+- **34 Python scripts** for deterministic execution (scoring, analysis, generation, guidelines management, email testing, A/B testing, social optimization, technical SEO auditing, local SEO checking, ROI calculation, budget optimization, CLV analysis, revenue forecasting, content repurposing, review response drafting, link profile analysis, ad budget pacing)
 - **12 MCP integrations** for connecting your own marketing accounts (GA4, Search Console, Google Ads, Meta, HubSpot, Mailchimp, etc.)
 - **Persistent brand memory** that learns across sessions
 - **Adaptive scoring** that adjusts to your industry, business model, and goals
@@ -231,6 +231,16 @@ All commands use the `/dm:` prefix. If another plugin shares a command name, use
 | `/dm:import-guidelines` | Import brand guidelines, restrictions, and channel styles |
 | `/dm:import-template` | Import deliverable templates (reports, proposals, briefs) |
 | `/dm:import-sop` | Import agency SOPs and workflow definitions |
+| `/dm:keyword-research` | Guided keyword research with clustering and intent mapping |
+| `/dm:roi-calculator` | Campaign ROI calculation with multi-touch attribution |
+| `/dm:ab-test-plan` | A/B test planning with sample size and hypothesis framework |
+| `/dm:content-repurpose` | Content repurposing strategy with derivative format matrix |
+| `/dm:retargeting-strategy` | Retargeting campaign architecture with audience segmentation |
+| `/dm:martech-audit` | Marketing technology stack audit with gap analysis |
+| `/dm:budget-optimizer` | Data-driven budget reallocation with diminishing returns modeling |
+| `/dm:client-proposal` | Agency client proposal with strategy, scope, and pricing |
+| `/dm:review-response` | Brand-aligned review response drafting with tone templates |
+| `/dm:webinar-plan` | End-to-end webinar planning with promotion and nurture strategy |
 | `/dm:switch-brand` | Switch active brand (multi-client) |
 
 ## Persistent Memory
@@ -264,11 +274,11 @@ The plugin stores brand data at `~/.claude-marketing/`:
 
 ```
 digital-marketing-pro/
-├── .claude-plugin/plugin.json    # Plugin manifest (v1.6.0)
-├── skills/                       # 40 skill directories (15 modules + 24 commands + context engine)
+├── .claude-plugin/plugin.json    # Plugin manifest (v1.7.0)
+├── skills/                       # 50 skill directories (15 modules + 34 commands + context engine)
 ├── agents/                       # 13 specialist agents
 ├── hooks/hooks.json              # Session lifecycle, compliance gates, and guideline checks
-├── scripts/                      # 26 Python execution scripts + requirements.txt
+├── scripts/                      # 34 Python execution scripts + requirements.txt
 ├── .mcp.json                     # Optional MCP integrations config
 ├── docs/                         # 11 documentation guides
 ├── README.md

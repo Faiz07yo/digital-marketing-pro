@@ -64,6 +64,14 @@ Structure SEO recommendations as: Priority (Quick Win / Strategic / Fill-In), Op
   `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category restrictions`
   When: Before recommending content changes — check for word restrictions
 
+- **tech-seo-auditor.py** — Audit URLs for technical SEO issues (status codes, redirects, meta tags, headers, security)
+  `python "${CLAUDE_PLUGIN_ROOT}/scripts/tech-seo-auditor.py" --url "https://example.com"`
+  When: Technical SEO audits — check HTTP status, redirect chains, meta robots, canonical tags, viewport, HTTPS, HSTS, TTFB, compression
+
+- **local-seo-checker.py** — Score NAP consistency and GBP profile completeness
+  `python "${CLAUDE_PLUGIN_ROOT}/scripts/local-seo-checker.py" --nap '{"name":"Business","address":"123 Main St","phone":"555-1234"}' --citations '[{"source":"Yelp","name":"Business","address":"123 Main Street","phone":"5551234"}]'`
+  When: Local SEO audits — check NAP consistency across citations and score GBP completeness
+
 ## MCP Integrations
 
 - **google-search-console** (optional): Real ranking data, impressions, CTR, position for specific queries — replaces estimates with actuals
@@ -90,6 +98,15 @@ Load when relevant:
 - `industry-profiles.md` — industry-specific SEO benchmarks, keyword difficulty expectations, content format effectiveness
 - `compliance-rules.md` — regulated industry content restrictions that affect SEO copy
 - `intelligence-layer.md` — campaign memory patterns for tracking SEO progress over time
+- `skills/technical-seo/core-web-vitals.md` — LCP, INP, CLS thresholds, optimization strategies, measurement tools
+- `skills/technical-seo/crawlability.md` — Robots.txt, XML sitemaps, crawl budget, JavaScript rendering, log file analysis
+- `skills/technical-seo/site-architecture.md` — URL structure, internal linking, pagination, faceted navigation, site migrations
+- `skills/technical-seo/indexation.md` — Canonical tags, meta robots, index coverage, duplicate content, index bloat
+- `skills/technical-seo/international-seo.md` — Hreflang, ccTLD vs subdomain vs subdirectory, geotargeting, localization
+- `skills/local-seo/gbp-optimization.md` — GBP profile completeness, categories, photos, posts, Q&A, suspension prevention
+- `skills/local-seo/citation-management.md` — NAP consistency, citation sources by industry, data aggregators, audit methodology
+- `skills/local-seo/local-content.md` — Local keyword research, location pages, city pages, "near me" optimization, voice search
+- `skills/local-seo/multi-location.md` — Multi-location GBP management, store locators, franchise SEO, location page hierarchy
 
 ## Cross-Agent Collaboration
 

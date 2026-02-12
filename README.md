@@ -1,17 +1,17 @@
 # Digital Marketing Pro — Claude Code & Cowork Plugin
 
-[![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.6.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-optional-yellow.svg)](#python-dependencies-optional)
 [![Cowork](https://img.shields.io/badge/cowork-compatible-purple.svg)](docs/claude-interfaces.md#claude-cowork-full-support)
 
-The most comprehensive digital marketing plugin for Claude Code and Claude Cowork. 13 integrated modules covering the entire marketing spectrum from strategy to execution to measurement.
+The most comprehensive digital marketing plugin for Claude Code and Claude Cowork. 15 integrated modules covering the entire marketing spectrum from strategy to execution to measurement — including dedicated Technical SEO and Local SEO modules.
 
 ## What This Plugin Does
 
 Digital Marketing Pro transforms Claude into a full-stack marketing intelligence system. It covers every marketing discipline, adapts to any business model, auto-applies compliance rules, and learns from your past campaigns.
 
-### 13 Core Modules
+### 15 Core Modules
 
 | Module | What It Covers |
 |--------|---------------|
@@ -28,17 +28,19 @@ Digital Marketing Pro transforms Claude into a full-stack marketing intelligence
 | **Influencer & Creator** | Discovery, briefs, FTC compliance engine, contracts, UGC, measurement |
 | **Reputation Management** | Review strategy, 3-tier crisis communication, brand safety, recovery |
 | **Emerging Channels** | Voice search, visual search, social commerce, community, podcast, video |
+| **Technical SEO** | Core Web Vitals, crawlability, indexation, site architecture, redirects, JavaScript SEO, mobile-first |
+| **Local SEO** | Google Business Profile, NAP consistency, citations, local pack, location pages, multi-location |
 
 ### Key Differentiators
 
 - **10 business models** supported (B2B SaaS, eCommerce, Local, Agency, Creator, Enterprise, Non-Profit, Marketplace, DTC, B2B Services)
 - **22 industry profiles** with benchmarks and compliance rules
 - **16 privacy law jurisdictions** auto-applied (GDPR, CCPA, PIPL, DPDPA, and more)
-- **13 specialist agents** that activate based on conversation context, call Python scripts for scoring, query MCP servers for live data, enforce brand guidelines, and persist campaign learnings
+- **13 specialist agents** that activate based on conversation context, call 26 Python scripts for scoring, query MCP servers for live data, enforce brand guidelines, and persist campaign learnings
 - **Brand guidelines enforcement** — import voice guides, restrictions, channel styles, messaging frameworks; automatically applied across all modules
 - **Deliverable templates** and **agency SOPs** — custom output formats and workflow definitions
-- **22 slash commands** for direct access to common workflows
-- **24 Python scripts** for deterministic execution (scoring, analysis, generation, guidelines management, email testing, A/B testing, social optimization)
+- **24 slash commands** for direct access to common workflows
+- **26 Python scripts** for deterministic execution (scoring, analysis, generation, guidelines management, email testing, A/B testing, social optimization, technical SEO auditing, local SEO checking)
 - **12 MCP integrations** for connecting your own marketing accounts (GA4, Search Console, Google Ads, Meta, HubSpot, Mailchimp, etc.)
 - **Persistent brand memory** that learns across sessions
 - **Adaptive scoring** that adjusts to your industry, business model, and goals
@@ -82,7 +84,7 @@ On first use, the plugin will:
 The plugin works fully without any Python installation. All marketing knowledge, frameworks, agent capabilities, and slash commands work out of the box.
 
 **Knowledge-only mode (0 MB, no install)** — Default
-All 13 modules, 13 agents, 22 commands, and 87 reference knowledge files work with zero dependencies.
+All 15 modules, 13 agents, 24 commands, and 96 reference knowledge files work with zero dependencies.
 
 **Lite mode (~15 MB)** — Enables scoring scripts
 ```
@@ -210,6 +212,8 @@ All commands use the `/dm:` prefix. If another plugin shares a command name, use
 | `/dm:campaign-plan` | Generate campaign plan |
 | `/dm:content-brief` | Create content brief |
 | `/dm:seo-audit` | SEO audit |
+| `/dm:tech-seo-audit` | Technical SEO audit (Core Web Vitals, crawlability, indexation, redirects, security) |
+| `/dm:local-seo-audit` | Local SEO audit (GBP, NAP consistency, citations, local pack, reviews) |
 | `/dm:aeo-audit` | AI visibility audit |
 | `/dm:competitor-analysis` | Competitor deep-dive |
 | `/dm:ad-creative` | Generate ad copy variations |
@@ -260,11 +264,11 @@ The plugin stores brand data at `~/.claude-marketing/`:
 
 ```
 digital-marketing-pro/
-├── .claude-plugin/plugin.json    # Plugin manifest (v1.5.0)
-├── skills/                       # 36 skill directories (13 modules + 22 commands + context engine)
+├── .claude-plugin/plugin.json    # Plugin manifest (v1.6.0)
+├── skills/                       # 40 skill directories (15 modules + 24 commands + context engine)
 ├── agents/                       # 13 specialist agents
 ├── hooks/hooks.json              # Session lifecycle, compliance gates, and guideline checks
-├── scripts/                      # 24 Python execution scripts + requirements.txt
+├── scripts/                      # 26 Python execution scripts + requirements.txt
 ├── .mcp.json                     # Optional MCP integrations config
 ├── docs/                         # 11 documentation guides
 ├── README.md

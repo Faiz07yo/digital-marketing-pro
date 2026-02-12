@@ -1,6 +1,6 @@
 # Getting Started with Digital Marketing Pro
 
-**Version 1.5.0** | A plugin for Claude Code and Claude Cowork
+**Version 1.6.0** | A plugin for Claude Code and Claude Cowork
 
 Digital Marketing Pro transforms Claude into a marketing command center that knows your brand, understands your industry, and produces strategy and content that sounds like you wrote it. This guide walks you through installation, brand setup, and your first marketing task.
 
@@ -86,9 +86,9 @@ For full details on Cowork capabilities (document creation, visual review, app i
 After running either command, you should see output similar to this:
 
 ```
-Installing plugin: digital-marketing-pro v1.4.0
-  - 13 marketing modules loaded
-  - 22 slash commands registered (/dm:*)
+Installing plugin: digital-marketing-pro v1.6.0
+  - 15 marketing modules loaded
+  - 24 slash commands registered (/dm:*)
   - 13 specialist agents available
   - 3 event hooks configured (SessionStart, PreToolUse, SessionEnd)
 
@@ -396,7 +396,7 @@ printed                  (just ask for things)        session
 
 ## 8. Python Dependencies (Optional)
 
-Digital Marketing Pro is designed to work at full capability without Python. All 13 marketing modules, 13 specialist agents, and 22 slash commands function using the plugin's built-in reference knowledge. Python adds bonus scoring and automation features.
+Digital Marketing Pro is designed to work at full capability without Python. All 15 marketing modules, 13 specialist agents, and 24 slash commands function using the plugin's built-in reference knowledge. Python adds bonus scoring and automation features.
 
 ### Three dependency modes
 
@@ -411,8 +411,8 @@ Digital Marketing Pro is designed to work at full capability without Python. All
 This is what you get out of the box. No setup required.
 
 You have access to:
-- All 13 marketing modules with 87 reference knowledge files
-- All 22 `/dm:` slash commands
+- All 15 marketing modules with 96 reference knowledge files
+- All 24 `/dm:` slash commands
 - All 13 specialist agents
 - Brand profiling, session hooks, and campaign tracking
 - Industry benchmarks, compliance rules, and platform specifications
@@ -459,7 +459,7 @@ Python: full (all deps)        (full mode)
 
 ## 9. Available Commands
 
-Digital Marketing Pro provides 22 slash commands, all prefixed with `/dm:`. You can type these directly in your Claude Code session.
+Digital Marketing Pro provides 24 slash commands, all prefixed with `/dm:`. You can type these directly in your Claude Code session.
 
 ### Brand Management
 
@@ -491,6 +491,8 @@ Digital Marketing Pro provides 22 slash commands, all prefixed with `/dm:`. You 
 | Command | What it does |
 |---------|-------------|
 | `/dm:seo-audit` | Run a comprehensive SEO audit covering technical health, on-page, content, E-E-A-T, and links |
+| `/dm:tech-seo-audit` | Technical SEO audit: Core Web Vitals, crawlability, indexation, redirects, site architecture, security |
+| `/dm:local-seo-audit` | Local SEO audit: Google Business Profile, NAP consistency, citations, local pack, reviews |
 | `/dm:aeo-audit` | Assess how your brand appears in AI-powered search and answer engines (ChatGPT, Perplexity, Google AI Overviews) |
 | `/dm:landing-page-audit` | Score a landing page across above-fold clarity, trust signals, form friction, and mobile experience |
 | `/dm:funnel-audit` | Analyze your customer funnel for drop-off points, bottlenecks, and optimization opportunities |
@@ -542,7 +544,7 @@ You are set up and ready to go. Here are some resources for when you want to go 
 
 - **Using Cowork** --- If you are using Claude Cowork (or considering it), see `docs/claude-interfaces.md` for Cowork-specific capabilities like document creation, visual page review, and a comparison with Anthropic's official marketing plugin.
 
-### Quick reference: The 13 marketing modules
+### Quick reference: The 15 marketing modules
 
 These are the knowledge domains that power the plugin. They activate automatically based on your requests.
 
@@ -561,6 +563,8 @@ These are the knowledge domains that power the plugin. They activate automatical
 | Influencer & Creator    | Influencer discovery, creator briefs, FTC compliance, contracts, UGC, performance tracking |
 | Reputation Management   | Review strategy, crisis communication, brand safety, sentiment monitoring, recovery playbooks |
 | Emerging Channels       | Voice search, visual search, conversational commerce, social commerce, podcasts, video, community |
+| Technical SEO           | Core Web Vitals, crawlability, indexation, site architecture, redirects, JavaScript SEO, mobile-first |
+| Local SEO               | Google Business Profile, NAP consistency, citations, local pack, location pages, multi-location |
 
 ### Getting help
 
@@ -573,4 +577,4 @@ If something is not working as expected:
 
 ---
 
-*Digital Marketing Pro v1.5.0 --- Built for marketing professionals who want strategy and execution that stays on-brand, every time. Works in Claude Code and Claude Cowork.*
+*Digital Marketing Pro v1.6.0 --- Built for marketing professionals who want strategy and execution that stays on-brand, every time. Works in Claude Code and Claude Cowork.*

@@ -4,6 +4,36 @@ All notable changes to the Digital Marketing Pro plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses [Semantic Versioning](https://semver.org/).
 
+## [1.6.0] - 2026-02-12
+
+### Added
+- **Technical SEO module** (`skills/technical-seo/`) — new dedicated module covering Core Web Vitals optimization, crawlability audits, site architecture, indexation management, JavaScript SEO, mobile-first indexing, redirect auditing, structured data, and international technical SEO
+  - `skills/technical-seo/SKILL.md` — module definition with 12-step audit process
+  - `skills/technical-seo/core-web-vitals.md` — LCP, INP, CLS thresholds, causes, fixes, measurement tools, optimization priority framework
+  - `skills/technical-seo/crawlability.md` — robots.txt, XML sitemaps, crawl budget, JavaScript rendering, log file analysis, orphan pages
+  - `skills/technical-seo/site-architecture.md` — URL structure, internal linking, pagination, faceted navigation, breadcrumbs, site migration planning
+  - `skills/technical-seo/indexation.md` — canonical tags, meta robots, index coverage, duplicate content, index bloat, new content indexation
+  - `skills/technical-seo/international-seo.md` — hreflang implementation, ccTLD vs subdomain vs subdirectory, geotargeting, localization vs translation, search engine market share by country
+- **Local SEO module** (`skills/local-seo/`) — new dedicated module covering Google Business Profile optimization, NAP consistency, citation management, local pack strategy, location pages, multi-location management, and local schema
+  - `skills/local-seo/SKILL.md` — module definition with 10-step local SEO audit process
+  - `skills/local-seo/gbp-optimization.md` — GBP completeness checklist, categories, attributes, photos, posts, Q&A, insights, suspension prevention
+  - `skills/local-seo/citation-management.md` — NAP consistency, citation sources by industry, data aggregators, audit methodology, multi-location citations
+  - `skills/local-seo/local-content.md` — local keyword research, location pages, city pages, "near me" optimization, voice search, seasonal content
+  - `skills/local-seo/multi-location.md` — multi-location GBP management, store locators, franchise SEO, location opening/closing checklists, hierarchy
+- **2 new slash commands**:
+  - `/dm:tech-seo-audit` (`skills/tech-seo-audit/SKILL.md`) — comprehensive technical SEO audit with Core Web Vitals scorecard, crawlability, indexation, site architecture, security, and prioritized fixes
+  - `/dm:local-seo-audit` (`skills/local-seo-audit/SKILL.md`) — local SEO audit with GBP scorecard, NAP consistency report, citation audit, review analysis, and 90-day action plan
+- **2 new Python scripts** (both zero-dependency, stdlib-only):
+  - `scripts/tech-seo-auditor.py` — URL-level technical SEO checks using `urllib.request`: HTTP status codes, redirect chain detection, meta tag parsing (title, description, canonical, viewport, robots), security headers (HTTPS, HSTS), TTFB measurement, compression detection, scoring (0-100)
+  - `scripts/local-seo-checker.py` — NAP consistency analysis with address normalization (18 abbreviation expansions) and GBP profile completeness scoring across 16 weighted fields with industry-specific recommendations
+
+### Changed
+- `agents/seo-specialist.md` — added tech-seo-auditor.py and local-seo-checker.py to Tools & Scripts section; added 9 new reference files (5 technical-seo + 4 local-seo) to Reference Files section
+- `.claude-plugin/plugin.json` version bumped from 1.5.0 to 1.6.0, module count 13 → 15, script count 24 → 26
+- `README.md` updated: version badge 1.5.0 → 1.6.0, module count 13 → 15, command count 22 → 24, script count 24 → 26, reference file count 87 → 96, 2 new module rows in core modules table, 2 new command rows in commands table, architecture tree updated
+- `docs/getting-started.md` version 1.5.0 → 1.6.0, module count and command count updated
+- `docs/architecture.md` version 1.5.0 → 1.6.0, file tree updated with new modules/commands/scripts, file count 180 → 195, module list and command list updated, agent roster updated, dependency tier table updated
+
 ## [1.5.0] - 2026-02-12
 
 ### Added

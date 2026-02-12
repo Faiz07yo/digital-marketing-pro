@@ -1,6 +1,6 @@
 # Technical Architecture Reference
 
-**Digital Marketing Pro** -- Claude Code Plugin v1.5.0
+**Digital Marketing Pro** -- Claude Code Plugin v1.6.0
 
 This document describes the internal architecture of the Digital Marketing Pro plugin for developers and contributors. It covers file structure, the WAT framework mapping, component anatomy, the hook system, script conventions, data persistence, adaptive scoring, and extension points.
 
@@ -11,7 +11,7 @@ This document describes the internal architecture of the Digital Marketing Pro p
 ```
 digital-marketing-pro/
 ├── .claude-plugin/
-│   └── plugin.json                    # Plugin manifest (v1.5.0)
+│   └── plugin.json                    # Plugin manifest (v1.6.0)
 ├── .mcp.json                          # 12 MCP server configurations
 ├── hooks/
 │   └── hooks.json                     # 3 lifecycle hooks
@@ -29,7 +29,7 @@ digital-marketing-pro/
 │   ├── email-specialist.md            # NEW in v1.4.0
 │   ├── cro-specialist.md              # NEW in v1.4.0
 │   └── social-media-manager.md        # NEW in v1.4.0
-├── scripts/                           # 24 Python scripts + requirements
+├── scripts/                           # 26 Python scripts + requirements
 │   ├── setup.py                       # Brand management, initialization
 │   ├── campaign-tracker.py            # Campaign persistence + violation tracking
 │   ├── adaptive-scorer.py             # Context-aware scoring weights
@@ -54,8 +54,10 @@ digital-marketing-pro/
 │   ├── hashtag-analyzer.py           # Social hashtag analysis (v1.5.0)
 │   ├── posting-time-analyzer.py      # Social posting time optimization (v1.5.0)
 │   ├── calendar-validator.py         # Content calendar validation (v1.5.0)
+│   ├── tech-seo-auditor.py          # Technical SEO URL auditing (v1.6.0)
+│   ├── local-seo-checker.py         # NAP consistency + GBP completeness (v1.6.0)
 │   └── requirements.txt               # Python dependencies
-├── skills/                            # 36 skill directories
+├── skills/                            # 40 skill directories
 │   ├── context-engine/                # Shared intelligence layer
 │   │   ├── SKILL.md
 │   │   ├── industry-profiles.md       # 22 industries
@@ -66,13 +68,13 @@ digital-marketing-pro/
 │   │   └── guidelines-framework.md    # Guidelines structure reference (v1.3.0)
 │   ├── brand-setup/SKILL.md           # Brand profile creation
 │   ├── switch-brand/SKILL.md          # Brand switching
-│   ├── [13 modules]/                  # Core marketing modules
+│   ├── [15 modules]/                  # Core marketing modules
 │   │   ├── SKILL.md                   # Module definition
 │   │   └── *.md                       # Reference knowledge files
 │   ├── import-guidelines/SKILL.md     # Guideline import (v1.3.0)
 │   ├── import-sop/SKILL.md           # SOP import (v1.3.0)
 │   ├── import-template/SKILL.md      # Template import (v1.3.0)
-│   └── [17 commands]/                 # Slash command skills
+│   └── [19 commands]/                 # Slash command skills
 │       └── SKILL.md                   # Command definition
 ├── docs/                              # Documentation
 ├── README.md
@@ -81,11 +83,11 @@ digital-marketing-pro/
 └── LICENSE
 ```
 
-**Total: 180 files** (167 plugin files + 13 documentation files).
+**Total: 195 files** (182 plugin files + 13 documentation files).
 
-The 13 modules are: content-engine, campaign-orchestrator, paid-advertising, analytics-insights, aeo-geo, audience-intelligence, cro, digital-pr, funnel-architect, growth-engineering, influencer-creator, reputation-management, and emerging-channels.
+The 15 modules are: content-engine, campaign-orchestrator, paid-advertising, analytics-insights, aeo-geo, audience-intelligence, cro, digital-pr, funnel-architect, growth-engineering, influencer-creator, reputation-management, emerging-channels, technical-seo, and local-seo.
 
-The 22 commands are: ad-creative, aeo-audit, audience-profile, campaign-plan, competitor-analysis, content-brief, content-calendar, crisis-response, email-sequence, funnel-audit, import-guidelines, import-sop, import-template, influencer-brief, landing-page-audit, launch-plan, performance-report, pr-pitch, seo-audit, social-strategy, and switch-brand.
+The 24 commands are: ad-creative, aeo-audit, audience-profile, campaign-plan, competitor-analysis, content-brief, content-calendar, crisis-response, email-sequence, funnel-audit, import-guidelines, import-sop, import-template, influencer-brief, landing-page-audit, launch-plan, local-seo-audit, performance-report, pr-pitch, seo-audit, social-strategy, switch-brand, and tech-seo-audit.
 
 The 13 agents are: marketing-strategist, content-creator, seo-specialist, analytics-analyst, brand-guardian, media-buyer, growth-engineer, influencer-manager, competitive-intel, pr-outreach, email-specialist, cro-specialist, and social-media-manager.
 
@@ -126,7 +128,7 @@ Multiple agents can collaborate on a single task. For example, the `/dm:campaign
 
 ### Tools (scripts/*.py)
 
-Twenty-four Python scripts handle deterministic execution: scoring, formatting, data persistence, and analysis. Every script:
+Twenty-six Python scripts handle deterministic execution: scoring, formatting, data persistence, and analysis. Every script:
 
 - Accepts CLI arguments via argparse
 - Produces JSON output to stdout
@@ -174,7 +176,7 @@ description: "One sentence describing when to invoke this module."
 [List of .md files in this module's directory that inform its output]
 ```
 
-The Brand Context block is standardized across all 13 modules to ensure consistent brand-aware behavior. Step 9 (guideline enforcement) was added in v1.3.0. If you modify this block, update it in all module SKILL.md files.
+The Brand Context block is standardized across all 15 modules to ensure consistent brand-aware behavior. Step 9 (guideline enforcement) was added in v1.3.0. If you modify this block, update it in all module SKILL.md files.
 
 ---
 
@@ -268,7 +270,7 @@ N. Check brand guidelines for content. [Load guidelines/_manifest.json,
 |-------|-------------|-------------------|-------------|
 | marketing-strategist | Strategy, planning, positioning, GTM | SOSTAC, RACE, AARRR | utm-generator, campaign-tracker |
 | content-creator | Writing, copywriting, content production | PAS, AIDA, storytelling | brand-voice-scorer, content-scorer, social-post-formatter, headline-analyzer, email-preview |
-| seo-specialist | SEO, AEO, GEO, keywords, technical SEO | E-E-A-T, topic clusters | keyword-clusterer, schema-generator, ai-visibility-checker, competitor-scraper |
+| seo-specialist | SEO, AEO, GEO, keywords, technical SEO, local SEO | E-E-A-T, topic clusters, Core Web Vitals | keyword-clusterer, schema-generator, ai-visibility-checker, competitor-scraper, tech-seo-auditor, local-seo-checker |
 | analytics-analyst | Metrics, KPIs, reports, anomalies | Attribution, MMM, incrementality | utm-generator, adaptive-scorer, campaign-tracker |
 | brand-guardian | Compliance, voice consistency, quality | Brand scorecards, voice scales | brand-voice-scorer, content-scorer, readability-analyzer, adaptive-scorer |
 | media-buyer | Ad platforms, budget, bidding, targeting | ROAS, CPM/CPC modeling | utm-generator, content-scorer, headline-analyzer |
@@ -329,7 +331,7 @@ Three lifecycle hooks are defined in `hooks/hooks.json`. They wrap every Claude 
 
 ## 8. Script Architecture
 
-All 24 scripts in `scripts/` follow consistent conventions.
+All 26 scripts in `scripts/` follow consistent conventions.
 
 ### Conventions
 
@@ -343,7 +345,7 @@ All 24 scripts in `scripts/` follow consistent conventions.
 
 | Tier | Dependencies | Scripts |
 |------|-------------|---------|
-| Zero deps (always work) | Python stdlib only | setup.py, campaign-tracker.py, utm-generator.py (basic mode), schema-generator.py, guidelines-manager.py, email-subject-tester.py, spam-score-checker.py, send-time-optimizer.py, sample-size-calculator.py, significance-tester.py, form-analyzer.py, hashtag-analyzer.py, posting-time-analyzer.py, calendar-validator.py |
+| Zero deps (always work) | Python stdlib only | setup.py, campaign-tracker.py, utm-generator.py (basic mode), schema-generator.py, guidelines-manager.py, email-subject-tester.py, spam-score-checker.py, send-time-optimizer.py, sample-size-calculator.py, significance-tester.py, form-analyzer.py, hashtag-analyzer.py, posting-time-analyzer.py, calendar-validator.py, tech-seo-auditor.py, local-seo-checker.py |
 | Lite | nltk, textstat | brand-voice-scorer.py, content-scorer.py, readability-analyzer.py, headline-analyzer.py |
 | Full | + requests, beautifulsoup4, qrcode, Pillow | competitor-scraper.py, utm-generator.py (QR mode), email-preview.py |
 | Optional | + openai, anthropic | ai-visibility-checker.py (API mode) |

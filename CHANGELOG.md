@@ -4,6 +4,46 @@ All notable changes to the Digital Marketing Pro plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses [Semantic Versioning](https://semver.org/).
 
+## [1.8.0] - 2026-02-12
+
+### Added
+- **Marketing Automation module** (`skills/marketing-automation/`) — new dedicated module covering automation workflow design, lead scoring models, nurture sequences, marketing operations, and MAP platform strategy
+  - `skills/marketing-automation/SKILL.md` — module definition with workflow design, lead scoring, nurture sequences, and marketing ops capabilities
+  - `skills/marketing-automation/automation-workflows.md` — trigger types, 10+ workflow patterns (welcome, abandoned cart, re-engagement, onboarding, win-back), branching logic, cross-channel orchestration
+  - `skills/marketing-automation/lead-scoring.md` — explicit and implicit scoring, negative scoring, score thresholds (cold/warm/MQL/SQL), progressive profiling, decay, sales handoff rules
+  - `skills/marketing-automation/nurture-sequences.md` — lifecycle stages, 7 sequence types with cadence and content mapping, multi-channel nurture, timing science, template sequences
+  - `skills/marketing-automation/marketing-ops.md` — data hygiene, tech stack management, deliverability (SPF/DKIM/DMARC), compliance automation, MAP comparison matrix (HubSpot/ActiveCampaign/Klaviyo/Mailchimp/Marketo/Pardot)
+- **15 new reference knowledge files** across 10 existing modules, bringing reference files from 96 to 116:
+  - `skills/paid-advertising/microsoft-ads.md` — Bing Ads, Microsoft Audience Network, LinkedIn profile targeting, Import from Google Ads
+  - `skills/paid-advertising/retargeting-audiences.md` — audience segments, platform-specific retargeting, sequential messaging, frequency capping, privacy impact
+  - `skills/analytics-insights/dashboard-design.md` — dashboard hierarchy (executive/operational/campaign), visualization best practices, alert thresholds, tool recommendations
+  - `skills/analytics-insights/clv-analysis.md` — CLV models (historical/predictive/contractual), CLV:CAC ratio, cohort analysis, industry benchmarks
+  - `skills/content-engine/personalization.md` — personalization levels, data requirements, email/website/ad personalization, testing personalization, privacy
+  - `skills/content-engine/case-studies.md` — CSR framework, interview questions, data presentation, format variations, distribution strategy, industry templates
+  - `skills/campaign-orchestrator/sales-enablement.md` — battle cards, sales content mapping to stages, objection handling, proposal templates, content metrics
+  - `skills/growth-engineering/experimentation-frameworks.md` — ICE/RICE/PIE scoring, hypothesis format, experiment types, growth experiment categories, velocity
+  - `skills/digital-pr/link-building-tactics.md` — 13 link building methods ranked, outreach templates, anchor text strategy, red flags, competitive gap analysis
+  - `skills/cro/personalization-testing.md` — segment-based testing, behavioral targeting, dynamic content, holdout testing, testing roadmap
+  - `skills/audience-intelligence/customer-research-methods.md` — quantitative and qualitative methods, survey design, JTBD research, win/loss analysis, VoC programs
+  - `skills/funnel-architect/sales-marketing-alignment.md` — shared funnel definitions, SLAs, lead handoff, feedback loops, RevOps, shared metrics
+  - `skills/reputation-management/review-management-platforms.md` — review platforms by industry, generation strategies, response framework by rating, monitoring tools, legal considerations
+  - `skills/emerging-channels/ai-marketing-tools.md` — AI for content/SEO/ads/email/social/analytics/CRO, prompt engineering for marketers, AI governance, cost-benefit
+  - `skills/influencer-creator/micro-influencer-strategy.md` — influencer tiers, micro/nano advantages, discovery, vetting, compensation models, gifting programs, scaling
+- **6 new MCP integrations** bringing the total from 12 to 18:
+  - `tiktok-ads` — TikTok Ads campaign performance, creative insights, audience analytics, Spark Ads data
+  - `shopify` — Shopify eCommerce orders, products, customers, inventory, sales analytics
+  - `wordpress` — WordPress content publishing, post management, SEO metadata
+  - `salesforce` — Salesforce CRM pipeline, opportunity data, lead management, account insights
+  - `google-looker-studio` — Google Looker Studio dashboard data, report embedding, cross-platform visualization
+  - `activecampaign` — ActiveCampaign email automation, lead scoring, CRM contacts, automation workflows
+
+### Changed
+- `.claude-plugin/plugin.json` version bumped from 1.7.0 to 1.8.0, module count 15 → 16, reference files 96 → 116, MCP integrations 12 → 18
+- `.mcp.json` expanded with 6 new server entries
+- `README.md` updated: version badge 1.7.0 → 1.8.0, module count 15 → 16, new module row, MCP count 12 → 18, 6 new MCP rows, architecture tree updated
+- `docs/getting-started.md` version 1.7.0 → 1.8.0, module count and reference file counts updated
+- `docs/architecture.md` version 1.7.0 → 1.8.0, file tree updated, file count 213 → 233, module list updated, MCP server list updated
+
 ## [1.7.0] - 2026-02-12
 
 ### Added

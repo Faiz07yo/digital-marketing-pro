@@ -1,6 +1,6 @@
 # Getting Started with Digital Marketing Pro
 
-**Version 1.7.0** | A plugin for Claude Code and Claude Cowork
+**Version 1.8.0** | A plugin for Claude Code and Claude Cowork
 
 Digital Marketing Pro transforms Claude into a marketing command center that knows your brand, understands your industry, and produces strategy and content that sounds like you wrote it. This guide walks you through installation, brand setup, and your first marketing task.
 
@@ -86,8 +86,8 @@ For full details on Cowork capabilities (document creation, visual review, app i
 After running either command, you should see output similar to this:
 
 ```
-Installing plugin: digital-marketing-pro v1.7.0
-  - 15 marketing modules loaded
+Installing plugin: digital-marketing-pro v1.8.0
+  - 16 marketing modules loaded
   - 34 slash commands registered (/dm:*)
   - 13 specialist agents available
   - 3 event hooks configured (SessionStart, PreToolUse, SessionEnd)
@@ -396,7 +396,7 @@ printed                  (just ask for things)        session
 
 ## 8. Python Dependencies (Optional)
 
-Digital Marketing Pro is designed to work at full capability without Python. All 15 marketing modules, 13 specialist agents, and 34 slash commands function using the plugin's built-in reference knowledge. Python adds bonus scoring and automation features.
+Digital Marketing Pro is designed to work at full capability without Python. All 16 marketing modules, 13 specialist agents, and 34 slash commands function using the plugin's built-in reference knowledge. Python adds bonus scoring and automation features.
 
 ### Three dependency modes
 
@@ -411,7 +411,7 @@ Digital Marketing Pro is designed to work at full capability without Python. All
 This is what you get out of the box. No setup required.
 
 You have access to:
-- All 15 marketing modules with 96 reference knowledge files
+- All 16 marketing modules with 116 reference knowledge files
 - All 34 `/dm:` slash commands
 - All 13 specialist agents
 - Brand profiling, session hooks, and campaign tracking
@@ -559,7 +559,7 @@ You are set up and ready to go. Here are some resources for when you want to go 
 
 - **Using Cowork** --- If you are using Claude Cowork (or considering it), see `docs/claude-interfaces.md` for Cowork-specific capabilities like document creation, visual page review, and a comparison with Anthropic's official marketing plugin.
 
-### Quick reference: The 15 marketing modules
+### Quick reference: The 16 marketing modules
 
 These are the knowledge domains that power the plugin. They activate automatically based on your requests.
 
@@ -580,6 +580,7 @@ These are the knowledge domains that power the plugin. They activate automatical
 | Emerging Channels       | Voice search, visual search, conversational commerce, social commerce, podcasts, video, community |
 | Technical SEO           | Core Web Vitals, crawlability, indexation, site architecture, redirects, JavaScript SEO, mobile-first |
 | Local SEO               | Google Business Profile, NAP consistency, citations, local pack, location pages, multi-location |
+| Marketing Automation    | Automation workflows, lead scoring, nurture sequences, marketing operations, MAP strategy |
 
 ### Getting help
 
@@ -592,4 +593,4 @@ If something is not working as expected:
 
 ---
 
-*Digital Marketing Pro v1.7.0 --- Built for marketing professionals who want strategy and execution that stays on-brand, every time. Works in Claude Code and Claude Cowork.*
+*Digital Marketing Pro v1.8.0 --- Built for marketing professionals who want strategy and execution that stays on-brand, every time. Works in Claude Code and Claude Cowork.*

@@ -1,17 +1,17 @@
 # Digital Marketing Pro — Claude Code & Cowork Plugin
 
-[![Version](https://img.shields.io/badge/version-1.7.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.8.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-optional-yellow.svg)](#python-dependencies-optional)
 [![Cowork](https://img.shields.io/badge/cowork-compatible-purple.svg)](docs/claude-interfaces.md#claude-cowork-full-support)
 
-The most comprehensive digital marketing plugin for Claude Code and Claude Cowork. 15 integrated modules covering the entire marketing spectrum from strategy to execution to measurement — including dedicated Technical SEO and Local SEO modules.
+The most comprehensive digital marketing plugin for Claude Code and Claude Cowork. 16 integrated modules covering the entire marketing spectrum from strategy to execution to measurement — including dedicated Technical SEO, Local SEO, and Marketing Automation modules.
 
 ## What This Plugin Does
 
 Digital Marketing Pro transforms Claude into a full-stack marketing intelligence system. It covers every marketing discipline, adapts to any business model, auto-applies compliance rules, and learns from your past campaigns.
 
-### 15 Core Modules
+### 16 Core Modules
 
 | Module | What It Covers |
 |--------|---------------|
@@ -30,6 +30,7 @@ Digital Marketing Pro transforms Claude into a full-stack marketing intelligence
 | **Emerging Channels** | Voice search, visual search, social commerce, community, podcast, video |
 | **Technical SEO** | Core Web Vitals, crawlability, indexation, site architecture, redirects, JavaScript SEO, mobile-first |
 | **Local SEO** | Google Business Profile, NAP consistency, citations, local pack, location pages, multi-location |
+| **Marketing Automation** | Automation workflows, lead scoring, nurture sequences, marketing operations, MAP strategy |
 
 ### Key Differentiators
 
@@ -41,7 +42,7 @@ Digital Marketing Pro transforms Claude into a full-stack marketing intelligence
 - **Deliverable templates** and **agency SOPs** — custom output formats and workflow definitions
 - **34 slash commands** for direct access to common workflows
 - **34 Python scripts** for deterministic execution (scoring, analysis, generation, guidelines management, email testing, A/B testing, social optimization, technical SEO auditing, local SEO checking, ROI calculation, budget optimization, CLV analysis, revenue forecasting, content repurposing, review response drafting, link profile analysis, ad budget pacing)
-- **12 MCP integrations** for connecting your own marketing accounts (GA4, Search Console, Google Ads, Meta, HubSpot, Mailchimp, etc.)
+- **18 MCP integrations** for connecting your own marketing accounts (GA4, Search Console, Google Ads, Meta, HubSpot, Mailchimp, TikTok Ads, Shopify, Salesforce, and more)
 - **Persistent brand memory** that learns across sessions
 - **Adaptive scoring** that adjusts to your industry, business model, and goals
 
@@ -84,7 +85,7 @@ On first use, the plugin will:
 The plugin works fully without any Python installation. All marketing knowledge, frameworks, agent capabilities, and slash commands work out of the box.
 
 **Knowledge-only mode (0 MB, no install)** — Default
-All 15 modules, 13 agents, 24 commands, and 96 reference knowledge files work with zero dependencies.
+All 16 modules, 13 agents, 34 commands, and 116 reference knowledge files work with zero dependencies.
 
 **Lite mode (~15 MB)** — Enables scoring scripts
 ```
@@ -274,12 +275,12 @@ The plugin stores brand data at `~/.claude-marketing/`:
 
 ```
 digital-marketing-pro/
-├── .claude-plugin/plugin.json    # Plugin manifest (v1.7.0)
-├── skills/                       # 50 skill directories (15 modules + 34 commands + context engine)
+├── .claude-plugin/plugin.json    # Plugin manifest (v1.8.0)
+├── skills/                       # 51 skill directories (16 modules + 34 commands + context engine)
 ├── agents/                       # 13 specialist agents
 ├── hooks/hooks.json              # Session lifecycle, compliance gates, and guideline checks
 ├── scripts/                      # 34 Python execution scripts + requirements.txt
-├── .mcp.json                     # Optional MCP integrations config
+├── .mcp.json                     # 18 optional MCP integrations
 ├── docs/                         # 11 documentation guides
 ├── README.md
 ├── CHANGELOG.md
@@ -291,7 +292,7 @@ See [Architecture Reference](docs/architecture.md) for the full technical deep-d
 
 ## MCP Integrations (Optional)
 
-The plugin works fully without any external API connections. For users who want to pull live data from their own marketing tools, the `.mcp.json` configuration file includes pre-configured MCP server definitions for 12 marketing platforms.
+The plugin works fully without any external API connections. For users who want to pull live data from their own marketing tools, the `.mcp.json` configuration file includes pre-configured MCP server definitions for 18 marketing platforms.
 
 | Integration | What It Enables |
 |-------------|----------------|
@@ -307,6 +308,12 @@ The plugin works fully without any external API connections. For users who want 
 | **Stripe** | Revenue data, conversion tracking, LTV calculations |
 | **Google Sheets** | Export reports and calendars to spreadsheets |
 | **Slack** | Send marketing reports and campaign alerts to channels |
+| **TikTok Ads** | Campaign performance, creative insights, audience analytics |
+| **Shopify** | eCommerce orders, products, customers, sales analytics |
+| **WordPress** | Content publishing, post management, SEO metadata |
+| **Salesforce** | CRM pipeline, opportunity data, lead management |
+| **Google Looker Studio** | Dashboard data, report embedding, cross-platform visualization |
+| **ActiveCampaign** | Email automation, lead scoring, CRM contacts, workflows |
 
 See the [Integrations Guide](docs/integrations-guide.md) for setup instructions, required environment variables, and multi-CRM patterns for agencies.
 

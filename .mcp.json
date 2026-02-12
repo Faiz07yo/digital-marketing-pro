@@ -102,6 +102,59 @@
         "AHREFS_API_KEY": "${AHREFS_API_KEY}"
       },
       "description": "Ahrefs — backlink profiles, keyword explorer, content gap analysis"
+    },
+    "tiktok-ads": {
+      "command": "npx",
+      "args": ["-y", "mcp-tiktok-ads"],
+      "env": {
+        "TIKTOK_ACCESS_TOKEN": "${TIKTOK_ACCESS_TOKEN}",
+        "TIKTOK_ADVERTISER_ID": "${TIKTOK_ADVERTISER_ID}"
+      },
+      "description": "TikTok Ads — campaign performance, creative insights, audience analytics, Spark Ads data"
+    },
+    "shopify": {
+      "command": "npx",
+      "args": ["-y", "mcp-shopify"],
+      "env": {
+        "SHOPIFY_STORE_URL": "${SHOPIFY_STORE_URL}",
+        "SHOPIFY_ACCESS_TOKEN": "${SHOPIFY_ACCESS_TOKEN}"
+      },
+      "description": "Shopify — eCommerce orders, products, customers, inventory, sales analytics"
+    },
+    "wordpress": {
+      "command": "npx",
+      "args": ["-y", "mcp-wordpress"],
+      "env": {
+        "WORDPRESS_SITE_URL": "${WORDPRESS_SITE_URL}",
+        "WORDPRESS_AUTH_TOKEN": "${WORDPRESS_AUTH_TOKEN}"
+      },
+      "description": "WordPress — content publishing, post management, SEO metadata, plugin data"
+    },
+    "salesforce": {
+      "command": "npx",
+      "args": ["-y", "mcp-salesforce"],
+      "env": {
+        "SALESFORCE_INSTANCE_URL": "${SALESFORCE_INSTANCE_URL}",
+        "SALESFORCE_ACCESS_TOKEN": "${SALESFORCE_ACCESS_TOKEN}"
+      },
+      "description": "Salesforce — CRM pipeline, opportunity data, lead management, account insights"
+    },
+    "google-looker-studio": {
+      "command": "npx",
+      "args": ["-y", "mcp-google-looker-studio"],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}"
+      },
+      "description": "Google Looker Studio — dashboard data, report embedding, cross-platform visualization"
+    },
+    "activecampaign": {
+      "command": "npx",
+      "args": ["-y", "mcp-activecampaign"],
+      "env": {
+        "ACTIVECAMPAIGN_API_URL": "${ACTIVECAMPAIGN_API_URL}",
+        "ACTIVECAMPAIGN_API_KEY": "${ACTIVECAMPAIGN_API_KEY}"
+      },
+      "description": "ActiveCampaign — email automation, lead scoring, CRM contacts, automation workflows"
     }
   }
 }

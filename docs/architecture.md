@@ -1,6 +1,6 @@
 # Technical Architecture Reference
 
-**Digital Marketing Pro** -- Claude Code Plugin v1.7.0
+**Digital Marketing Pro** -- Claude Code Plugin v1.8.0
 
 This document describes the internal architecture of the Digital Marketing Pro plugin for developers and contributors. It covers file structure, the WAT framework mapping, component anatomy, the hook system, script conventions, data persistence, adaptive scoring, and extension points.
 
@@ -11,8 +11,8 @@ This document describes the internal architecture of the Digital Marketing Pro p
 ```
 digital-marketing-pro/
 ├── .claude-plugin/
-│   └── plugin.json                    # Plugin manifest (v1.7.0)
-├── .mcp.json                          # 12 MCP server configurations
+│   └── plugin.json                    # Plugin manifest (v1.8.0)
+├── .mcp.json                          # 18 MCP server configurations
 ├── hooks/
 │   └── hooks.json                     # 3 lifecycle hooks
 ├── agents/                            # 13 specialist agents
@@ -56,16 +56,16 @@ digital-marketing-pro/
 │   ├── calendar-validator.py         # Content calendar validation (v1.5.0)
 │   ├── tech-seo-auditor.py          # Technical SEO URL auditing (v1.6.0)
 │   ├── local-seo-checker.py         # NAP consistency + GBP completeness (v1.6.0)
-│   ├── roi-calculator.py            # Campaign ROI + attribution models (v1.7.0)
-│   ├── budget-optimizer.py          # Budget reallocation + diminishing returns (v1.7.0)
-│   ├── clv-calculator.py            # Customer lifetime value models (v1.7.0)
-│   ├── content-repurposer.py        # Content repurposing matrix (v1.7.0)
-│   ├── review-response-drafter.py   # Review response generation (v1.7.0)
-│   ├── ad-budget-pacer.py           # Ad spend pacing analysis (v1.7.0)
-│   ├── link-profile-analyzer.py     # Backlink profile health scoring (v1.7.0)
-│   ├── revenue-forecaster.py        # Revenue forecasting models (v1.7.0)
+│   ├── roi-calculator.py            # Campaign ROI + attribution models (v1.8.0)
+│   ├── budget-optimizer.py          # Budget reallocation + diminishing returns (v1.8.0)
+│   ├── clv-calculator.py            # Customer lifetime value models (v1.8.0)
+│   ├── content-repurposer.py        # Content repurposing matrix (v1.8.0)
+│   ├── review-response-drafter.py   # Review response generation (v1.8.0)
+│   ├── ad-budget-pacer.py           # Ad spend pacing analysis (v1.8.0)
+│   ├── link-profile-analyzer.py     # Backlink profile health scoring (v1.8.0)
+│   ├── revenue-forecaster.py        # Revenue forecasting models (v1.8.0)
 │   └── requirements.txt               # Python dependencies
-├── skills/                            # 50 skill directories
+├── skills/                            # 51 skill directories
 │   ├── context-engine/                # Shared intelligence layer
 │   │   ├── SKILL.md
 │   │   ├── industry-profiles.md       # 22 industries
@@ -76,7 +76,7 @@ digital-marketing-pro/
 │   │   └── guidelines-framework.md    # Guidelines structure reference (v1.3.0)
 │   ├── brand-setup/SKILL.md           # Brand profile creation
 │   ├── switch-brand/SKILL.md          # Brand switching
-│   ├── [15 modules]/                  # Core marketing modules
+│   ├── [16 modules]/                  # Core marketing modules
 │   │   ├── SKILL.md                   # Module definition
 │   │   └── *.md                       # Reference knowledge files
 │   ├── import-guidelines/SKILL.md     # Guideline import (v1.3.0)
@@ -91,9 +91,9 @@ digital-marketing-pro/
 └── LICENSE
 ```
 
-**Total: 213 files** (200 plugin files + 13 documentation files).
+**Total: 233 files** (220 plugin files + 13 documentation files).
 
-The 15 modules are: content-engine, campaign-orchestrator, paid-advertising, analytics-insights, aeo-geo, audience-intelligence, cro, digital-pr, funnel-architect, growth-engineering, influencer-creator, reputation-management, emerging-channels, technical-seo, and local-seo.
+The 16 modules are: content-engine, campaign-orchestrator, paid-advertising, analytics-insights, aeo-geo, audience-intelligence, cro, digital-pr, funnel-architect, growth-engineering, influencer-creator, reputation-management, emerging-channels, technical-seo, local-seo, and marketing-automation.
 
 The 34 commands are: ab-test-plan, ad-creative, aeo-audit, audience-profile, budget-optimizer, campaign-plan, client-proposal, competitor-analysis, content-brief, content-calendar, content-repurpose, crisis-response, email-sequence, funnel-audit, import-guidelines, import-sop, import-template, influencer-brief, keyword-research, landing-page-audit, launch-plan, local-seo-audit, martech-audit, performance-report, pr-pitch, retargeting-strategy, review-response, roi-calculator, seo-audit, social-strategy, switch-brand, tech-seo-audit, and webinar-plan.
 
@@ -163,7 +163,7 @@ description: "One sentence describing when to invoke this module."
 [Trigger patterns -- natural language phrases that route to this module]
 
 ## Brand Context (Auto-Applied)
-[9-step brand context loading sequence -- identical across all 13 modules:
+[9-step brand context loading sequence -- identical across all 16 modules:
  1. Check session context for brand summary
  2. Load full profile from ~/.claude-marketing/brands/{slug}/profile.json
  3. Apply brand voice (formality, energy, humor, authority)
@@ -184,7 +184,7 @@ description: "One sentence describing when to invoke this module."
 [List of .md files in this module's directory that inform its output]
 ```
 
-The Brand Context block is standardized across all 15 modules to ensure consistent brand-aware behavior. Step 9 (guideline enforcement) was added in v1.3.0. If you modify this block, update it in all module SKILL.md files.
+The Brand Context block is standardized across all 16 modules to ensure consistent brand-aware behavior. Step 9 (guideline enforcement) was added in v1.3.0. If you modify this block, update it in all module SKILL.md files.
 
 ---
 
@@ -368,7 +368,7 @@ Brand profiles follow schema version `1.0.0` (defined in `setup.py` as `SCHEMA_V
 
 ## 9. MCP Configuration
 
-`.mcp.json` defines 12 MCP (Model Context Protocol) server integrations. These connect Claude Code to the user's own marketing platform accounts.
+`.mcp.json` defines 18 MCP (Model Context Protocol) server integrations. These connect Claude Code to the user's own marketing platform accounts.
 
 ### Server List
 
@@ -386,6 +386,12 @@ Brand profiles follow schema version `1.0.0` (defined in `setup.py` as `SCHEMA_V
 | linkedin-marketing | mcp-linkedin-marketing | Ad performance, company page analytics |
 | semrush | mcp-semrush | Keyword research, competitor analysis |
 | ahrefs | mcp-ahrefs | Backlink profiles, content gap analysis |
+| tiktok-ads | mcp-tiktok-ads | TikTok campaign performance, creative insights |
+| shopify | mcp-shopify | eCommerce orders, products, customers, sales |
+| wordpress | mcp-wordpress | Content publishing, post management, SEO |
+| salesforce | mcp-salesforce | CRM pipeline, opportunity data, leads |
+| google-looker-studio | mcp-google-looker-studio | Dashboard data, report embedding |
+| activecampaign | mcp-activecampaign | Email automation, lead scoring, workflows |
 
 ### Configuration Pattern
 

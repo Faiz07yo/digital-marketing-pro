@@ -1,7 +1,7 @@
 {
   "name": "digital-marketing-pro",
-  "version": "2.0.0",
-  "description": "Comprehensive digital marketing execution system with 18 specialist agents, brand guidelines enforcement, adaptive scoring, MCP integrations for your own marketing accounts, and persistent campaign memory. 16 integrated modules covering strategy, execution, and measurement across all channels, business models, and industries. Full execution layer: publish blogs, send email campaigns, launch ad campaigns, schedule social posts, sync CRM data, manage persistent memory via RAG, send SMS/WhatsApp, and deliver reports — all with human-in-the-loop approval workflow. Agency operations: multi-client credential profiles, portfolio dashboards, SOPs, team management. 68 slash commands for direct workflow access. 124 reference knowledge files powering deep domain expertise. Agents call 42 Python scripts for deterministic scoring, query 46 MCP servers for live data and execution, enforce brand guidelines, and persist campaign learnings across sessions via vector databases and knowledge graphs.",
+  "version": "2.1.0",
+  "description": "Comprehensive digital marketing execution system with 23 specialist agents, brand guidelines enforcement, adaptive scoring, MCP integrations for your own marketing accounts, and persistent campaign memory. 16 integrated modules covering strategy, execution, and measurement across all channels, business models, and industries. Full execution layer with human-in-the-loop approval workflow. Agency operations: multi-client credential profiles, portfolio dashboards, SOPs, team management. 102 slash commands for direct workflow access. 139 reference knowledge files powering deep domain expertise. Agents call 56 Python scripts for deterministic scoring, query 63 MCP servers for live data and execution, enforce brand guidelines, and persist campaign learnings across sessions. v2.1.0 adds: predictive intelligence (revenue simulation, churn prediction, market timing), GEO monitoring (AI visibility tracking across ChatGPT, Perplexity, Gemini), competitor monitoring (ongoing scanning, change detection, share of voice, alerts), SEO execution (meta tag updates, schema deployment, redirects via CMS), self-healing campaigns (auto-correction within guardrails), creative intelligence (fatigue prediction, content decay scanning), compound intelligence (cross-agent learning with confidence scoring), synthetic audience testing (simulated focus groups from CRM data), customer journey orchestration, growth loop modeling, competitive narrative warfare, and dark funnel intelligence.",
   "author": {
     "name": "Indranil Banerjee",
     "title": "Head of AI Transformation & Group Lead - Digital Marketing",
@@ -55,6 +55,13 @@
     "memory",
     "rag",
     "agency-operations",
-    "approval-workflow"
+    "approval-workflow",
+    "predictive-intelligence",
+    "geo-monitoring",
+    "competitor-monitoring",
+    "self-healing",
+    "synthetic-audience",
+    "creative-intelligence",
+    "journey-orchestration"
   ]
 }

@@ -1,11 +1,11 @@
 # Digital Marketing Pro — Claude Code & Cowork Plugin
 
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-optional-yellow.svg)](#python-dependencies-optional)
 [![Cowork](https://img.shields.io/badge/cowork-compatible-purple.svg)](docs/claude-interfaces.md#claude-cowork-full-support)
 
-The most comprehensive digital marketing plugin for Claude Code and Claude Cowork. 16 integrated modules covering the entire marketing spectrum from strategy to execution to measurement — including dedicated Technical SEO, Local SEO, and Marketing Automation modules. **v2.0 adds a full execution layer**: publish content, send emails, launch ads, schedule social, sync CRMs, manage persistent memory, and deliver reports — all with human-in-the-loop approval workflows. Multi-client agency operations with credential profiles, portfolio dashboards, and team management.
+The most comprehensive digital marketing plugin for Claude Code and Claude Cowork. 16 integrated modules covering the entire marketing spectrum from strategy to execution to measurement — including dedicated Technical SEO, Local SEO, and Marketing Automation modules. **v2.0 adds a full execution layer**: publish content, send emails, launch ads, schedule social, sync CRMs, manage persistent memory, and deliver reports — all with human-in-the-loop approval workflows. Multi-client agency operations with credential profiles, portfolio dashboards, and team management. **v2.1 adds predictive intelligence, GEO monitoring, competitor monitoring, SEO execution, self-healing campaigns, creative intelligence, compound intelligence, synthetic audience testing, journey orchestration, and more.**
 
 ## What This Plugin Does
 
@@ -37,17 +37,25 @@ Digital Marketing Pro transforms Claude into a full-stack marketing intelligence
 - **10 business models** supported (B2B SaaS, eCommerce, Local, Agency, Creator, Enterprise, Non-Profit, Marketplace, DTC, B2B Services)
 - **22 industry profiles** with benchmarks and compliance rules
 - **16 privacy law jurisdictions** auto-applied (GDPR, CCPA, PIPL, DPDPA, and more)
-- **18 specialist agents**, including 5 new execution agents (execution-coordinator, performance-monitor, CRM manager, memory manager, agency operations), that activate based on conversation context, call 42 Python scripts for scoring, query MCP servers for live data, enforce brand guidelines, and persist campaign learnings
+- **23 specialist agents**, including 5 execution agents, 2 predictive intelligence agents, and agents for competitor intelligence, compound intelligence, and journey orchestration, that activate based on conversation context, call 56 Python scripts for scoring, query MCP servers for live data, enforce brand guidelines, and persist campaign learnings
 - **Brand guidelines enforcement** — import voice guides, restrictions, channel styles, messaging frameworks; automatically applied across all modules
 - **Deliverable templates** and **agency SOPs** — custom output formats and workflow definitions
-- **68 slash commands** for direct access to common workflows — including 26 new execution commands for publishing, CRM, monitoring, memory, communication, agency ops, and team management
-- **42 Python scripts** for deterministic execution (scoring, analysis, generation, guidelines management, email testing, A/B testing, social optimization, technical SEO auditing, local SEO checking, ROI calculation, budget optimization, CLV analysis, revenue forecasting, content repurposing, review response drafting, link profile analysis, ad budget pacing, approval workflow, execution tracking, performance monitoring, CRM sync, credential management, team management, report generation, memory management)
-- **46 MCP integrations** for connecting your own marketing accounts AND executing actions (social publishing, email sending, CRM writes, ad campaign creation, SMS, vector databases, knowledge management, and more)
+- **102 slash commands** for direct access to common workflows — including execution, monitoring, predictive intelligence, GEO monitoring, competitor monitoring, SEO execution, creative intelligence, compound intelligence, journey orchestration, synthetic audience testing, and more
+- **56 Python scripts** for deterministic execution (scoring, analysis, generation, guidelines management, email testing, A/B testing, social optimization, technical SEO auditing, local SEO checking, ROI calculation, budget optimization, CLV analysis, revenue forecasting, content repurposing, review response drafting, link profile analysis, ad budget pacing, approval workflow, execution tracking, performance monitoring, CRM sync, credential management, team management, report generation, memory management, SEO execution, competitor tracking, GEO tracking, PDF generation, revenue simulation, churn prediction, macro signal tracking, creative fatigue prediction, intelligence graphing, journey engine, growth loop modeling, campaign health monitoring, narrative mapping, audience simulation)
+- **63 MCP integrations** for connecting your own marketing accounts AND executing actions (social publishing, email sending, CRM writes, ad campaign creation, SMS, vector databases, knowledge management, CRM platforms, PM/design tools, SEO/monitoring, marketing automation, and more)
 - **Persistent brand memory** that learns across sessions
 - **5-layer memory architecture** — session context → vector DB RAG (Pinecone/Qdrant) → temporal knowledge graphs (Graphiti) → universal agent memory (Supermemory) → knowledge base (Notion/Google Drive)
 - **Human-in-the-loop execution** — every write action requires explicit approval with risk-level classification (low/medium/high/critical) and industry-specific compliance gates
 - **Agency operations** — multi-client credential profiles, portfolio health dashboards, SOP library, team role management, white-labeled client reports, executive summaries
 - **Adaptive scoring** that adjusts to your industry, business model, and goals
+- **Predictive intelligence** — revenue simulation, churn prediction, market timing signals
+- **GEO monitoring** — AI visibility tracking across ChatGPT, Perplexity, Gemini, Copilot
+- **Competitor monitoring** — ongoing competitive scanning with change detection, share of voice, and alerts
+- **Self-healing campaigns** — auto-correction within guardrails for campaign health
+- **Creative intelligence** — fatigue prediction and content decay scanning
+- **Compound intelligence** — cross-agent learning hub with confidence scoring
+- **Synthetic audience testing** — simulated focus groups from CRM data
+- **Journey orchestration** — cross-channel journey state machines and growth loop modeling
 
 ## Installation
 
@@ -88,7 +96,7 @@ On first use, the plugin will:
 The plugin works fully without any Python installation. All marketing knowledge, frameworks, agent capabilities, and slash commands work out of the box.
 
 **Knowledge-only mode (0 MB, no install)** — Default
-All 16 modules, 18 agents, 68 commands, and 124 reference knowledge files work with zero dependencies.
+All 16 modules, 23 agents, 102 commands, and 139 reference knowledge files work with zero dependencies.
 
 **Lite mode (~15 MB)** — Enables scoring scripts
 ```
@@ -121,9 +129,12 @@ Just talk naturally. The plugin detects intent and activates the right modules:
 
 - "Help me plan a Q2 campaign" → Campaign Orchestrator + Marketing Strategist
 - "Write a blog post about..." → Content Engine + SEO Specialist
-- "How does my brand appear in ChatGPT?" → AEO/GEO Intelligence
+- "How does my brand appear in ChatGPT?" → AEO/GEO Intelligence + GEO Monitoring
 - "Review my landing page" → CRO + Analytics Analyst
 - "We have a PR crisis" → Crisis Communication + Brand Guardian
+- "Predict next quarter's revenue" → Predictive Intelligence + Marketing Scientist
+- "Monitor our competitors" → Competitor Intelligence + Competitor Monitoring
+- "Test this message with a focus group" → Synthetic Audience Testing
 
 See the [Getting Started Guide](docs/getting-started.md) for a full walkthrough with examples.
 
@@ -186,7 +197,7 @@ See the [Multi-Brand & Agency Guide](docs/multi-brand-guide.md) for detailed wor
 | [Brand Guidelines](docs/brand-guidelines.md) | Importing voice guides, restrictions, channel styles, templates, and agency SOPs |
 | [Multi-Brand & Agency Guide](docs/multi-brand-guide.md) | Multi-brand corporations (P&G pattern) and agency multi-client workflows |
 | [Strategy & KPI Mapping](docs/strategy-and-kpis.md) | Business objectives → KPI frameworks → campaign strategy → measurement loop |
-| [Integrations Guide](docs/integrations-guide.md) | MCP setup for GA4, HubSpot, Google Ads, Meta, and 8 more — including multi-CRM patterns |
+| [Integrations Guide](docs/integrations-guide.md) | MCP setup for GA4, HubSpot, Google Ads, Meta, and more — including multi-CRM patterns |
 | [Data & Insights](docs/data-and-insights.md) | Data flow, adaptive scoring, cross-session learning, campaign memory |
 | [Competitor Intelligence](docs/competitor-intelligence.md) | Setting up competitors, running analysis, responding to competitive moves |
 | [Historical Data](docs/historical-data.md) | How past campaigns and insights inform future strategies |
@@ -280,6 +291,111 @@ All commands use the `/dm:` prefix. If another plugin shares a command name, use
 | `/dm:team-assign` | Assign marketing tasks to team members by role and capacity |
 | `/dm:region-config` | Configure regional/market settings — timezone, language, compliance |
 | `/dm:exec-summary` | Generate C-suite-ready executive summary with portfolio ROI |
+| `/dm:seo-implement` | Execute SEO changes — meta tags, schema markup, redirects via CMS MCP |
+| `/dm:rank-monitor` | Track keyword rankings over time with trend analysis and alerts |
+| `/dm:serp-tracker` | Monitor SERP feature ownership (featured snippets, PAA, local pack) |
+| `/dm:redirect-manager` | Plan, validate, and deploy redirect chains with loop detection |
+| `/dm:competitor-monitor` | Start ongoing competitive scanning with change detection and baselines |
+| `/dm:share-of-voice` | Calculate share of voice across organic, paid, and social channels |
+| `/dm:competitor-alerts` | Configure real-time alerts for competitor changes (pricing, ads, content) |
+| `/dm:geo-monitor` | Track brand visibility across AI platforms (ChatGPT, Perplexity, Gemini, Copilot) |
+| `/dm:entity-audit` | Audit brand entity consistency across knowledge graphs and AI models |
+| `/dm:narrative-tracker` | Monitor how AI platforms describe your brand vs competitors |
+| `/dm:pdf-report` | Generate PDF performance reports with charts and executive summary |
+| `/dm:live-dashboard` | Create real-time dashboard with live metric connections |
+| `/dm:attribution-report` | Multi-touch attribution analysis with model comparison |
+| `/dm:cohort-analysis` | Customer cohort analysis with retention curves and LTV trends |
+| `/dm:simulate` | Run revenue simulation with scenario modeling and Monte Carlo analysis |
+| `/dm:what-if` | What-if analysis for budget, channel, and strategy changes |
+| `/dm:churn-risk` | Predict customer churn risk with intervention recommendations |
+| `/dm:creative-health` | Assess creative fatigue across campaigns with refresh recommendations |
+| `/dm:content-decay-scan` | Scan content library for decay — traffic drops, outdated info, broken links |
+| `/dm:learn` | Save cross-agent learnings to compound intelligence graph |
+| `/dm:recall` | Retrieve past learnings with confidence scoring and context |
+| `/dm:autopilot-status` | View self-healing campaign status — auto-corrections, guardrail triggers |
+| `/dm:journey-design` | Design cross-channel customer journey with state machines and triggers |
+| `/dm:loop-detect` | Identify and model growth loops (viral, content, paid, sales) |
+| `/dm:dark-funnel` | Analyze dark funnel touchpoints — communities, DMs, word-of-mouth signals |
+| `/dm:data-import` | Import external data from CSV, APIs, or databases into the plugin |
+| `/dm:add-integration` | Add custom MCP integration for unsupported platforms |
+| `/dm:narrative-landscape` | Map competitive narrative positioning across the market |
+| `/dm:counter-narrative` | Generate counter-narrative strategy against competitor positioning |
+| `/dm:focus-group` | Run synthetic focus group simulation from CRM persona data |
+| `/dm:message-test` | A/B test messaging variants against synthetic audience segments |
+| `/dm:market-weather` | Macro market signal dashboard — economic, seasonal, trend indicators |
+| `/dm:intelligence-report` | Cross-domain intelligence briefing combining all monitoring signals |
+| `/dm:pricing-test` | Price sensitivity testing with Van Westendorp and Gabor-Granger models |
+
+## Predictive Intelligence
+
+Revenue simulation, churn prediction, and market timing powered by the **marketing-scientist** and **market-intelligence** agents. Run Monte Carlo simulations, model what-if scenarios, track macro signals, and predict customer churn with intervention recommendations.
+
+- `/dm:simulate` — revenue simulation with scenario modeling
+- `/dm:what-if` — what-if analysis for budget and strategy changes
+- `/dm:churn-risk` — churn prediction with intervention playbooks
+- `/dm:market-weather` — macro market signal monitoring
+- `/dm:intelligence-report` — cross-domain intelligence briefing
+- `/dm:pricing-test` — price sensitivity testing
+
+## GEO Monitoring
+
+Track your brand's visibility across AI platforms — ChatGPT, Perplexity, Gemini, and Copilot. Monitor how AI models describe your brand, audit entity consistency, and track narrative changes over time.
+
+- `/dm:geo-monitor` — AI platform visibility tracking
+- `/dm:entity-audit` — entity consistency across knowledge graphs
+- `/dm:narrative-tracker` — AI narrative monitoring
+
+## Competitor Monitoring
+
+Ongoing competitive scanning with change detection, share of voice tracking, and real-time alerts. The **competitor-intelligence** agent maintains baselines, detects changes in competitor pricing, ads, content, and positioning.
+
+- `/dm:competitor-monitor` — continuous competitive scanning
+- `/dm:share-of-voice` — SOV across organic, paid, and social
+- `/dm:competitor-alerts` — real-time change alerts
+
+## SEO Execution
+
+Move beyond audits to execution. Deploy meta tag updates, schema markup, and redirects directly through CMS MCP integrations. Track rankings and SERP feature ownership over time.
+
+- `/dm:seo-implement` — execute SEO changes via CMS
+- `/dm:rank-monitor` — keyword ranking tracking
+- `/dm:serp-tracker` — SERP feature monitoring
+- `/dm:redirect-manager` — redirect deployment and validation
+
+## Self-Healing Campaigns
+
+Campaigns that auto-correct within defined guardrails. The **campaign-health-monitor** script detects budget pacing issues, performance drops, and deliverability problems, then applies corrections automatically with full audit trails.
+
+- `/dm:autopilot-status` — view auto-corrections and guardrail triggers
+
+## Creative Intelligence
+
+Predict creative fatigue before it impacts performance. Scan content libraries for decay — traffic drops, outdated information, and broken links. Proactive refresh recommendations.
+
+- `/dm:creative-health` — creative fatigue assessment
+- `/dm:content-decay-scan` — content library health scan
+
+## Compound Intelligence
+
+Cross-agent learning hub where insights from one agent improve all others. The **intelligence-curator** agent maintains a confidence-scored intelligence graph that grows smarter with every interaction.
+
+- `/dm:learn` — save learnings to intelligence graph
+- `/dm:recall` — retrieve past learnings with confidence scoring
+
+## Synthetic Audience Testing
+
+Simulate focus groups and message tests using synthetic audiences built from your CRM data and persona profiles. Test messaging, positioning, and creative before spending budget.
+
+- `/dm:focus-group` — synthetic focus group simulation
+- `/dm:message-test` — message A/B testing against synthetic segments
+
+## Journey Orchestration
+
+Design and manage cross-channel customer journeys with state machines, triggers, and growth loop modeling. The **journey-orchestrator** agent manages journey state across email, social, ads, and web. Detect growth loops and analyze dark funnel touchpoints.
+
+- `/dm:journey-design` — cross-channel journey design
+- `/dm:loop-detect` — growth loop identification and modeling
+- `/dm:dark-funnel` — dark funnel analysis
 
 ## Persistent Memory
 
@@ -312,12 +428,12 @@ The plugin stores brand data at `~/.claude-marketing/`:
 
 ```
 digital-marketing-pro/
-├── .claude-plugin/plugin.json    # Plugin manifest (v2.0.0)
-├── skills/                       # 85 skill directories (16 modules + 68 commands + context engine)
-├── agents/                       # 18 specialist agents
+├── .claude-plugin/plugin.json    # Plugin manifest (v2.1.0)
+├── skills/                       # 119 skill directories (16 modules + 102 commands + context engine)
+├── agents/                       # 23 specialist agents
 ├── hooks/hooks.json              # Session lifecycle, compliance gates, guideline checks, and MCP write safety
-├── scripts/                      # 42 Python execution scripts + requirements.txt
-├── .mcp.json                     # 46 optional MCP integrations
+├── scripts/                      # 56 Python execution scripts + requirements.txt
+├── .mcp.json                     # 63 optional MCP integrations
 ├── docs/                         # 11 documentation guides
 ├── README.md
 ├── CHANGELOG.md
@@ -327,30 +443,216 @@ digital-marketing-pro/
 
 See [Architecture Reference](docs/architecture.md) for the full technical deep-dive.
 
+### Agents (23)
+
+| Agent | Role |
+|-------|------|
+| `marketing-strategist` | Overall strategy, campaign planning, budget allocation |
+| `content-creator` | Content writing across all formats and channels |
+| `seo-specialist` | SEO audits, keyword strategy, technical SEO, local SEO |
+| `analytics-analyst` | Performance analysis, reporting, anomaly detection |
+| `brand-guardian` | Brand voice enforcement, guideline compliance |
+| `media-buyer` | Paid advertising strategy, bid optimization, budget pacing |
+| `growth-engineer` | Growth loops, viral mechanics, retention, PLG |
+| `influencer-manager` | Influencer discovery, briefs, campaign management |
+| `competitive-intel` | Competitor analysis and market positioning |
+| `pr-outreach` | Media relations, press releases, thought leadership |
+| `email-specialist` | Email deliverability, automation, lifecycle sequences |
+| `cro-specialist` | Conversion optimization, A/B testing, form optimization |
+| `social-media-manager` | Platform-native social strategy, community management |
+| `execution-coordinator` | Bridges planning and execution with approval workflow |
+| `performance-monitor-agent` | Live data monitoring, anomaly detection, campaign health |
+| `crm-manager` | Cross-CRM operations (Salesforce/HubSpot/Zoho/Pipedrive) |
+| `memory-manager` | Persistent brand knowledge via RAG and knowledge graphs |
+| `agency-operations` | Multi-client portfolio management, SOPs, credential profiles |
+| `competitor-intelligence` | Ongoing competitive scanning with change detection |
+| `marketing-scientist` | Revenue simulation, churn prediction, statistical modeling |
+| `market-intelligence` | Macro signal tracking, market timing, economic indicators |
+| `intelligence-curator` | Cross-agent learning hub with confidence scoring |
+| `journey-orchestrator` | Cross-channel journey state machines, growth loops |
+
+### Scripts (56)
+
+| Script | Purpose |
+|--------|---------|
+| `setup.py` | Brand profiling and session initialization |
+| `brand-voice-scorer.py` | Brand voice alignment scoring |
+| `content-scorer.py` | Content quality scoring |
+| `readability-analyzer.py` | Readability analysis (Flesch-Kincaid, etc.) |
+| `competitor-scraper.py` | Competitor website analysis |
+| `social-post-formatter.py` | Platform-specific social formatting |
+| `qr-code-generator.py` | QR code generation |
+| `visibility-checker.py` | AI visibility checking |
+| `campaign-tracker.py` | Campaign memory and insights persistence |
+| `adaptive-scorer.py` | Context-aware adaptive scoring |
+| `guidelines-manager.py` | Brand guidelines CRUD operations |
+| `email-subject-tester.py` | Email subject line scoring |
+| `spam-score-checker.py` | Email spam risk checking |
+| `send-time-optimizer.py` | Email send time optimization |
+| `sample-size-calculator.py` | A/B test sample size calculation |
+| `significance-tester.py` | Statistical significance testing |
+| `form-analyzer.py` | Form conversion optimization |
+| `hashtag-analyzer.py` | Hashtag analysis per platform |
+| `posting-time-analyzer.py` | Social posting time optimization |
+| `calendar-validator.py` | Content calendar validation |
+| `tech-seo-auditor.py` | Technical SEO auditing |
+| `local-seo-checker.py` | Local SEO NAP consistency checking |
+| `roi-calculator.py` | Campaign ROI calculation |
+| `budget-optimizer.py` | Budget reallocation optimization |
+| `clv-calculator.py` | Customer lifetime value calculation |
+| `content-repurposer.py` | Content repurposing strategy |
+| `review-response-drafter.py` | Review response drafting |
+| `ad-budget-pacer.py` | Ad budget pacing analysis |
+| `link-profile-analyzer.py` | Link profile health analysis |
+| `revenue-forecaster.py` | Revenue forecasting |
+| `approval-manager.py` | Approval lifecycle management |
+| `execution-tracker.py` | Execution audit trail |
+| `performance-monitor.py` | Metrics aggregation and anomaly detection |
+| `memory-manager.py` | Vector DB/RAG interface and sync |
+| `crm-sync.py` | CRM data preparation and sync |
+| `report-generator.py` | Formatted report generation |
+| `credential-manager.py` | Per-brand credential profiles |
+| `team-manager.py` | Team roles, permissions, capacity |
+| `seo-executor.py` | SEO change tracking and execution via CMS |
+| `competitor-tracker.py` | Competitive baselines, diff, SOV, pricing, ads |
+| `geo-tracker.py` | AI visibility auditing across ChatGPT, Perplexity, Gemini, Copilot |
+| `pdf-generator.py` | PDF report generation and scheduling |
+| `revenue-simulator.py` | Monte Carlo revenue simulation |
+| `churn-predictor.py` | Customer churn prediction |
+| `macro-signal-tracker.py` | Macro economic and market signal tracking |
+| `creative-fatigue-predictor.py` | Creative fatigue prediction |
+| `intelligence-graph.py` | Cross-agent intelligence graph |
+| `journey-engine.py` | Cross-channel journey state machines |
+| `growth-loop-modeler.py` | Growth loop identification and modeling |
+| `campaign-health-monitor.py` | Self-healing campaign monitoring |
+| `narrative-mapper.py` | Competitive narrative mapping |
+| `audience-simulator.py` | Synthetic audience simulation |
+
 ## MCP Integrations (Optional)
 
-The plugin works fully without any external API connections. For users who want to pull live data from their own marketing tools, the `.mcp.json` configuration file includes pre-configured MCP server definitions for 46 marketing platforms.
+The plugin works fully without any external API connections. For users who want to pull live data from their own marketing tools, the `.mcp.json` configuration file includes pre-configured MCP server definitions for 63 marketing platforms.
+
+### Analytics & Data
 
 | Integration | What It Enables |
 |-------------|----------------|
 | **Google Analytics 4** | Traffic, conversions, audience data for performance reports |
 | **Google Search Console** | Ranking data, queries, CTR for SEO audits |
+| **Mixpanel** | Product analytics, user behavior, funnel analysis |
+| **Amplitude** | Product analytics, cohort analysis, experimentation |
+| **BigQuery** | Data warehouse queries, cross-platform analysis |
+| **Google Looker Studio** | Dashboard data, report embedding, cross-platform visualization |
+
+### Advertising
+
+| Integration | What It Enables |
+|-------------|----------------|
 | **Google Ads** | Campaign performance, keyword data, bid optimization |
 | **Meta Business Suite** | Facebook/Instagram ads, audience insights |
-| **HubSpot CRM** | Contacts, deals, email performance, pipeline data |
-| **Mailchimp** | Email campaign analytics, list management |
 | **LinkedIn Marketing** | Ad performance, company page analytics |
+| **TikTok Ads** | Campaign performance, creative insights, audience analytics |
+
+### SEO & Monitoring
+
+| Integration | What It Enables |
+|-------------|----------------|
 | **SEMrush** | Keyword research, competitor analysis, backlink data |
 | **Ahrefs** | Backlink profiles, keyword explorer, content gaps |
-| **Stripe** | Revenue data, conversion tracking, LTV calculations |
-| **Google Sheets** | Export reports and calendars to spreadsheets |
-| **Slack** | Send marketing reports and campaign alerts to channels |
-| **TikTok Ads** | Campaign performance, creative insights, audience analytics |
-| **Shopify** | eCommerce orders, products, customers, sales analytics |
-| **WordPress** | Content publishing, post management, SEO metadata |
+| **Moz** | Domain authority, keyword tracking, site crawl data |
+| **Google PageSpeed** | Core Web Vitals, performance scoring, optimization suggestions |
+| **Brandwatch** | Social listening, sentiment analysis, brand monitoring |
+
+### CRM
+
+| Integration | What It Enables |
+|-------------|----------------|
+| **HubSpot CRM** | Contacts, deals, email performance, pipeline data |
 | **Salesforce** | CRM pipeline, opportunity data, lead management |
-| **Google Looker Studio** | Dashboard data, report embedding, cross-platform visualization |
+| **Zoho CRM** | Contacts, deals, automation, lead management |
+| **Pipedrive** | Deal pipeline, activity tracking, sales analytics |
+| **Odoo** | CRM, sales, marketing, inventory, all-in-one ERP |
+| **Freshsales** | AI lead scoring, deal management, email tracking |
+| **Monday CRM** | Visual pipelines, automations, team collaboration |
+| **Microsoft Dynamics 365** | Enterprise CRM, sales insights, customer service |
+| **Copper** | Google Workspace-native CRM, relationship tracking |
+| **Close** | Inside sales CRM, calling, email sequences |
+| **Keap** | Small business CRM, automation, payments |
+
+### Email & Messaging
+
+| Integration | What It Enables |
+|-------------|----------------|
+| **Mailchimp** | Email campaign analytics, list management |
+| **SendGrid** | Transactional and marketing email sending |
+| **Klaviyo** | eCommerce email/SMS automation, segmentation |
+| **Customer.io** | Behavioral email/push automation |
+| **Brevo** | Email, SMS, WhatsApp campaigns |
+| **Mailgun** | Email API, deliverability monitoring |
+
+### Social Publishing
+
+| Integration | What It Enables |
+|-------------|----------------|
+| **Twitter/X** | Post scheduling, engagement tracking |
+| **Instagram** | Content publishing, story management |
+| **LinkedIn Publishing** | Article and post publishing |
+| **TikTok Content** | Video publishing, trend data |
+| **YouTube** | Video publishing, analytics |
+| **Pinterest** | Pin creation, board management |
+
+### CMS & eCommerce
+
+| Integration | What It Enables |
+|-------------|----------------|
+| **WordPress** | Content publishing, post management, SEO metadata |
+| **Webflow** | CMS content publishing, design-aware publishing |
+| **Shopify** | eCommerce orders, products, customers, sales analytics |
+
+### Marketing Automation
+
+| Integration | What It Enables |
+|-------------|----------------|
 | **ActiveCampaign** | Email automation, lead scoring, CRM contacts, workflows |
+| **Marketo** | Enterprise marketing automation, lead management, campaign orchestration |
+| **Pardot** | B2B marketing automation, lead nurturing, ROI reporting |
+
+### Memory & Knowledge
+
+| Integration | What It Enables |
+|-------------|----------------|
+| **Pinecone** | Vector database for RAG-powered brand knowledge |
+| **Qdrant** | Vector search for semantic knowledge retrieval |
+| **Supermemory** | Universal agent memory across sessions |
+| **Graphiti** | Temporal knowledge graphs for campaign learning |
+| **Notion** | Knowledge base content management |
+| **Google Drive** | Document storage and retrieval |
+
+### Communication & Revenue
+
+| Integration | What It Enables |
+|-------------|----------------|
+| **Slack** | Send marketing reports and campaign alerts to channels |
+| **Twilio** | SMS/WhatsApp messaging |
+| **Intercom** | Customer messaging, team notifications |
+| **Stripe** | Revenue data, conversion tracking, LTV calculations |
+
+### Project Management & Design
+
+| Integration | What It Enables |
+|-------------|----------------|
+| **Jira** | Issue tracking, sprint management, marketing project workflows |
+| **Asana** | Task management, project timelines, team coordination |
+| **ClickUp** | All-in-one project management, docs, goals |
+| **Canva** | Design creation, template management, brand kit |
+| **Figma** | Design collaboration, prototyping, asset export |
+
+### Testing & Database
+
+| Integration | What It Enables |
+|-------------|----------------|
+| **Linear** | Issue tracking, project management |
+| **Optimizely** | A/B testing, experimentation |
+| **Supabase** | Database operations, real-time data |
 
 See the [Integrations Guide](docs/integrations-guide.md) for setup instructions, required environment variables, and multi-CRM patterns for agencies.
 

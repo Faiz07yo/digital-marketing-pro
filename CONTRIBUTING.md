@@ -74,7 +74,7 @@ Before producing any marketing output from this module:
 Do not ask the user for information that already exists in their brand profile.
 ```
 
-**Command skills** (42 slash commands) must have an explicit brand loading step as Process step 1:
+**Command skills** (102 slash commands) must have an explicit brand loading step as Process step 1:
 
 ```markdown
 1. **Load brand context**: Read `~/.claude-marketing/brands/_active-brand.json` for the active slug, then load `~/.claude-marketing/brands/{slug}/profile.json`. Apply brand voice, compliance rules for target markets (`skills/context-engine/compliance-rules.md`), and industry context. If no brand exists, ask: "Set up a brand first (/dm:brand-setup)?" — or proceed with defaults.
@@ -193,6 +193,62 @@ The 13 core reference files in `skills/context-engine/` are shared across all mo
 
 When updating these files, ensure all modules that reference them still work correctly.
 
+## Novel Feature Conventions
+
+### Predictive Scripts
+
+Predictive scripts (forecasting, simulation, scenario modeling) must:
+
+1. **Use stdlib only**: Only `random`, `math`, and `statistics` from the Python standard library. No NumPy, SciPy, or pandas required.
+2. **Monte Carlo defaults**: Simulations should default to **10,000 iterations**. Accept `--iterations` to override.
+3. **Reproducibility**: Accept `--seed` for deterministic runs. When a seed is provided, call `random.seed(seed)` before any randomization. Document the default seed behavior (None = random) in the script's `--help` output.
+4. **Output confidence intervals**: Results must include confidence intervals (e.g., p10/p50/p90) rather than single-point estimates.
+
+### Intelligence Layer
+
+All learnings stored by the intelligence layer must include these required fields:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `confidence` | float (0-1) | How confident the system is in this learning |
+| `source_agent` | string | Which agent produced the learning |
+| `conditions` | object | Context under which the learning applies (brand, channel, audience, etc.) |
+| `timestamp` | ISO 8601 | When the learning was recorded |
+| `revalidation_date` | ISO 8601 | When the learning should be re-evaluated (default: 90 days) |
+
+Learnings with `confidence < 0.3` must be flagged as hypotheses, not treated as established knowledge.
+
+### Synthetic Audience
+
+When generating synthetic audience data (panels, personas, simulated responses):
+
+1. **Always include a confidence limitations disclaimer** in the output: "These are synthetic results generated from modeled assumptions, not empirical data. Treat as hypotheses for directional guidance, not as validated research."
+2. **Synthetic results are hypotheses, not data**: Never present synthetic outputs as equivalent to real survey or analytics data. Label all synthetic outputs with `"synthetic": true` in JSON.
+3. **Document assumptions**: List every assumption baked into the synthetic model (sample composition, response distributions, behavioral models).
+
+### Self-Healing
+
+Self-healing features (auto-corrections, automated fixes, adaptive adjustments) must follow these guardrails:
+
+1. **All auto-corrections must be logged**: Every automated change must be recorded via `execution-tracker.py` with the original value, new value, reason, and timestamp.
+2. **Reversible by default**: Every auto-correction must store enough state to undo it. Include a `--rollback` flag or equivalent mechanism.
+3. **Configurable guardrails**: Auto-correction limits must be configurable (e.g., max budget adjustment percentage, max bid change per cycle). Defaults should be conservative. Never exceed guardrails without explicit user approval.
+4. **Escalation threshold**: If a self-healing action would exceed the configured guardrail, escalate to the user instead of acting autonomously.
+
+### GEO Monitoring
+
+Generative Engine Optimization (GEO) monitoring must use a consistent scoring rubric across all tools:
+
+| Mention Type | Score | Definition |
+|-------------|-------|------------|
+| Cited | **10** | Brand explicitly named as a source or recommendation |
+| Mentioned | **7** | Brand named in a relevant context without direct endorsement |
+| Concept-only | **3** | Brand's category or solution mentioned but brand not named |
+| Absent | **0** | No mention of brand or relevant category |
+| Misrepresented | **-5** | Brand mentioned with incorrect or damaging context |
+
+All GEO scripts must use these exact values. Do not create alternative scoring scales.
+
 ## Testing Your Changes
 
 ### Manual Testing
@@ -209,7 +265,7 @@ When updating these files, ensure all modules that reference them still work cor
 - [ ] Scripts exit with code 0 (even on missing optional deps)
 - [ ] Brand context loading path is explicit in all command skills
 - [ ] No hardcoded file paths (use `~/.claude-marketing/` or `${CLAUDE_PLUGIN_ROOT}`)
-- [ ] File count hasn't changed unexpectedly (currently ~291 files including docs)
+- [ ] File count hasn't changed unexpectedly (currently ~410 files including docs)
 
 ## Code of Conduct
 

@@ -4,6 +4,92 @@ All notable changes to the Digital Marketing Pro plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses [Semantic Versioning](https://semver.org/).
 
+## [2.1.0] — 2026-02-13
+
+### Added — Intelligence, Monitoring & Execution Gaps (~78 new files, ~11 modified)
+
+**MCP Expansion (46 → 63 servers)**
+- 7 new CRM MCPs: Odoo, Freshsales, Monday CRM, Microsoft Dynamics 365, Copper, Close, Keap
+- 5 new PM/Design MCPs: Jira, Asana, ClickUp, Canva, Figma
+- 3 new SEO/Monitoring MCPs: Moz, Google PageSpeed, Brandwatch
+- 2 new Marketing Automation MCPs: Marketo, Pardot
+
+**SEO Execution Layer (4 commands + 1 script + 1 ref)**
+- Commands: seo-implement, rank-monitor, serp-tracker, redirect-manager
+- Script: seo-executor.py — track and execute SEO changes via CMS MCPs
+- Reference: seo-execution-guide.md
+
+**Competitor Monitoring System (3 commands + 1 agent + 1 script + 1 ref)**
+- Commands: competitor-monitor, share-of-voice, competitor-alerts
+- Agent: competitor-intelligence — ongoing competitive scanning with change detection
+- Script: competitor-tracker.py — baselines, diff, mentions, SOV, pricing, ads, win/loss
+- Reference: competitive-monitoring-guide.md
+
+**GEO Execution & Monitoring (3 commands + 1 script + 1 ref)**
+- Commands: geo-monitor, entity-audit, narrative-tracker
+- Script: geo-tracker.py — AI visibility auditing across ChatGPT, Perplexity, Gemini, Copilot
+- Reference: geo-execution-guide.md
+
+**Advanced Reporting (4 commands + 1 script + 1 ref)**
+- Commands: pdf-report, live-dashboard, attribution-report, cohort-analysis
+- Script: pdf-generator.py — report generation and scheduling
+- Reference: advanced-reporting-guide.md
+
+**Programmatic Gaps (2 ref)**
+- native-advertising.md — Taboola, Outbrain, Nativo, TripleLift, Sharethrough
+- audio-programmatic.md — Spotify, Pandora, podcast programmatic
+
+**Inter-System Connectivity (2 commands + 1 ref)**
+- Commands: data-import, add-integration
+- Reference: custom-mcp-guide.md
+
+**Predictive Intelligence (3 commands + 2 agents + 3 scripts + 2 ref)**
+- Commands: simulate, what-if, churn-risk
+- Agents: marketing-scientist, market-intelligence
+- Scripts: revenue-simulator.py, churn-predictor.py, macro-signal-tracker.py
+- References: marketing-science-guide.md, market-intelligence-guide.md
+
+**Creative Intelligence (2 commands + 1 script + 1 ref)**
+- Commands: creative-health, content-decay-scan
+- Script: creative-fatigue-predictor.py
+- Reference: creative-intelligence-guide.md
+
+**Compound Intelligence (2 commands + 1 agent + 1 script + 1 ref)**
+- Commands: learn, recall
+- Agent: intelligence-curator — cross-agent learning hub with confidence scoring
+- Script: intelligence-graph.py
+- Reference: compound-intelligence-guide.md
+
+**Journey & Growth (3 commands + 1 agent + 2 scripts + 1 ref)**
+- Commands: journey-design, loop-detect, dark-funnel
+- Agent: journey-orchestrator — cross-channel journey state machines
+- Scripts: journey-engine.py, growth-loop-modeler.py
+- Reference: journey-growth-guide.md
+
+**Self-Healing Operations (1 command + 1 script + 1 ref)**
+- Command: autopilot-status
+- Script: campaign-health-monitor.py
+- Reference: self-healing-ops-guide.md
+
+**Competitive Narrative (2 commands + 1 script + 1 ref)**
+- Commands: narrative-landscape, counter-narrative
+- Script: narrative-mapper.py
+- Reference: narrative-warfare-guide.md
+
+**Synthetic Audience (2 commands + 1 script + 1 ref)**
+- Commands: focus-group, message-test
+- Script: audience-simulator.py
+- Reference: synthetic-audience-guide.md
+
+**Additional Commands (3)**
+- market-weather, intelligence-report, pricing-test
+
+### Changed
+- Updated CRM integration guide with 7 new platform field mappings
+- Updated plugin.json description and keywords
+- Updated README with all new counts and capability sections
+- Updated .gitignore with new data directories
+
 ## [2.0.0] - 2026-02-12
 
 ### Added — Execution Layer

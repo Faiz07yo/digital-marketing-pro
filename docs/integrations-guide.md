@@ -1,8 +1,8 @@
 # Integrations & CRM Guide
 
-> **Digital Marketing Pro** v2.0.0 | For marketing operations managers
+> **Digital Marketing Pro** v2.1.0 | For marketing operations managers
 >
-> This guide covers all 46 MCP integrations available in the plugin, how to configure them, how to manage credentials across multiple clients, and what the plugin can do with or without live connections.
+> This guide covers all 63 MCP integrations available in the plugin, how to configure them, how to manage credentials across multiple clients, and what the plugin can do with or without live connections.
 
 ---
 
@@ -28,6 +28,11 @@
    - [Communication (v2.0.0)](#communication-v200)
    - [Project Management & Testing (v2.0.0)](#project-management--testing-v200)
    - [Database (v2.0.0)](#database-v200)
+   - [CRM --- New Platforms (v2.1.0)](#crm--new-platforms-v210)
+   - [Project Management --- New Platforms (v2.1.0)](#project-management--new-platforms-v210)
+   - [Design Tools (v2.1.0)](#design-tools-v210)
+   - [SEO & Monitoring (v2.1.0)](#seo--monitoring-v210)
+   - [Marketing Automation --- New Platforms (v2.1.0)](#marketing-automation--new-platforms-v210)
 4. [Multi-CRM Setup for Agencies](#4-multi-crm-setup-for-agencies)
 5. [What Works Without Integrations](#5-what-works-without-integrations)
 6. [Data Privacy & Security](#6-data-privacy--security)
@@ -44,9 +49,9 @@ In practical terms: instead of you manually pulling a GA4 report, pasting it int
 
 ### How the Plugin Uses MCP
 
-The plugin ships with a `.mcp.json` configuration file that defines 46 MCP server connections. Each one maps to a marketing platform or productivity tool. None of them are active by default. They activate only when you set the required environment variables for that service.
+The plugin ships with a `.mcp.json` configuration file that defines 63 MCP server connections. Each one maps to a marketing platform or productivity tool. None of them are active by default. They activate only when you set the required environment variables for that service.
 
-This is the key design principle: **the plugin works fully without any integrations enabled.** All 16 skill modules, 124 reference knowledge files, scoring scripts, brand voice analysis, compliance checking, and campaign planning features operate entirely offline using built-in benchmarks and reference data. MCP integrations layer real data on top of that foundation.
+This is the key design principle: **the plugin works fully without any integrations enabled.** All 16 skill modules, 139 reference knowledge files, scoring scripts, brand voice analysis, compliance checking, and campaign planning features operate entirely offline using built-in benchmarks and reference data. MCP integrations layer real data on top of that foundation.
 
 ### What Happens Under the Hood
 
@@ -1075,6 +1080,424 @@ You: Export our campaign performance table to a CSV and analyze trends
 
 ---
 
+### CRM -- New Platforms (v2.1.0)
+
+v2.1.0 adds seven additional CRM platforms, expanding the plugin's CRM coverage beyond HubSpot, Salesforce, Zoho, and Pipedrive. These servers power the `crm-sync`, `lead-import`, and `pipeline-update` commands.
+
+#### Odoo
+
+**What it enables:** Full CRM, invoicing, inventory, and project management integration. Ideal for SMBs that use Odoo as their all-in-one business platform. Powers the `crm-sync` and `pipeline-update` commands with Odoo deal and contact data.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `ODOO_URL` | Your Odoo instance URL (e.g., `https://yourcompany.odoo.com`) |
+| `ODOO_DB` | Odoo database name |
+| `ODOO_API_KEY` | Odoo API key or user token |
+
+**Example usage:**
+```
+You: Sync our latest webinar leads into Odoo CRM and assign them to the sales team
+```
+
+---
+
+#### Freshsales
+
+**What it enables:** Lead and deal management, contact scoring, activity tracking, and sales sequences. Powers the `crm-sync`, `lead-import`, and `pipeline-update` commands for Freshsales users.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `FRESHSALES_API_KEY` | Freshsales API key |
+| `FRESHSALES_DOMAIN` | Your Freshsales domain (e.g., `yourcompany.freshsales.io`) |
+
+**Example usage:**
+```
+You: Import our trade show leads into Freshsales and create a nurture sequence
+```
+
+---
+
+#### Monday CRM
+
+**What it enables:** CRM board management, deal tracking, contact management, and workflow automations within Monday.com. Powers the `crm-sync` and `pipeline-update` commands for Monday CRM users.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `MONDAY_API_TOKEN` | Monday.com API v2 token |
+
+**Where to get credentials:**
+1. Go to Monday.com > Profile > Developers > My Access Tokens
+2. Generate a personal API token
+
+**Example usage:**
+```
+You: Update all stale deals in our Monday CRM board that haven't been touched in 30 days
+```
+
+---
+
+#### Dynamics 365
+
+**What it enables:** Microsoft Dynamics 365 CRM integration for leads, opportunities, accounts, and marketing lists. Powers the `crm-sync`, `lead-import`, and `pipeline-update` commands for enterprise Microsoft environments.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `DYNAMICS_365_URL` | Your Dynamics 365 instance URL (e.g., `https://yourorg.crm.dynamics.com`) |
+| `DYNAMICS_365_CLIENT_ID` | Azure AD app client ID |
+| `DYNAMICS_365_CLIENT_SECRET` | Azure AD app client secret |
+| `DYNAMICS_365_TENANT_ID` | Azure AD tenant ID |
+
+**Where to get credentials:**
+1. Register an application in Azure Active Directory
+2. Grant Dynamics CRM API permissions to the app
+3. Generate a client secret under Certificates & Secrets
+
+**Example usage:**
+```
+You: Pull our Dynamics 365 opportunity pipeline and identify deals at risk of slipping
+```
+
+---
+
+#### Copper
+
+**What it enables:** Google Workspace-native CRM integration for contacts, deals, activities, and pipeline management. Powers the `crm-sync` and `pipeline-update` commands for teams that use Copper with Google Workspace.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `COPPER_API_KEY` | Copper API key |
+| `COPPER_USER_EMAIL` | Email address associated with the Copper account |
+
+**Where to get credentials:**
+1. Go to Copper > Settings > Integrations > API Keys
+2. Generate a new API key
+
+**Example usage:**
+```
+You: Sync our Google Workspace contacts from Copper and segment them by deal stage
+```
+
+---
+
+#### Close
+
+**What it enables:** Sales CRM with built-in calling, email sequences, and pipeline management. Powers the `crm-sync`, `lead-import`, and `pipeline-update` commands for Close users.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `CLOSE_API_KEY` | Close API key |
+
+**Where to get credentials:**
+1. Go to Close > Settings > Your API Keys
+2. Generate a new API key
+
+**Example usage:**
+```
+You: Pull our Close CRM call activity data and identify which sequences have the best connect rates
+```
+
+---
+
+#### Keap
+
+**What it enables:** Keap (formerly Infusionsoft) contact management, deal tracking, invoicing, and marketing automation. Powers the `crm-sync`, `lead-import`, and `pipeline-update` commands for Keap users.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `KEAP_API_KEY` | Keap personal access token |
+
+**Where to get credentials:**
+1. Go to Keap Developer Portal > API Settings
+2. Generate a personal access token with CRM and marketing scopes
+
+**Example usage:**
+```
+You: Import our event registrants into Keap and tag them for the post-event follow-up sequence
+```
+
+---
+
+### Project Management -- New Platforms (v2.1.0)
+
+v2.1.0 adds three dedicated project management integrations beyond the existing Linear server. These power the `team-assign` command and enable campaign task tracking across popular PM tools.
+
+#### Jira
+
+**What it enables:** Issue creation and management, sprint tracking, board management, and project reporting. Powers the `team-assign` command for teams that use Jira for marketing project management.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `JIRA_URL` | Your Jira instance URL (e.g., `https://yourcompany.atlassian.net`) |
+| `JIRA_EMAIL` | Email address for Jira authentication |
+| `JIRA_API_TOKEN` | Jira API token |
+
+**Where to get credentials:**
+1. Go to id.atlassian.com > Security > API Tokens
+2. Create a new API token
+3. Use your Atlassian email and this token for authentication
+
+**Example usage:**
+```
+You: Create Jira tickets for each deliverable in our Q2 campaign plan and assign them to the team
+```
+
+---
+
+#### Asana
+
+**What it enables:** Task and project management, portfolio tracking, timeline views, and goal tracking. Powers the `team-assign` command for Asana users.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `ASANA_ACCESS_TOKEN` | Asana personal access token |
+
+**Where to get credentials:**
+1. Go to Asana > My Settings > Apps > Developer Apps
+2. Create a personal access token
+
+**Example usage:**
+```
+You: Create an Asana project for our product launch with tasks for each campaign phase
+```
+
+---
+
+#### ClickUp
+
+**What it enables:** Task management, space and folder organization, goal tracking, and time tracking. Powers the `team-assign` command for ClickUp users.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `CLICKUP_API_TOKEN` | ClickUp personal API token |
+
+**Where to get credentials:**
+1. Go to ClickUp > Settings > Apps > API Token
+2. Generate a personal API token
+
+**Example usage:**
+```
+You: Create ClickUp tasks for our content calendar and set due dates based on the publishing schedule
+```
+
+---
+
+### Design Tools (v2.1.0)
+
+v2.1.0 adds design platform integrations for creative workflow management and asset access.
+
+#### Canva
+
+**What it enables:** Design creation from templates, brand kit access, asset management, and export in multiple formats. Powers creative workflows by connecting marketing briefs to design execution.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `CANVA_API_KEY` | Canva Connect API key |
+
+**Where to get credentials:**
+1. Go to canva.com/developers and create an integration
+2. Generate an API key with the required scopes (Design, Brand, Asset)
+3. Canva Pro or Enterprise required for full API access
+
+**Example usage:**
+```
+You: Create social media graphics for our campaign using our Canva brand kit templates
+```
+
+---
+
+#### Figma
+
+**What it enables:** Access design files, components, and comments. Export assets and review designs directly from the marketing workflow. Useful for design review and creative feedback loops.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `FIGMA_ACCESS_TOKEN` | Figma personal access token |
+
+**Where to get credentials:**
+1. Go to Figma > Settings > Account > Personal Access Tokens
+2. Generate a new token with File and Comment scopes
+
+**Example usage:**
+```
+You: Pull the latest ad creative designs from our Figma project and review them against brand guidelines
+```
+
+---
+
+### SEO & Monitoring (v2.1.0)
+
+v2.1.0 adds SEO and brand monitoring platforms that complement the existing SEMrush and Ahrefs integrations.
+
+#### Moz
+
+**What it enables:** Domain authority scores, keyword research, link analysis, and SERP tracking. Powers the `seo-audit` and `competitor-analysis` modules with Moz domain metrics and link data.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `MOZ_ACCESS_ID` | Moz API access ID |
+| `MOZ_SECRET_KEY` | Moz API secret key |
+
+**Where to get credentials:**
+1. Go to Moz > Account > API Access
+2. Copy your Access ID and Secret Key
+3. API access requires a Moz Pro subscription
+
+**Example usage:**
+```
+You: Compare our domain authority against our top 5 competitors using Moz data
+```
+
+---
+
+#### Google PageSpeed Insights
+
+**What it enables:** Core Web Vitals scores, performance audits, accessibility scores, and SEO checks for any URL. Powers the `tech-seo-audit` command with real-time performance data.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `PAGESPEED_API_KEY` | Google PageSpeed Insights API key |
+
+**Where to get credentials:**
+1. Go to Google Cloud Console > APIs & Services > Credentials
+2. Enable the PageSpeed Insights API
+3. Create an API key (no OAuth required -- API key only)
+
+**Example usage:**
+```
+You: Run Core Web Vitals checks on our top 20 landing pages and flag any failing thresholds
+```
+
+---
+
+#### Brandwatch
+
+**What it enables:** Social listening, brand mention monitoring, sentiment analysis, and competitive conversation tracking. Powers the `competitor-monitor`, `anomaly-scan`, and reputation management workflows.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `BRANDWATCH_API_KEY` | Brandwatch API key |
+| `BRANDWATCH_PROJECT_ID` | Your Brandwatch project ID |
+
+**Where to get credentials:**
+1. Go to Brandwatch > API Settings
+2. Generate an API key for your project
+3. Enterprise subscription required for full API access
+
+**Example usage:**
+```
+You: Monitor brand sentiment across social channels and flag any emerging reputation issues
+```
+
+---
+
+### Marketing Automation -- New Platforms (v2.1.0)
+
+v2.1.0 adds two enterprise marketing automation platforms, complementing the existing ActiveCampaign integration.
+
+#### Marketo
+
+**What it enables:** Lead management, campaign orchestration, smart lists, email programs, and engagement scoring. Powers the `send-email-campaign`, `segment-audience`, and `lead-import` commands for Marketo users.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `MARKETO_CLIENT_ID` | Marketo REST API client ID |
+| `MARKETO_CLIENT_SECRET` | Marketo REST API client secret |
+| `MARKETO_MUNCHKIN_ID` | Your Marketo Munchkin account ID |
+
+**Where to get credentials:**
+1. Go to Marketo > Admin > Integration > LaunchPoint
+2. Create a new Custom Service for API access
+3. Copy the Client ID and Client Secret
+4. Your Munchkin ID is under Admin > Integration > Munchkin
+
+**Example usage:**
+```
+You: Create a Marketo smart list of leads who engaged with our webinar but haven't converted, then build a nurture campaign
+```
+
+---
+
+#### Pardot
+
+**What it enables:** Prospect management, campaign tracking, engagement scoring, and form management. Powers the `send-email-campaign`, `segment-audience`, and `lead-import` commands for Pardot (Salesforce Marketing Cloud Account Engagement) users.
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `PARDOT_BUSINESS_UNIT_ID` | Pardot business unit ID |
+| `SALESFORCE_ACCESS_TOKEN` | Salesforce OAuth access token (Pardot uses Salesforce SSO) |
+| `SALESFORCE_INSTANCE_URL` | Your Salesforce instance URL |
+
+**Where to get credentials:**
+1. Pardot now authenticates through Salesforce SSO
+2. Use a Salesforce Connected App with Pardot API scope
+3. Your Business Unit ID is found in Pardot > Settings > Account
+4. Generate a Salesforce access token via OAuth flow
+
+**Example usage:**
+```
+You: Pull our Pardot prospect engagement scores and identify the top 50 leads ready for sales handoff
+```
+
+---
+
+### Quick Reference: v2.1.0 Environment Variables
+
+| Integration | Variables | Shared Credential |
+|---|---|---|
+| Odoo | `ODOO_URL`, `ODOO_DB`, `ODOO_API_KEY` | -- |
+| Freshsales | `FRESHSALES_API_KEY`, `FRESHSALES_DOMAIN` | -- |
+| Monday CRM | `MONDAY_API_TOKEN` | -- |
+| Dynamics 365 | `DYNAMICS_365_URL`, `DYNAMICS_365_CLIENT_ID`, `DYNAMICS_365_CLIENT_SECRET`, `DYNAMICS_365_TENANT_ID` | Azure AD |
+| Copper | `COPPER_API_KEY`, `COPPER_USER_EMAIL` | -- |
+| Close | `CLOSE_API_KEY` | -- |
+| Keap | `KEAP_API_KEY` | -- |
+| Jira | `JIRA_URL`, `JIRA_EMAIL`, `JIRA_API_TOKEN` | Atlassian |
+| Asana | `ASANA_ACCESS_TOKEN` | -- |
+| ClickUp | `CLICKUP_API_TOKEN` | -- |
+| Canva | `CANVA_API_KEY` | -- |
+| Figma | `FIGMA_ACCESS_TOKEN` | -- |
+| Moz | `MOZ_ACCESS_ID`, `MOZ_SECRET_KEY` | -- |
+| Google PageSpeed | `PAGESPEED_API_KEY` | -- |
+| Brandwatch | `BRANDWATCH_API_KEY`, `BRANDWATCH_PROJECT_ID` | -- |
+| Marketo | `MARKETO_CLIENT_ID`, `MARKETO_CLIENT_SECRET`, `MARKETO_MUNCHKIN_ID` | -- |
+| Pardot | `PARDOT_BUSINESS_UNIT_ID`, `SALESFORCE_ACCESS_TOKEN`, `SALESFORCE_INSTANCE_URL` | Salesforce SSO |
+
+---
+
 ## 4. Multi-CRM Setup for Agencies
 
 ### The Challenge
@@ -1361,10 +1784,10 @@ When connecting MCP integrations that access personal data (especially GA4, HubS
 | Optimizely | `OPTIMIZELY_API_TOKEN`, `OPTIMIZELY_PROJECT_ID` | -- |
 | Supabase | `SUPABASE_URL`, `SUPABASE_SERVICE_KEY` | -- |
 
-**Total unique variables:** 62 (because `GOOGLE_APPLICATION_CREDENTIALS` is shared across GA4, GSC, Google Ads, Sheets, YouTube, BigQuery, and Google Drive).
+**Total unique variables:** 93 across all 63 integrations (because `GOOGLE_APPLICATION_CREDENTIALS` is shared across GA4, GSC, Google Ads, Sheets, YouTube, BigQuery, and Google Drive, and Pardot shares Salesforce OAuth credentials).
 
 **Minimum setup for maximum coverage:** A single GCP service account JSON file + your GA4 Property ID + GSC Site URL gives you up to seven Google integrations (GA4, GSC, Sheets, YouTube, BigQuery, Google Drive, Google Ads) from a shared credential base.
 
 ---
 
-*Digital Marketing Pro v2.0.0 -- Integrations & CRM Guide*
+*Digital Marketing Pro v2.1.0 -- Integrations & CRM Guide*

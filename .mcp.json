@@ -3,7 +3,10 @@
   "mcpServers": {
     "google-analytics": {
       "command": "npx",
-      "args": ["-y", "@anthropic/mcp-google-analytics"],
+      "args": [
+        "-y",
+        "@anthropic/mcp-google-analytics"
+      ],
       "env": {
         "GA_PROPERTY_ID": "${GA_PROPERTY_ID}",
         "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}"
@@ -12,7 +15,10 @@
     },
     "google-search-console": {
       "command": "npx",
-      "args": ["-y", "@anthropic/mcp-google-search-console"],
+      "args": [
+        "-y",
+        "@anthropic/mcp-google-search-console"
+      ],
       "env": {
         "GSC_SITE_URL": "${GSC_SITE_URL}",
         "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}"
@@ -21,7 +27,10 @@
     },
     "google-ads": {
       "command": "npx",
-      "args": ["-y", "mcp-google-ads"],
+      "args": [
+        "-y",
+        "mcp-google-ads"
+      ],
       "env": {
         "GOOGLE_ADS_CUSTOMER_ID": "${GOOGLE_ADS_CUSTOMER_ID}",
         "GOOGLE_ADS_DEVELOPER_TOKEN": "${GOOGLE_ADS_DEVELOPER_TOKEN}",
@@ -31,7 +40,10 @@
     },
     "meta-marketing": {
       "command": "npx",
-      "args": ["-y", "mcp-meta-marketing"],
+      "args": [
+        "-y",
+        "mcp-meta-marketing"
+      ],
       "env": {
         "META_ACCESS_TOKEN": "${META_ACCESS_TOKEN}",
         "META_AD_ACCOUNT_ID": "${META_AD_ACCOUNT_ID}"
@@ -40,7 +52,10 @@
     },
     "hubspot": {
       "command": "npx",
-      "args": ["-y", "@anthropic/mcp-hubspot"],
+      "args": [
+        "-y",
+        "@anthropic/mcp-hubspot"
+      ],
       "env": {
         "HUBSPOT_ACCESS_TOKEN": "${HUBSPOT_ACCESS_TOKEN}"
       },
@@ -48,7 +63,10 @@
     },
     "slack": {
       "command": "npx",
-      "args": ["-y", "@anthropic/mcp-slack"],
+      "args": [
+        "-y",
+        "@anthropic/mcp-slack"
+      ],
       "env": {
         "SLACK_BOT_TOKEN": "${SLACK_BOT_TOKEN}"
       },
@@ -56,7 +74,10 @@
     },
     "google-sheets": {
       "command": "npx",
-      "args": ["-y", "@anthropic/mcp-google-sheets"],
+      "args": [
+        "-y",
+        "@anthropic/mcp-google-sheets"
+      ],
       "env": {
         "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}"
       },
@@ -64,7 +85,10 @@
     },
     "mailchimp": {
       "command": "npx",
-      "args": ["-y", "mcp-mailchimp"],
+      "args": [
+        "-y",
+        "mcp-mailchimp"
+      ],
       "env": {
         "MAILCHIMP_API_KEY": "${MAILCHIMP_API_KEY}"
       },
@@ -72,7 +96,10 @@
     },
     "stripe": {
       "command": "npx",
-      "args": ["-y", "@anthropic/mcp-stripe"],
+      "args": [
+        "-y",
+        "@anthropic/mcp-stripe"
+      ],
       "env": {
         "STRIPE_API_KEY": "${STRIPE_API_KEY}"
       },
@@ -80,7 +107,10 @@
     },
     "linkedin-marketing": {
       "command": "npx",
-      "args": ["-y", "mcp-linkedin-marketing"],
+      "args": [
+        "-y",
+        "mcp-linkedin-marketing"
+      ],
       "env": {
         "LINKEDIN_ACCESS_TOKEN": "${LINKEDIN_ACCESS_TOKEN}",
         "LINKEDIN_AD_ACCOUNT_ID": "${LINKEDIN_AD_ACCOUNT_ID}"
@@ -89,7 +119,10 @@
     },
     "semrush": {
       "command": "npx",
-      "args": ["-y", "mcp-semrush"],
+      "args": [
+        "-y",
+        "mcp-semrush"
+      ],
       "env": {
         "SEMRUSH_API_KEY": "${SEMRUSH_API_KEY}"
       },
@@ -97,7 +130,10 @@
     },
     "ahrefs": {
       "command": "npx",
-      "args": ["-y", "mcp-ahrefs"],
+      "args": [
+        "-y",
+        "mcp-ahrefs"
+      ],
       "env": {
         "AHREFS_API_KEY": "${AHREFS_API_KEY}"
       },
@@ -105,7 +141,10 @@
     },
     "tiktok-ads": {
       "command": "npx",
-      "args": ["-y", "mcp-tiktok-ads"],
+      "args": [
+        "-y",
+        "mcp-tiktok-ads"
+      ],
       "env": {
         "TIKTOK_ACCESS_TOKEN": "${TIKTOK_ACCESS_TOKEN}",
         "TIKTOK_ADVERTISER_ID": "${TIKTOK_ADVERTISER_ID}"
@@ -114,7 +153,10 @@
     },
     "shopify": {
       "command": "npx",
-      "args": ["-y", "mcp-shopify"],
+      "args": [
+        "-y",
+        "mcp-shopify"
+      ],
       "env": {
         "SHOPIFY_STORE_URL": "${SHOPIFY_STORE_URL}",
         "SHOPIFY_ACCESS_TOKEN": "${SHOPIFY_ACCESS_TOKEN}"
@@ -123,7 +165,10 @@
     },
     "wordpress": {
       "command": "npx",
-      "args": ["-y", "mcp-wordpress"],
+      "args": [
+        "-y",
+        "mcp-wordpress"
+      ],
       "env": {
         "WORDPRESS_SITE_URL": "${WORDPRESS_SITE_URL}",
         "WORDPRESS_AUTH_TOKEN": "${WORDPRESS_AUTH_TOKEN}"
@@ -132,7 +177,10 @@
     },
     "salesforce": {
       "command": "npx",
-      "args": ["-y", "mcp-salesforce"],
+      "args": [
+        "-y",
+        "mcp-salesforce"
+      ],
       "env": {
         "SALESFORCE_INSTANCE_URL": "${SALESFORCE_INSTANCE_URL}",
         "SALESFORCE_ACCESS_TOKEN": "${SALESFORCE_ACCESS_TOKEN}"
@@ -141,7 +189,10 @@
     },
     "google-looker-studio": {
       "command": "npx",
-      "args": ["-y", "mcp-google-looker-studio"],
+      "args": [
+        "-y",
+        "mcp-google-looker-studio"
+      ],
       "env": {
         "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}"
       },
@@ -149,7 +200,10 @@
     },
     "activecampaign": {
       "command": "npx",
-      "args": ["-y", "mcp-activecampaign"],
+      "args": [
+        "-y",
+        "mcp-activecampaign"
+      ],
       "env": {
         "ACTIVECAMPAIGN_API_URL": "${ACTIVECAMPAIGN_API_URL}",
         "ACTIVECAMPAIGN_API_KEY": "${ACTIVECAMPAIGN_API_KEY}"
@@ -158,7 +212,10 @@
     },
     "twitter-x": {
       "command": "npx",
-      "args": ["-y", "mcp-twitter"],
+      "args": [
+        "-y",
+        "mcp-twitter"
+      ],
       "env": {
         "TWITTER_API_KEY": "${TWITTER_API_KEY}",
         "TWITTER_API_SECRET": "${TWITTER_API_SECRET}",
@@ -169,7 +226,10 @@
     },
     "instagram": {
       "command": "npx",
-      "args": ["-y", "mcp-instagram"],
+      "args": [
+        "-y",
+        "mcp-instagram"
+      ],
       "env": {
         "INSTAGRAM_ACCESS_TOKEN": "${INSTAGRAM_ACCESS_TOKEN}",
         "INSTAGRAM_BUSINESS_ACCOUNT_ID": "${INSTAGRAM_BUSINESS_ACCOUNT_ID}"
@@ -178,7 +238,10 @@
     },
     "linkedin-publishing": {
       "command": "npx",
-      "args": ["-y", "mcp-linkedin-publishing"],
+      "args": [
+        "-y",
+        "mcp-linkedin-publishing"
+      ],
       "env": {
         "LINKEDIN_ACCESS_TOKEN": "${LINKEDIN_ACCESS_TOKEN}"
       },
@@ -186,7 +249,10 @@
     },
     "tiktok-content": {
       "command": "npx",
-      "args": ["-y", "mcp-tiktok-content"],
+      "args": [
+        "-y",
+        "mcp-tiktok-content"
+      ],
       "env": {
         "TIKTOK_ACCESS_TOKEN": "${TIKTOK_ACCESS_TOKEN}"
       },
@@ -194,7 +260,10 @@
     },
     "youtube": {
       "command": "npx",
-      "args": ["-y", "mcp-youtube"],
+      "args": [
+        "-y",
+        "mcp-youtube"
+      ],
       "env": {
         "YOUTUBE_OAUTH_TOKEN": "${YOUTUBE_OAUTH_TOKEN}"
       },
@@ -202,7 +271,10 @@
     },
     "pinterest": {
       "command": "npx",
-      "args": ["-y", "mcp-pinterest"],
+      "args": [
+        "-y",
+        "mcp-pinterest"
+      ],
       "env": {
         "PINTEREST_ACCESS_TOKEN": "${PINTEREST_ACCESS_TOKEN}"
       },
@@ -210,7 +282,10 @@
     },
     "sendgrid": {
       "command": "npx",
-      "args": ["-y", "mcp-sendgrid"],
+      "args": [
+        "-y",
+        "mcp-sendgrid"
+      ],
       "env": {
         "SENDGRID_API_KEY": "${SENDGRID_API_KEY}"
       },
@@ -218,7 +293,10 @@
     },
     "klaviyo": {
       "command": "npx",
-      "args": ["-y", "mcp-klaviyo"],
+      "args": [
+        "-y",
+        "mcp-klaviyo"
+      ],
       "env": {
         "KLAVIYO_API_KEY": "${KLAVIYO_API_KEY}"
       },
@@ -226,7 +304,10 @@
     },
     "customer-io": {
       "command": "npx",
-      "args": ["-y", "mcp-customer-io"],
+      "args": [
+        "-y",
+        "mcp-customer-io"
+      ],
       "env": {
         "CUSTOMERIO_API_KEY": "${CUSTOMERIO_API_KEY}"
       },
@@ -234,7 +315,10 @@
     },
     "brevo": {
       "command": "npx",
-      "args": ["-y", "mcp-brevo"],
+      "args": [
+        "-y",
+        "mcp-brevo"
+      ],
       "env": {
         "BREVO_API_KEY": "${BREVO_API_KEY}"
       },
@@ -242,7 +326,10 @@
     },
     "mailgun": {
       "command": "npx",
-      "args": ["-y", "mcp-mailgun"],
+      "args": [
+        "-y",
+        "mcp-mailgun"
+      ],
       "env": {
         "MAILGUN_API_KEY": "${MAILGUN_API_KEY}",
         "MAILGUN_DOMAIN": "${MAILGUN_DOMAIN}"
@@ -251,7 +338,10 @@
     },
     "zoho-crm": {
       "command": "npx",
-      "args": ["-y", "mcp-zoho-crm"],
+      "args": [
+        "-y",
+        "mcp-zoho-crm"
+      ],
       "env": {
         "ZOHO_CLIENT_ID": "${ZOHO_CLIENT_ID}",
         "ZOHO_CLIENT_SECRET": "${ZOHO_CLIENT_SECRET}",
@@ -261,7 +351,10 @@
     },
     "pipedrive": {
       "command": "npx",
-      "args": ["-y", "mcp-pipedrive"],
+      "args": [
+        "-y",
+        "mcp-pipedrive"
+      ],
       "env": {
         "PIPEDRIVE_API_TOKEN": "${PIPEDRIVE_API_TOKEN}"
       },
@@ -269,7 +362,10 @@
     },
     "mixpanel": {
       "command": "npx",
-      "args": ["-y", "mcp-mixpanel"],
+      "args": [
+        "-y",
+        "mcp-mixpanel"
+      ],
       "env": {
         "MIXPANEL_API_TOKEN": "${MIXPANEL_API_TOKEN}"
       },
@@ -277,7 +373,10 @@
     },
     "amplitude": {
       "command": "npx",
-      "args": ["-y", "mcp-amplitude"],
+      "args": [
+        "-y",
+        "mcp-amplitude"
+      ],
       "env": {
         "AMPLITUDE_API_KEY": "${AMPLITUDE_API_KEY}"
       },
@@ -285,7 +384,10 @@
     },
     "bigquery": {
       "command": "npx",
-      "args": ["-y", "mcp-bigquery"],
+      "args": [
+        "-y",
+        "mcp-bigquery"
+      ],
       "env": {
         "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}",
         "BIGQUERY_PROJECT_ID": "${BIGQUERY_PROJECT_ID}"
@@ -294,7 +396,10 @@
     },
     "pinecone": {
       "command": "npx",
-      "args": ["-y", "@pinecone-database/mcp"],
+      "args": [
+        "-y",
+        "@pinecone-database/mcp"
+      ],
       "env": {
         "PINECONE_API_KEY": "${PINECONE_API_KEY}"
       },
@@ -302,7 +407,10 @@
     },
     "qdrant": {
       "command": "npx",
-      "args": ["-y", "mcp-server-qdrant"],
+      "args": [
+        "-y",
+        "mcp-server-qdrant"
+      ],
       "env": {
         "QDRANT_URL": "${QDRANT_URL}",
         "QDRANT_API_KEY": "${QDRANT_API_KEY}"
@@ -311,7 +419,10 @@
     },
     "supermemory": {
       "command": "npx",
-      "args": ["-y", "@supermemoryai/supermemory-mcp"],
+      "args": [
+        "-y",
+        "@supermemoryai/supermemory-mcp"
+      ],
       "env": {
         "SUPERMEMORY_API_KEY": "${SUPERMEMORY_API_KEY}"
       },
@@ -319,7 +430,10 @@
     },
     "graphiti": {
       "command": "npx",
-      "args": ["-y", "graphiti-mcp"],
+      "args": [
+        "-y",
+        "graphiti-mcp"
+      ],
       "env": {
         "GRAPHITI_API_KEY": "${GRAPHITI_API_KEY}"
       },
@@ -327,7 +441,10 @@
     },
     "notion": {
       "command": "npx",
-      "args": ["-y", "@notionhq/mcp-server"],
+      "args": [
+        "-y",
+        "@notionhq/mcp-server"
+      ],
       "env": {
         "NOTION_API_KEY": "${NOTION_API_KEY}"
       },
@@ -335,7 +452,10 @@
     },
     "google-drive": {
       "command": "npx",
-      "args": ["-y", "mcp-google-drive"],
+      "args": [
+        "-y",
+        "mcp-google-drive"
+      ],
       "env": {
         "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}"
       },
@@ -343,7 +463,10 @@
     },
     "webflow": {
       "command": "npx",
-      "args": ["-y", "mcp-webflow"],
+      "args": [
+        "-y",
+        "mcp-webflow"
+      ],
       "env": {
         "WEBFLOW_API_TOKEN": "${WEBFLOW_API_TOKEN}"
       },
@@ -351,7 +474,10 @@
     },
     "twilio": {
       "command": "npx",
-      "args": ["-y", "mcp-twilio"],
+      "args": [
+        "-y",
+        "mcp-twilio"
+      ],
       "env": {
         "TWILIO_ACCOUNT_SID": "${TWILIO_ACCOUNT_SID}",
         "TWILIO_AUTH_TOKEN": "${TWILIO_AUTH_TOKEN}"
@@ -360,7 +486,10 @@
     },
     "intercom": {
       "command": "npx",
-      "args": ["-y", "mcp-intercom"],
+      "args": [
+        "-y",
+        "mcp-intercom"
+      ],
       "env": {
         "INTERCOM_ACCESS_TOKEN": "${INTERCOM_ACCESS_TOKEN}"
       },
@@ -368,7 +497,10 @@
     },
     "linear": {
       "command": "npx",
-      "args": ["-y", "mcp-linear"],
+      "args": [
+        "-y",
+        "mcp-linear"
+      ],
       "env": {
         "LINEAR_API_KEY": "${LINEAR_API_KEY}"
       },
@@ -376,7 +508,10 @@
     },
     "optimizely": {
       "command": "npx",
-      "args": ["-y", "mcp-optimizely"],
+      "args": [
+        "-y",
+        "mcp-optimizely"
+      ],
       "env": {
         "OPTIMIZELY_API_KEY": "${OPTIMIZELY_API_KEY}"
       },
@@ -384,12 +519,215 @@
     },
     "supabase": {
       "command": "npx",
-      "args": ["-y", "mcp-supabase"],
+      "args": [
+        "-y",
+        "mcp-supabase"
+      ],
       "env": {
         "SUPABASE_URL": "${SUPABASE_URL}",
         "SUPABASE_KEY": "${SUPABASE_KEY}"
       },
       "description": "Supabase — PostgreSQL database for custom marketing data, customer tables, analytics storage"
+    },
+    "odoo": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-odoo"
+      ],
+      "env": {
+        "ODOO_URL": "${ODOO_URL}",
+        "ODOO_DB": "${ODOO_DB}",
+        "ODOO_API_KEY": "${ODOO_API_KEY}"
+      },
+      "description": "Odoo — open-source ERP+CRM, leads, contacts, deals, invoicing, marketing campaigns"
+    },
+    "freshsales": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-freshsales"
+      ],
+      "env": {
+        "FRESHSALES_DOMAIN": "${FRESHSALES_DOMAIN}",
+        "FRESHSALES_API_KEY": "${FRESHSALES_API_KEY}"
+      },
+      "description": "Freshsales — Freshworks CRM, contacts, deals, accounts, sequences, lead scoring"
+    },
+    "monday-crm": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-monday"
+      ],
+      "env": {
+        "MONDAY_API_TOKEN": "${MONDAY_API_TOKEN}"
+      },
+      "description": "Monday.com — CRM boards, deal tracking, automations, project management, dashboards"
+    },
+    "dynamics-365": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-dynamics-365"
+      ],
+      "env": {
+        "DYNAMICS_INSTANCE_URL": "${DYNAMICS_INSTANCE_URL}",
+        "DYNAMICS_CLIENT_ID": "${DYNAMICS_CLIENT_ID}",
+        "DYNAMICS_CLIENT_SECRET": "${DYNAMICS_CLIENT_SECRET}",
+        "DYNAMICS_TENANT_ID": "${DYNAMICS_TENANT_ID}"
+      },
+      "description": "Microsoft Dynamics 365 — enterprise CRM, leads, opportunities, accounts, marketing campaigns"
+    },
+    "copper": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-copper"
+      ],
+      "env": {
+        "COPPER_API_KEY": "${COPPER_API_KEY}",
+        "COPPER_EMAIL": "${COPPER_EMAIL}"
+      },
+      "description": "Copper — Gmail-native CRM, contacts, deals, activities, relationship intelligence"
+    },
+    "close-crm": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-close"
+      ],
+      "env": {
+        "CLOSE_API_KEY": "${CLOSE_API_KEY}"
+      },
+      "description": "Close — SMB sales CRM, calling, emailing, pipeline management, custom activities"
+    },
+    "keap": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-keap"
+      ],
+      "env": {
+        "KEAP_ACCESS_TOKEN": "${KEAP_ACCESS_TOKEN}"
+      },
+      "description": "Keap — small business CRM + marketing automation, contacts, deals, invoices, campaigns"
+    },
+    "jira": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-jira"
+      ],
+      "env": {
+        "JIRA_URL": "${JIRA_URL}",
+        "JIRA_EMAIL": "${JIRA_EMAIL}",
+        "JIRA_API_TOKEN": "${JIRA_API_TOKEN}"
+      },
+      "description": "Jira — project tracking, sprint management, issue CRUD, workflow automation"
+    },
+    "asana": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-asana"
+      ],
+      "env": {
+        "ASANA_ACCESS_TOKEN": "${ASANA_ACCESS_TOKEN}"
+      },
+      "description": "Asana — task management, project timelines, team workload, campaign tracking"
+    },
+    "clickup": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-clickup"
+      ],
+      "env": {
+        "CLICKUP_API_TOKEN": "${CLICKUP_API_TOKEN}"
+      },
+      "description": "ClickUp — project management, docs, goals, time tracking, marketing workflows"
+    },
+    "canva": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-canva"
+      ],
+      "env": {
+        "CANVA_API_KEY": "${CANVA_API_KEY}"
+      },
+      "description": "Canva — design creation, brand kit management, template library, asset export"
+    },
+    "figma": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-figma"
+      ],
+      "env": {
+        "FIGMA_ACCESS_TOKEN": "${FIGMA_ACCESS_TOKEN}"
+      },
+      "description": "Figma — design files, component libraries, prototypes, design system management"
+    },
+    "moz": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-moz"
+      ],
+      "env": {
+        "MOZ_ACCESS_ID": "${MOZ_ACCESS_ID}",
+        "MOZ_SECRET_KEY": "${MOZ_SECRET_KEY}"
+      },
+      "description": "Moz — domain authority, keyword difficulty, rank tracking, link analysis, SERP features"
+    },
+    "pagespeed": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-pagespeed"
+      ],
+      "env": {
+        "GOOGLE_API_KEY": "${GOOGLE_API_KEY}"
+      },
+      "description": "Google PageSpeed Insights — Core Web Vitals, performance scores, Lighthouse audits"
+    },
+    "brandwatch": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-brandwatch"
+      ],
+      "env": {
+        "BRANDWATCH_API_KEY": "${BRANDWATCH_API_KEY}"
+      },
+      "description": "Brandwatch — social listening, competitor mentions, sentiment analysis, share of voice"
+    },
+    "marketo": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-marketo"
+      ],
+      "env": {
+        "MARKETO_CLIENT_ID": "${MARKETO_CLIENT_ID}",
+        "MARKETO_CLIENT_SECRET": "${MARKETO_CLIENT_SECRET}",
+        "MARKETO_BASE_URL": "${MARKETO_BASE_URL}"
+      },
+      "description": "Marketo — enterprise marketing automation, lead management, nurture programs, scoring"
+    },
+    "pardot": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-pardot"
+      ],
+      "env": {
+        "PARDOT_BUSINESS_UNIT_ID": "${PARDOT_BUSINESS_UNIT_ID}",
+        "SALESFORCE_ACCESS_TOKEN": "${SALESFORCE_ACCESS_TOKEN}"
+      },
+      "description": "Pardot — B2B marketing automation, prospect tracking, engagement scoring, Salesforce sync"
     }
   }
 }

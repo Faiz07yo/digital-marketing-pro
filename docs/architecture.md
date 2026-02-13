@@ -1,6 +1,6 @@
 # Technical Architecture Reference
 
-**Digital Marketing Pro** -- Claude Code Plugin v2.0.0
+**Digital Marketing Pro** -- Claude Code Plugin v2.1.0
 
 This document describes the internal architecture of the Digital Marketing Pro plugin for developers and contributors. It covers file structure, the WAT framework mapping, component anatomy, the hook system, script conventions, data persistence, adaptive scoring, and extension points.
 
@@ -11,11 +11,11 @@ This document describes the internal architecture of the Digital Marketing Pro p
 ```
 digital-marketing-pro/
 ├── .claude-plugin/
-│   └── plugin.json                    # Plugin manifest (v2.0.0)
-├── .mcp.json                          # 46 MCP server configurations
+│   └── plugin.json                    # Plugin manifest (v2.1.0)
+├── .mcp.json                          # 63 MCP server configurations
 ├── hooks/
 │   └── hooks.json                     # 3 lifecycle hooks
-├── agents/                            # 18 specialist agents
+├── agents/                            # 23 specialist agents
 │   ├── marketing-strategist.md
 │   ├── content-creator.md
 │   ├── seo-specialist.md
@@ -33,8 +33,13 @@ digital-marketing-pro/
 │   ├── performance-monitor-agent.md   # NEW in v2.0.0
 │   ├── crm-manager.md                 # NEW in v2.0.0
 │   ├── memory-manager.md              # NEW in v2.0.0
-│   └── agency-operations.md           # NEW in v2.0.0
-├── scripts/                           # 42 Python scripts + requirements
+│   ├── agency-operations.md           # NEW in v2.0.0
+│   ├── marketing-scientist.md         # NEW in v2.1.0
+│   ├── market-intelligence.md         # NEW in v2.1.0
+│   ├── intelligence-curator.md        # NEW in v2.1.0
+│   ├── competitor-intelligence.md     # NEW in v2.1.0
+│   └── journey-orchestrator.md        # NEW in v2.1.0
+├── scripts/                           # 56 Python scripts + requirements
 │   ├── setup.py                       # Brand management, initialization
 │   ├── campaign-tracker.py            # Campaign persistence + violation tracking
 │   ├── adaptive-scorer.py             # Context-aware scoring weights
@@ -77,8 +82,22 @@ digital-marketing-pro/
 │   ├── report-generator.py          # Report generation and delivery (v2.0.0)
 │   ├── credential-manager.py        # Agency credential profiles (v2.0.0)
 │   ├── team-manager.py              # Brand team roles and assignments (v2.0.0)
+│   ├── seo-executor.py              # SEO implementation and deployment (v2.1.0)
+│   ├── competitor-tracker.py        # Competitor monitoring and change detection (v2.1.0)
+│   ├── geo-tracker.py               # GEO visibility tracking across AI engines (v2.1.0)
+│   ├── pdf-generator.py             # PDF report generation (v2.1.0)
+│   ├── revenue-simulator.py         # Monte Carlo revenue simulation (v2.1.0)
+│   ├── churn-predictor.py           # Customer churn risk scoring (v2.1.0)
+│   ├── macro-signal-tracker.py      # Market macro signal monitoring (v2.1.0)
+│   ├── creative-fatigue-predictor.py # Creative fatigue prediction (v2.1.0)
+│   ├── intelligence-graph.py        # Compound intelligence graph (v2.1.0)
+│   ├── journey-engine.py            # Customer journey orchestration (v2.1.0)
+│   ├── growth-loop-modeler.py       # Growth loop modeling and simulation (v2.1.0)
+│   ├── campaign-health-monitor.py   # Self-healing campaign monitoring (v2.1.0)
+│   ├── narrative-mapper.py          # Competitive narrative mapping (v2.1.0)
+│   ├── audience-simulator.py        # Synthetic audience simulation (v2.1.0)
 │   └── requirements.txt               # Python dependencies
-├── skills/                            # 85 skill directories
+├── skills/                            # 119 skill directories
 │   ├── context-engine/                # Shared intelligence layer
 │   │   ├── SKILL.md
 │   │   ├── industry-profiles.md       # 22 industries
@@ -102,7 +121,7 @@ digital-marketing-pro/
 │   ├── import-guidelines/SKILL.md     # Guideline import (v1.3.0)
 │   ├── import-sop/SKILL.md           # SOP import (v1.3.0)
 │   ├── import-template/SKILL.md      # Template import (v1.3.0)
-│   └── [63 commands]/                 # Slash command skills
+│   └── [97 commands]/                 # Slash command skills
 │       └── SKILL.md                   # Command definition
 ├── docs/                              # Documentation
 ├── README.md
@@ -111,13 +130,13 @@ digital-marketing-pro/
 └── LICENSE
 ```
 
-**Total: ~291 files** (272 plugin files + 16 documentation/repo files + 3 issue templates).
+**Total: ~347 files** (328 plugin files + 16 documentation/repo files + 3 issue templates).
 
 The 16 modules are: content-engine, campaign-orchestrator, paid-advertising, analytics-insights, aeo-geo, audience-intelligence, cro, digital-pr, funnel-architect, growth-engineering, influencer-creator, reputation-management, emerging-channels, technical-seo, local-seo, and marketing-automation.
 
-The 68 commands are: ab-test-plan, ad-creative, aeo-audit, agency-dashboard, anomaly-scan, attribution-model, audience-profile, budget-optimizer, budget-tracker, campaign-plan, campaign-status, case-study-plan, client-onboarding, client-proposal, client-report, competitor-analysis, content-brief, content-calendar, content-repurpose, creative-testing-framework, credential-switch, crisis-response, crm-sync, data-export, email-sequence, exec-summary, executive-dashboard, funnel-audit, import-guidelines, import-sop, import-template, influencer-brief, keyword-research, landing-page-audit, launch-ad-campaign, launch-plan, lead-import, local-seo-audit, martech-audit, media-plan, performance-check, performance-report, pipeline-update, pr-pitch, publish-blog, qbr-plan, region-config, retargeting-strategy, review-response, roi-calculator, save-knowledge, schedule-social, search-knowledge, segment-audience, send-email-campaign, send-notification, send-report, send-sms, seo-audit, social-strategy, sop-library, switch-brand, sync-memory, team-assign, tech-seo-audit, video-script, webinar-plan, and brand-setup.
+The 102 commands include the original 68 from v2.0.0 plus 34 new commands in v2.1.0 covering SEO execution, competitor monitoring, revenue simulation, GEO monitoring, creative intelligence, synthetic audiences, journey orchestration, and more.
 
-The 18 agents are: marketing-strategist, content-creator, seo-specialist, analytics-analyst, brand-guardian, media-buyer, growth-engineer, influencer-manager, competitive-intel, pr-outreach, email-specialist, cro-specialist, social-media-manager, execution-coordinator, performance-monitor-agent, crm-manager, memory-manager, and agency-operations.
+The 23 agents are: marketing-strategist, content-creator, seo-specialist, analytics-analyst, brand-guardian, media-buyer, growth-engineer, influencer-manager, competitive-intel, pr-outreach, email-specialist, cro-specialist, social-media-manager, execution-coordinator, performance-monitor-agent, crm-manager, memory-manager, agency-operations, marketing-scientist, market-intelligence, intelligence-curator, competitor-intelligence, and journey-orchestrator.
 
 ---
 
@@ -141,7 +160,7 @@ Together, SKILL.md files and hooks form the "instructions" layer that the AI age
 
 ### Agents (agents/*.md)
 
-Eighteen specialist agents with distinct expertise areas and behavior rules. Each agent:
+Twenty-three specialist agents with distinct expertise areas and behavior rules. Each agent:
 
 1. Loads brand context before producing any output (Rule 1 in every agent)
 2. Follows domain-specific guidelines (8-11 behavior rules including guideline enforcement)
@@ -156,7 +175,7 @@ Multiple agents can collaborate on a single task. For example, the `/dm:campaign
 
 ### Tools (scripts/*.py)
 
-Forty-two Python scripts handle deterministic execution: scoring, formatting, data persistence, and analysis. Every script:
+Fifty-six Python scripts handle deterministic execution: scoring, formatting, data persistence, and analysis. Every script:
 
 - Accepts CLI arguments via argparse
 - Produces JSON output to stdout
@@ -314,6 +333,11 @@ N. Check brand guidelines for content. [Load guidelines/_manifest.json,
 | crm-manager | CRM sync, lead management, pipeline updates | Field mapping, deduplication, lifecycle stages | crm-sync, campaign-tracker |
 | memory-manager | Knowledge storage, RAG retrieval, session sync | Vector search, temporal graphs, cross-session learning | memory-manager |
 | agency-operations | Multi-client portfolios, SOPs, credentials, team management | Portfolio KPIs, credential isolation, role-based access | credential-manager, team-manager, report-generator |
+| marketing-scientist | Revenue simulation, churn prediction, statistical modeling | Monte Carlo, Bayesian inference, predictive analytics | revenue-simulator, churn-predictor, growth-loop-modeler |
+| market-intelligence | Macro signals, market trends, competitive landscape shifts | Trend detection, signal aggregation, market mapping | macro-signal-tracker, competitor-tracker, intelligence-graph |
+| intelligence-curator | Compound intelligence synthesis, cross-domain pattern detection | Intelligence graph, cross-agent synthesis, insight ranking | intelligence-graph, narrative-mapper, campaign-health-monitor |
+| competitor-intelligence | Ongoing competitor monitoring, share of voice, competitive alerts | Change detection, competitive scoring, narrative analysis | competitor-tracker, narrative-mapper, audience-simulator |
+| journey-orchestrator | Customer journey design, lifecycle stage transitions, experience optimization | Journey mapping, touchpoint orchestration, lifecycle automation | journey-engine, campaign-health-monitor, churn-predictor |
 
 Every agent's Rule 1 mandates loading brand context before producing output. Every agent has a guideline enforcement rule. Every agent references campaign-tracker.py and guidelines-manager.py. These are the three most important architectural invariants in the agent system.
 
@@ -365,7 +389,7 @@ Three lifecycle hooks are defined in `hooks/hooks.json`. They wrap every Claude 
 
 - **Fires:** Before Claude calls any MCP server tool
 - **Matcher:** Triggers on all MCP tool calls (any tool starting with `mcp_`)
-- **Behavior:** This is the execution safety gate added in v2.0.0. It intercepts every MCP tool call and determines whether the operation is a READ or WRITE. READ operations (fetching data, querying metrics) pass through immediately. WRITE operations (publishing content, sending emails, creating ad campaigns, syncing CRM records) are held for approval. The hook checks: (1) Has the user explicitly approved this specific action? (2) Has content passed brand compliance review? (3) Does the target platform match the user's stated intent? (4) For ads: Is budget within the brand's stated range? (5) For email/SMS: Are list size and consent verified? (6) For CRM writes: Will this overwrite existing records?
+- **Behavior:** This is the execution safety gate added in v2.1.0. It intercepts every MCP tool call and determines whether the operation is a READ or WRITE. READ operations (fetching data, querying metrics) pass through immediately. WRITE operations (publishing content, sending emails, creating ad campaigns, syncing CRM records) are held for approval. The hook checks: (1) Has the user explicitly approved this specific action? (2) Has content passed brand compliance review? (3) Does the target platform match the user's stated intent? (4) For ads: Is budget within the brand's stated range? (5) For email/SMS: Are list size and consent verified? (6) For CRM writes: Will this overwrite existing records?
 - **Design principle:** No external write operation executes without explicit human approval in the current conversation. READ operations are never delayed.
 
 ### SessionEnd (type: prompt)
@@ -378,7 +402,7 @@ Three lifecycle hooks are defined in `hooks/hooks.json`. They wrap every Claude 
 
 ## 8. Script Architecture
 
-All 42 scripts in `scripts/` follow consistent conventions.
+All 56 scripts in `scripts/` follow consistent conventions.
 
 ### Conventions
 
@@ -392,7 +416,7 @@ All 42 scripts in `scripts/` follow consistent conventions.
 
 | Tier | Dependencies | Scripts |
 |------|-------------|---------|
-| Zero deps (always work) | Python stdlib only | setup.py, campaign-tracker.py, utm-generator.py (basic mode), schema-generator.py, guidelines-manager.py, email-subject-tester.py, spam-score-checker.py, send-time-optimizer.py, sample-size-calculator.py, significance-tester.py, form-analyzer.py, hashtag-analyzer.py, posting-time-analyzer.py, calendar-validator.py, tech-seo-auditor.py, local-seo-checker.py, roi-calculator.py, budget-optimizer.py, clv-calculator.py, content-repurposer.py, review-response-drafter.py, ad-budget-pacer.py, link-profile-analyzer.py, revenue-forecaster.py, approval-manager.py, execution-tracker.py, performance-monitor.py, memory-manager.py, crm-sync.py, report-generator.py, credential-manager.py, team-manager.py |
+| Zero deps (always work) | Python stdlib only | setup.py, campaign-tracker.py, utm-generator.py (basic mode), schema-generator.py, guidelines-manager.py, email-subject-tester.py, spam-score-checker.py, send-time-optimizer.py, sample-size-calculator.py, significance-tester.py, form-analyzer.py, hashtag-analyzer.py, posting-time-analyzer.py, calendar-validator.py, tech-seo-auditor.py, local-seo-checker.py, roi-calculator.py, budget-optimizer.py, clv-calculator.py, content-repurposer.py, review-response-drafter.py, ad-budget-pacer.py, link-profile-analyzer.py, revenue-forecaster.py, approval-manager.py, execution-tracker.py, performance-monitor.py, memory-manager.py, crm-sync.py, report-generator.py, credential-manager.py, team-manager.py, seo-executor.py, competitor-tracker.py, geo-tracker.py, pdf-generator.py, revenue-simulator.py, churn-predictor.py, macro-signal-tracker.py, creative-fatigue-predictor.py, intelligence-graph.py, journey-engine.py, growth-loop-modeler.py, campaign-health-monitor.py, narrative-mapper.py, audience-simulator.py |
 | Lite | nltk, textstat | brand-voice-scorer.py, content-scorer.py, readability-analyzer.py, headline-analyzer.py |
 | Full | + requests, beautifulsoup4, qrcode, Pillow | competitor-scraper.py, utm-generator.py (QR mode), email-preview.py |
 | Optional | + openai, anthropic | ai-visibility-checker.py (API mode) |
@@ -407,7 +431,7 @@ Brand profiles follow schema version `1.0.0` (defined in `setup.py` as `SCHEMA_V
 
 ## 9. MCP Configuration
 
-`.mcp.json` defines 46 MCP (Model Context Protocol) server integrations. These connect Claude Code to the user's own marketing platform accounts.
+`.mcp.json` defines 63 MCP (Model Context Protocol) server integrations. These connect Claude Code to the user's own marketing platform accounts.
 
 ### Server List
 
@@ -527,6 +551,48 @@ Brand profiles follow schema version `1.0.0` (defined in `setup.py` as `SCHEMA_V
 |--------|---------|---------|
 | supabase | mcp-supabase | PostgreSQL database, real-time data, auth |
 
+**CRM (v2.1.0)**
+
+| Server | Package | Purpose |
+|--------|---------|---------|
+| odoo | mcp-odoo | Odoo CRM contacts, deals, invoicing, inventory |
+| freshsales | mcp-freshsales | Freshsales CRM leads, deals, accounts, activities |
+| monday-crm | mcp-monday-crm | Monday CRM boards, deals, contacts, automations |
+| dynamics-365 | mcp-dynamics-365 | Microsoft Dynamics 365 CRM leads, opportunities, accounts |
+| copper | mcp-copper | Copper CRM contacts, deals, activities (Google Workspace native) |
+| close | mcp-close | Close CRM leads, activities, call tracking, sequences |
+| keap | mcp-keap | Keap (Infusionsoft) contacts, deals, automation, invoicing |
+
+**Project Management (v2.1.0)**
+
+| Server | Package | Purpose |
+|--------|---------|---------|
+| jira | mcp-jira | Jira issues, sprints, boards, project tracking |
+| asana | mcp-asana | Asana tasks, projects, portfolios, timelines |
+| clickup | mcp-clickup | ClickUp tasks, spaces, goals, time tracking |
+
+**Design Tools (v2.1.0)**
+
+| Server | Package | Purpose |
+|--------|---------|---------|
+| canva | mcp-canva | Canva design creation, templates, brand kit access |
+| figma | mcp-figma | Figma design files, components, comments, exports |
+
+**SEO & Monitoring (v2.1.0)**
+
+| Server | Package | Purpose |
+|--------|---------|---------|
+| moz | mcp-moz | Moz domain authority, keyword research, link analysis |
+| google-pagespeed | mcp-google-pagespeed | PageSpeed Insights, Core Web Vitals, performance scores |
+| brandwatch | mcp-brandwatch | Social listening, brand monitoring, sentiment analysis |
+
+**Marketing Automation (v2.1.0)**
+
+| Server | Package | Purpose |
+|--------|---------|---------|
+| marketo | mcp-marketo | Marketo leads, campaigns, smart lists, email programs |
+| pardot | mcp-pardot | Pardot prospects, campaigns, engagement scoring, forms |
+
 ### Configuration Pattern
 
 ```json
@@ -544,7 +610,7 @@ Brand profiles follow schema version `1.0.0` (defined in `setup.py` as `SCHEMA_V
 }
 ```
 
-All credentials are referenced via `${ENV_VAR}` placeholders. Servers only activate when the corresponding environment variables are set. No credentials are stored in plugin code. The plugin works fully without any MCP servers enabled -- they add live data capabilities but are not required.
+All 63 server credentials are referenced via `${ENV_VAR}` placeholders. Servers only activate when the corresponding environment variables are set. No credentials are stored in plugin code. The plugin works fully without any MCP servers enabled -- they add live data capabilities but are not required.
 
 ---
 
@@ -716,6 +782,52 @@ Five layers of persistent brand knowledge:
 | Knowledge Graph | Graphiti | Temporal campaign relationships | Requires setup |
 | Agent Memory | Supermemory | Cross-session shared agent learning | Requires setup |
 | Knowledge Base | Notion / Google Drive | Team documentation and assets | Requires setup |
+
+---
+
+## 14. Intelligence Layer (v2.1.0)
+
+v2.1.0 introduces a multi-layered intelligence system that moves beyond reactive analysis into predictive and compound intelligence.
+
+### Compound Intelligence
+
+The intelligence-curator agent works with `intelligence-graph.py` to synthesize insights across all domains. Rather than isolated reports from individual agents, compound intelligence detects cross-domain patterns: a drop in organic traffic correlated with a competitor's content push, connected to a seasonal trend detected in macro signals. The intelligence graph maintains weighted relationships between campaigns, channels, audiences, and outcomes over time.
+
+### Predictive Intelligence
+
+The marketing-scientist agent coordinates `revenue-simulator.py` and `churn-predictor.py` for forward-looking analysis. Revenue simulation uses Monte Carlo methods to model the probabilistic impact of budget changes, channel shifts, and seasonal effects. Churn prediction scores customer segments based on engagement decay, purchase recency, and behavioral signals, enabling proactive retention campaigns before revenue loss materializes.
+
+### Market Intelligence
+
+The market-intelligence agent uses `macro-signal-tracker.py` to monitor external market signals: competitor moves, industry trends, regulatory changes, and macroeconomic indicators. These signals feed into campaign planning and budget allocation decisions, ensuring strategy adapts to market conditions rather than operating in a vacuum.
+
+### Creative Intelligence
+
+`creative-fatigue-predictor.py` monitors active ad creatives for fatigue signals: declining CTR, rising frequency, audience saturation curves. It predicts when a creative will exhaust its effectiveness and triggers refresh recommendations before performance degrades. Content decay scanning (`/dm:content-decay-scan`) applies similar logic to organic content, prioritizing refreshes by estimated revenue impact.
+
+### Self-Healing Operations
+
+`campaign-health-monitor.py` continuously evaluates active campaign health across all connected platforms. When it detects anomalies (budget pacing issues, deliverability drops, sudden CPA spikes), it generates corrective action recommendations and can trigger alerts via the notification system. This moves campaign management from periodic manual review to continuous automated monitoring.
+
+---
+
+## 15. Novel Capabilities (v2.1.0)
+
+v2.1.0 introduces capabilities that go beyond traditional marketing automation:
+
+- **Revenue simulation with Monte Carlo** -- Model the probabilistic revenue impact of budget changes, channel reallocation, and seasonal effects using Monte Carlo simulation rather than deterministic forecasting
+- **Churn prediction** -- Score customer segments for churn risk based on behavioral signals, enabling proactive retention campaigns
+- **GEO monitoring across AI engines** -- Track brand visibility across ChatGPT, Perplexity, Gemini, and Google AI Overviews with entity consistency auditing across Wikidata and Knowledge Panels
+- **Competitor monitoring with change detection** -- Ongoing competitive scanning with automated alerts for pricing changes, new content, positioning shifts, and share-of-voice movement
+- **Self-healing campaigns** -- Continuous campaign health monitoring with automated anomaly detection and corrective action recommendations
+- **Creative fatigue prediction** -- Predict when ad creatives will exhaust their effectiveness and trigger refresh cycles before performance degrades
+- **Content decay scanning** -- Identify decaying organic content and prioritize refreshes by estimated revenue impact
+- **Compound intelligence** -- Cross-domain pattern detection that synthesizes insights from SEO, paid, CRM, and market signals into unified strategic recommendations
+- **Synthetic audience testing** -- Simulate focus groups, message tests, and price sensitivity analysis from CRM data and audience profiles
+- **Journey orchestration** -- Design and manage customer journeys with lifecycle stage transitions and touchpoint sequencing
+- **Growth loop modeling** -- Model viral loops, referral mechanics, and compound growth systems with simulation
+- **Dark funnel intelligence** -- Track brand visibility and influence in unattributable channels (AI answers, podcasts, communities, word-of-mouth)
+- **Competitive narrative warfare** -- Monitor and counter competitor narratives across AI engines, review platforms, and social channels
 
 ---
 

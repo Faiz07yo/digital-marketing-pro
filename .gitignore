@@ -64,3 +64,17 @@ credentials/*.json
 # Execution logs (local only)
 executions/
 approvals/
+
+# v2.1.0 Intelligence & Monitoring data (local only)
+competitors/
+intelligence/
+geo/
+journeys/
+signals/
+narrative/
+panels/
+creative/
+churn/
+operations/
+growth/
+reports/

@@ -124,3 +124,33 @@ Use for: checking any content against the brand voice profile.
 3. **Report scores**: Include the total score and per-dimension breakdown
 4. **Flag low dimensions**: Any dimension scoring below 50% of its max should be flagged for revision
 5. **Track over time**: Scores saved to brand memory show content quality trends
+
+## 8. Multilingual Content Score (0-100)
+
+Evaluates translated and localized content quality across 5 dimensions:
+
+### Dimensions
+
+| Dimension | Weight | Description |
+|-----------|--------|-------------|
+| Translation Accuracy | 25% | Length ratio within expected range, meaning preservation, no omissions or additions |
+| Cultural Adaptation | 25% | Cultural references appropriate for target market, social proof style adapted, urgency/trust signals localized |
+| Brand Voice Preservation | 20% | Brand personality maintained in target language, tone consistent with market expectations, vocabulary aligned |
+| Formatting Integrity | 15% | Markdown/HTML preserved, placeholders intact, merge tags unchanged, RTL handled correctly |
+| Compliance Alignment | 15% | Market-specific disclaimers present, consent language correct, regulatory requirements met |
+
+### Score Interpretation
+
+| Score | Level | Action |
+|-------|-------|--------|
+| 85-100 | Publish Ready | Content can be published directly |
+| 70-84 | Review Needed | Native speaker review recommended before publishing |
+| 50-69 | Revision Required | Significant quality issues — re-translate or heavily edit |
+| 0-49 | Re-translate | Fundamental quality problems — start translation fresh |
+
+### Language-Specific Considerations
+
+- **Indic languages**: Check script rendering, transliteration consistency, code-switching patterns (e.g., Hinglish)
+- **CJK languages**: Verify character-based length ratios (0.5-0.8x English), honorific levels, character set consistency (Simplified vs Traditional Chinese)
+- **RTL languages**: Confirm direction attributes, number formatting, layout mirroring
+- **European languages**: Check formality level consistency, gender agreement, false friend detection

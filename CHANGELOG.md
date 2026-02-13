@@ -4,6 +4,49 @@ All notable changes to the Digital Marketing Pro plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses [Semantic Versioning](https://semver.org/).
 
+## [2.2.0] — 2026-02-13
+
+### Added — Evaluation/QA Layer
+- **8 new scripts**: hallucination-detector.py, claim-verifier.py, output-validator.py, eval-runner.py, quality-tracker.py, eval-config-manager.py, prompt-ab-tester.py, language-router.py
+- **1 new agent**: quality-assurance — orchestrates multi-dimensional content evaluation
+- **7 new eval commands**: eval-content, verify-claims, validate-output, quality-report, eval-config, prompt-test, eval-suite
+- **2 new reference files**: eval-framework-guide.md, eval-rubrics.md
+- Hallucination detection: pattern-based detection of fabricated statistics, fake URLs, unsubstantiated claims, made-up entities
+- Claim verification: cross-check marketing claims against user-provided evidence data
+- Output validation: 8 built-in schemas (blog_post, email, ad_copy, social_post, landing_page, press_release, content_brief, campaign_plan)
+- Composite eval scoring: 6-dimension evaluation with A+ through F grading and configurable weights per brand
+- Quality regression tracking: 30-day rolling baselines with automatic regression detection
+- Prompt A/B testing: compare quality scores across content variations with significance detection
+- Eval-before-publish gate: execution-coordinator runs eval-runner before creating approval records
+- Hallucination scanning added to Write|Edit PreToolUse hook for real-time content checking
+
+### Added — Multilingual Support
+- **4 new MCP servers** (67 total): DeepL, Sarvam AI, Google Cloud Translation, Lara Translate
+- **1 new agent**: localization-specialist — translation routing, transcreation, cultural adaptation
+- **6 new multilingual commands**: translate-content, localize-campaign, language-audit, language-config, multilingual-score, hreflang-check
+- **2 new reference files**: multilingual-execution-guide.md, transcreation-framework.md
+- Automatic language detection via Unicode script analysis for 35+ languages
+- Translation service routing: Indic → Sarvam AI, European → DeepL, CJK → DeepL, broad → Google Cloud
+- Translation quality scoring: length ratio, formatting preservation, key term consistency, placeholder integrity
+- Transcreation framework: cultural recreation for emotional content with brief templates and quality rubrics
+- Cultural adaptation: Hofstede dimensions applied to marketing (social proof, urgency, trust signals per market)
+- Multilingual SEO: hreflang auditing, international sitemaps, Baidu/Yandex/Naver optimization guidance
+- RTL support for Arabic, Hebrew, Farsi, Urdu
+- Indic language expertise: Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada, Malayalam, Punjabi via Sarvam AI
+- Language configuration in brand profile: primary/secondary languages, do-not-translate terms, translation preferences, locale formatting
+
+### Changed
+- Updated content-creator agent with language awareness (creates in primary_language by default)
+- Updated brand-guardian agent with hallucination detection capability
+- Updated execution-coordinator agent with eval-before-execution gate
+- Added multilingual scoring rubric to scoring-rubrics.md
+- Added language fields to brand profile schema in setup.py
+- Enhanced Write|Edit hook with hallucination scanning
+- Updated plugin.json to v2.2.0 with eval and multilingual keywords
+
+### Totals
+- **~402 files** | 115 commands | 25 agents | 64 scripts | 67 MCP servers | 143 reference files
+
 ## [2.1.0] — 2026-02-13
 
 ### Added — Intelligence, Monitoring & Execution Gaps (~78 new files, ~11 modified)

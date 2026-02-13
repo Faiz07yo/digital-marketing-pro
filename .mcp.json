@@ -728,6 +728,50 @@
         "SALESFORCE_ACCESS_TOKEN": "${SALESFORCE_ACCESS_TOKEN}"
       },
       "description": "Pardot — B2B marketing automation, prospect tracking, engagement scoring, Salesforce sync"
+    },
+    "deepl": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "deepl-mcp-server"
+      ],
+      "env": {
+        "DEEPL_API_KEY": "${DEEPL_API_KEY}"
+      },
+      "description": "DeepL — professional translation for 30+ languages, formality control, document translation, glossary support"
+    },
+    "sarvam-ai": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "sarvam-mcp-server"
+      ],
+      "env": {
+        "SARVAM_API_KEY": "${SARVAM_API_KEY}"
+      },
+      "description": "Sarvam AI — Indian language specialist: 22 Indic languages (Hindi, Tamil, Telugu, Bengali, etc.), translation, language detection, transliteration"
+    },
+    "google-cloud-translation": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@anthropic/mcp-google-cloud-translation"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}"
+      },
+      "description": "Google Cloud Translation — 100+ languages, batch translation, language detection, adaptive translation"
+    },
+    "lara-translate": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "lara-mcp"
+      ],
+      "env": {
+        "LARA_API_KEY": "${LARA_API_KEY}"
+      },
+      "description": "Lara Translate — 100+ languages, translation memories, context-aware marketing content translation"
     }
   }
 }

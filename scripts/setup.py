@@ -347,6 +347,18 @@ def create_brand(name, slug=None):
             "budget_range": "",
             "team_size": "",
         },
+        "language": {
+            "primary_language": "",
+            "secondary_languages": [],
+            "content_languages": [],
+            "do_not_translate": [],
+            "translation_preferences": {},
+            "locale_formatting": {
+                "date_format": "",
+                "number_format": "",
+                "measurement": "",
+            },
+        },
     }
 
     profile_path = brand_dir / "profile.json"

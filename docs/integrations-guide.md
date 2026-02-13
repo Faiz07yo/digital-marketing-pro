@@ -1,8 +1,8 @@
 # Integrations & CRM Guide
 
-> **Digital Marketing Pro** v2.1.0 | For marketing operations managers
+> **Digital Marketing Pro** v2.2.0 | For marketing operations managers
 >
-> This guide covers all 63 MCP integrations available in the plugin, how to configure them, how to manage credentials across multiple clients, and what the plugin can do with or without live connections.
+> This guide covers all 67 MCP integrations available in the plugin, how to configure them, how to manage credentials across multiple clients, and what the plugin can do with or without live connections.
 
 ---
 
@@ -33,6 +33,7 @@
    - [Design Tools (v2.1.0)](#design-tools-v210)
    - [SEO & Monitoring (v2.1.0)](#seo--monitoring-v210)
    - [Marketing Automation --- New Platforms (v2.1.0)](#marketing-automation--new-platforms-v210)
+   - [Translation Services (v2.2.0)](#translation-services-v220)
 4. [Multi-CRM Setup for Agencies](#4-multi-crm-setup-for-agencies)
 5. [What Works Without Integrations](#5-what-works-without-integrations)
 6. [Data Privacy & Security](#6-data-privacy--security)
@@ -49,9 +50,9 @@ In practical terms: instead of you manually pulling a GA4 report, pasting it int
 
 ### How the Plugin Uses MCP
 
-The plugin ships with a `.mcp.json` configuration file that defines 63 MCP server connections. Each one maps to a marketing platform or productivity tool. None of them are active by default. They activate only when you set the required environment variables for that service.
+The plugin ships with a `.mcp.json` configuration file that defines 67 MCP server connections. Each one maps to a marketing platform or productivity tool. None of them are active by default. They activate only when you set the required environment variables for that service.
 
-This is the key design principle: **the plugin works fully without any integrations enabled.** All 16 skill modules, 139 reference knowledge files, scoring scripts, brand voice analysis, compliance checking, and campaign planning features operate entirely offline using built-in benchmarks and reference data. MCP integrations layer real data on top of that foundation.
+This is the key design principle: **the plugin works fully without any integrations enabled.** All 16 skill modules, 143 reference knowledge files, scoring scripts, brand voice analysis, compliance checking, and campaign planning features operate entirely offline using built-in benchmarks and reference data. MCP integrations layer real data on top of that foundation.
 
 ### What Happens Under the Hood
 
@@ -1498,6 +1499,109 @@ You: Pull our Pardot prospect engagement scores and identify the top 50 leads re
 
 ---
 
+### Translation Services (v2.2.0)
+
+v2.2.0 adds four translation service integrations for multilingual content creation and localization. These power the `translate-content`, `localize-campaign`, `language-audit`, `language-config`, `multilingual-score`, and `hreflang-check` commands.
+
+#### DeepL
+
+**Best for**: European languages (German, French, Spanish, Italian, Portuguese, Dutch, Polish, Russian), Japanese, Korean, Chinese
+
+1. Sign up at [deepl.com](https://www.deepl.com/pro-api)
+2. Get your API key from the DeepL account dashboard
+3. Set environment variable: `DEEPL_API_KEY=your-api-key`
+4. Features: Formality control (formal/informal), glossary support, document translation
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `DEEPL_API_KEY` | DeepL API authentication key |
+
+**Example usage:**
+```
+You: Translate our product launch email into German with formal tone
+```
+
+---
+
+#### Sarvam AI
+
+**Best for**: Indian languages — Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada, Malayalam, Punjabi, and 13 more Indic languages
+
+1. Sign up at [sarvam.ai](https://www.sarvam.ai)
+2. Get your API key from the Sarvam dashboard
+3. Set environment variable: `SARVAM_API_KEY=your-api-key`
+4. Features: 22 Indic languages, transliteration, language detection, native quality
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `SARVAM_API_KEY` | Sarvam AI API authentication key |
+
+**Example usage:**
+```
+You: Translate our campaign landing page copy into Hindi, Tamil, and Telugu
+```
+
+---
+
+#### Google Cloud Translation
+
+**Best for**: Broad coverage (100+ languages), rare languages, Arabic, Thai, Vietnamese, Indonesian
+
+1. Create a Google Cloud project and enable the Translation API
+2. Create a service account and download the credentials JSON
+3. Set environment variable: `GOOGLE_APPLICATION_CREDENTIALS=/path/to/credentials.json`
+4. Features: 100+ languages, batch translation, adaptive translation, language detection
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `GOOGLE_APPLICATION_CREDENTIALS` | Path to Google Cloud service account JSON (same as GA4) |
+
+**Example usage:**
+```
+You: Translate our FAQ page into Arabic, Thai, and Vietnamese
+```
+
+---
+
+#### Lara Translate
+
+**Best for**: Marketing content with translation memories, context-aware translation, brand consistency
+
+1. Sign up at [laratranslate.com](https://www.laratranslate.com)
+2. Get your API key from the dashboard
+3. Set environment variable: `LARA_API_KEY=your-api-key`
+4. Features: Translation memories, context-aware, 100+ languages, marketing content specialization
+
+**Required environment variables:**
+
+| Variable | Description |
+|---|---|
+| `LARA_API_KEY` | Lara Translate API authentication key |
+
+**Example usage:**
+```
+You: Translate our brand messaging framework into French and Spanish with marketing context
+```
+
+---
+
+### Quick Reference: v2.2.0 Environment Variables
+
+| Integration | Variables | Shared Credential |
+|---|---|---|
+| DeepL | `DEEPL_API_KEY` | -- |
+| Sarvam AI | `SARVAM_API_KEY` | -- |
+| Google Cloud Translation | `GOOGLE_APPLICATION_CREDENTIALS` | GCP service account |
+| Lara Translate | `LARA_API_KEY` | -- |
+
+---
+
 ## 4. Multi-CRM Setup for Agencies
 
 ### The Challenge
@@ -1784,10 +1888,10 @@ When connecting MCP integrations that access personal data (especially GA4, HubS
 | Optimizely | `OPTIMIZELY_API_TOKEN`, `OPTIMIZELY_PROJECT_ID` | -- |
 | Supabase | `SUPABASE_URL`, `SUPABASE_SERVICE_KEY` | -- |
 
-**Total unique variables:** 93 across all 63 integrations (because `GOOGLE_APPLICATION_CREDENTIALS` is shared across GA4, GSC, Google Ads, Sheets, YouTube, BigQuery, and Google Drive, and Pardot shares Salesforce OAuth credentials).
+**Total unique variables:** 96 across all 67 integrations (because `GOOGLE_APPLICATION_CREDENTIALS` is shared across GA4, GSC, Google Ads, Sheets, YouTube, BigQuery, and Google Drive, and Pardot shares Salesforce OAuth credentials).
 
 **Minimum setup for maximum coverage:** A single GCP service account JSON file + your GA4 Property ID + GSC Site URL gives you up to seven Google integrations (GA4, GSC, Sheets, YouTube, BigQuery, Google Drive, Google Ads) from a shared credential base.
 
 ---
 
-*Digital Marketing Pro v2.1.0 -- Integrations & CRM Guide*
+*Digital Marketing Pro v2.2.0 -- Integrations & CRM Guide*

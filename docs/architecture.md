@@ -1,6 +1,6 @@
 # Technical Architecture Reference
 
-**Digital Marketing Pro** -- Claude Code Plugin v2.1.0
+**Digital Marketing Pro** -- Claude Code Plugin v2.2.0
 
 This document describes the internal architecture of the Digital Marketing Pro plugin for developers and contributors. It covers file structure, the WAT framework mapping, component anatomy, the hook system, script conventions, data persistence, adaptive scoring, and extension points.
 
@@ -11,11 +11,11 @@ This document describes the internal architecture of the Digital Marketing Pro p
 ```
 digital-marketing-pro/
 ├── .claude-plugin/
-│   └── plugin.json                    # Plugin manifest (v2.1.0)
-├── .mcp.json                          # 63 MCP server configurations
+│   └── plugin.json                    # Plugin manifest (v2.2.0)
+├── .mcp.json                          # 67 MCP server configurations
 ├── hooks/
 │   └── hooks.json                     # 3 lifecycle hooks
-├── agents/                            # 23 specialist agents
+├── agents/                            # 25 specialist agents
 │   ├── marketing-strategist.md
 │   ├── content-creator.md
 │   ├── seo-specialist.md
@@ -39,7 +39,9 @@ digital-marketing-pro/
 │   ├── intelligence-curator.md        # NEW in v2.1.0
 │   ├── competitor-intelligence.md     # NEW in v2.1.0
 │   └── journey-orchestrator.md        # NEW in v2.1.0
-├── scripts/                           # 56 Python scripts + requirements
+│   ├── quality-assurance.md           # NEW in v2.2.0
+│   └── localization-specialist.md     # NEW in v2.2.0
+├── scripts/                           # 64 Python scripts + requirements
 │   ├── setup.py                       # Brand management, initialization
 │   ├── campaign-tracker.py            # Campaign persistence + violation tracking
 │   ├── adaptive-scorer.py             # Context-aware scoring weights
@@ -96,8 +98,16 @@ digital-marketing-pro/
 │   ├── campaign-health-monitor.py   # Self-healing campaign monitoring (v2.1.0)
 │   ├── narrative-mapper.py          # Competitive narrative mapping (v2.1.0)
 │   ├── audience-simulator.py        # Synthetic audience simulation (v2.1.0)
+│   ├── hallucination-detector.py    # Hallucination pattern detection (v2.2.0)
+│   ├── claim-verifier.py            # Marketing claim verification (v2.2.0)
+│   ├── output-validator.py          # Content structure validation (v2.2.0)
+│   ├── eval-runner.py               # Master eval suite orchestrator (v2.2.0)
+│   ├── quality-tracker.py           # Eval score tracking and regression (v2.2.0)
+│   ├── eval-config-manager.py       # Per-brand eval configuration (v2.2.0)
+│   ├── prompt-ab-tester.py          # Prompt variation quality comparison (v2.2.0)
+│   ├── language-router.py           # Translation service routing (v2.2.0)
 │   └── requirements.txt               # Python dependencies
-├── skills/                            # 119 skill directories
+├── skills/                            # 132 skill directories
 │   ├── context-engine/                # Shared intelligence layer
 │   │   ├── SKILL.md
 │   │   ├── industry-profiles.md       # 22 industries
@@ -130,13 +140,13 @@ digital-marketing-pro/
 └── LICENSE
 ```
 
-**Total: ~347 files** (328 plugin files + 16 documentation/repo files + 3 issue templates).
+**Total: ~402 files** (383 plugin files + 16 documentation/repo files + 3 issue templates).
 
 The 16 modules are: content-engine, campaign-orchestrator, paid-advertising, analytics-insights, aeo-geo, audience-intelligence, cro, digital-pr, funnel-architect, growth-engineering, influencer-creator, reputation-management, emerging-channels, technical-seo, local-seo, and marketing-automation.
 
-The 102 commands include the original 68 from v2.0.0 plus 34 new commands in v2.1.0 covering SEO execution, competitor monitoring, revenue simulation, GEO monitoring, creative intelligence, synthetic audiences, journey orchestration, and more.
+The 115 commands include the original 68 from v2.0.0, 34 from v2.1.0, and 13 from v2.2.0 covering SEO execution, competitor monitoring, revenue simulation, GEO monitoring, creative intelligence, synthetic audiences, journey orchestration, evaluation/QA, and multilingual support.
 
-The 23 agents are: marketing-strategist, content-creator, seo-specialist, analytics-analyst, brand-guardian, media-buyer, growth-engineer, influencer-manager, competitive-intel, pr-outreach, email-specialist, cro-specialist, social-media-manager, execution-coordinator, performance-monitor-agent, crm-manager, memory-manager, agency-operations, marketing-scientist, market-intelligence, intelligence-curator, competitor-intelligence, and journey-orchestrator.
+The 25 agents are: marketing-strategist, content-creator, seo-specialist, analytics-analyst, brand-guardian, media-buyer, growth-engineer, influencer-manager, competitive-intel, pr-outreach, email-specialist, cro-specialist, social-media-manager, execution-coordinator, performance-monitor-agent, crm-manager, memory-manager, agency-operations, marketing-scientist, market-intelligence, intelligence-curator, competitor-intelligence, journey-orchestrator, quality-assurance, and localization-specialist.
 
 ---
 
@@ -160,7 +170,7 @@ Together, SKILL.md files and hooks form the "instructions" layer that the AI age
 
 ### Agents (agents/*.md)
 
-Twenty-three specialist agents with distinct expertise areas and behavior rules. Each agent:
+Twenty-five specialist agents with distinct expertise areas and behavior rules. Each agent:
 
 1. Loads brand context before producing any output (Rule 1 in every agent)
 2. Follows domain-specific guidelines (8-11 behavior rules including guideline enforcement)
@@ -175,7 +185,7 @@ Multiple agents can collaborate on a single task. For example, the `/dm:campaign
 
 ### Tools (scripts/*.py)
 
-Fifty-six Python scripts handle deterministic execution: scoring, formatting, data persistence, and analysis. Every script:
+Sixty-four Python scripts handle deterministic execution: scoring, formatting, data persistence, and analysis. Every script:
 
 - Accepts CLI arguments via argparse
 - Produces JSON output to stdout
@@ -338,6 +348,8 @@ N. Check brand guidelines for content. [Load guidelines/_manifest.json,
 | intelligence-curator | Compound intelligence synthesis, cross-domain pattern detection | Intelligence graph, cross-agent synthesis, insight ranking | intelligence-graph, narrative-mapper, campaign-health-monitor |
 | competitor-intelligence | Ongoing competitor monitoring, share of voice, competitive alerts | Change detection, competitive scoring, narrative analysis | competitor-tracker, narrative-mapper, audience-simulator |
 | journey-orchestrator | Customer journey design, lifecycle stage transitions, experience optimization | Journey mapping, touchpoint orchestration, lifecycle automation | journey-engine, campaign-health-monitor, churn-predictor |
+| quality-assurance | Content evaluation, hallucination detection, quality regression tracking | Multi-dimensional scoring, claim verification, regression analysis | hallucination-detector, claim-verifier, output-validator, eval-runner, quality-tracker, eval-config-manager, prompt-ab-tester |
+| localization-specialist | Translation routing, transcreation, cultural adaptation, multilingual SEO | Language detection, translation quality scoring, cultural dimensions | language-router |
 
 Every agent's Rule 1 mandates loading brand context before producing output. Every agent has a guideline enforcement rule. Every agent references campaign-tracker.py and guidelines-manager.py. These are the three most important architectural invariants in the agent system.
 
@@ -402,7 +414,7 @@ Three lifecycle hooks are defined in `hooks/hooks.json`. They wrap every Claude 
 
 ## 8. Script Architecture
 
-All 56 scripts in `scripts/` follow consistent conventions.
+All 64 scripts in `scripts/` follow consistent conventions.
 
 ### Conventions
 
@@ -416,7 +428,7 @@ All 56 scripts in `scripts/` follow consistent conventions.
 
 | Tier | Dependencies | Scripts |
 |------|-------------|---------|
-| Zero deps (always work) | Python stdlib only | setup.py, campaign-tracker.py, utm-generator.py (basic mode), schema-generator.py, guidelines-manager.py, email-subject-tester.py, spam-score-checker.py, send-time-optimizer.py, sample-size-calculator.py, significance-tester.py, form-analyzer.py, hashtag-analyzer.py, posting-time-analyzer.py, calendar-validator.py, tech-seo-auditor.py, local-seo-checker.py, roi-calculator.py, budget-optimizer.py, clv-calculator.py, content-repurposer.py, review-response-drafter.py, ad-budget-pacer.py, link-profile-analyzer.py, revenue-forecaster.py, approval-manager.py, execution-tracker.py, performance-monitor.py, memory-manager.py, crm-sync.py, report-generator.py, credential-manager.py, team-manager.py, seo-executor.py, competitor-tracker.py, geo-tracker.py, pdf-generator.py, revenue-simulator.py, churn-predictor.py, macro-signal-tracker.py, creative-fatigue-predictor.py, intelligence-graph.py, journey-engine.py, growth-loop-modeler.py, campaign-health-monitor.py, narrative-mapper.py, audience-simulator.py |
+| Zero deps (always work) | Python stdlib only | setup.py, campaign-tracker.py, utm-generator.py (basic mode), schema-generator.py, guidelines-manager.py, email-subject-tester.py, spam-score-checker.py, send-time-optimizer.py, sample-size-calculator.py, significance-tester.py, form-analyzer.py, hashtag-analyzer.py, posting-time-analyzer.py, calendar-validator.py, tech-seo-auditor.py, local-seo-checker.py, roi-calculator.py, budget-optimizer.py, clv-calculator.py, content-repurposer.py, review-response-drafter.py, ad-budget-pacer.py, link-profile-analyzer.py, revenue-forecaster.py, approval-manager.py, execution-tracker.py, performance-monitor.py, memory-manager.py, crm-sync.py, report-generator.py, credential-manager.py, team-manager.py, seo-executor.py, competitor-tracker.py, geo-tracker.py, pdf-generator.py, revenue-simulator.py, churn-predictor.py, macro-signal-tracker.py, creative-fatigue-predictor.py, intelligence-graph.py, journey-engine.py, growth-loop-modeler.py, campaign-health-monitor.py, narrative-mapper.py, audience-simulator.py, hallucination-detector.py, claim-verifier.py, output-validator.py, eval-runner.py, quality-tracker.py, eval-config-manager.py, prompt-ab-tester.py, language-router.py |
 | Lite | nltk, textstat | brand-voice-scorer.py, content-scorer.py, readability-analyzer.py, headline-analyzer.py |
 | Full | + requests, beautifulsoup4, qrcode, Pillow | competitor-scraper.py, utm-generator.py (QR mode), email-preview.py |
 | Optional | + openai, anthropic | ai-visibility-checker.py (API mode) |
@@ -431,7 +443,7 @@ Brand profiles follow schema version `1.0.0` (defined in `setup.py` as `SCHEMA_V
 
 ## 9. MCP Configuration
 
-`.mcp.json` defines 63 MCP (Model Context Protocol) server integrations. These connect Claude Code to the user's own marketing platform accounts.
+`.mcp.json` defines 67 MCP (Model Context Protocol) server integrations. These connect Claude Code to the user's own marketing platform accounts.
 
 ### Server List
 
@@ -593,6 +605,15 @@ Brand profiles follow schema version `1.0.0` (defined in `setup.py` as `SCHEMA_V
 | marketo | mcp-marketo | Marketo leads, campaigns, smart lists, email programs |
 | pardot | mcp-pardot | Pardot prospects, campaigns, engagement scoring, forms |
 
+**Translation Services (v2.2.0)**
+
+| Server | Package | Purpose |
+|--------|---------|---------|
+| deepl | mcp-deepl | European and CJK translation, formality control, glossaries |
+| sarvam-ai | mcp-sarvam-ai | 22 Indic language translation, transliteration, language detection |
+| google-cloud-translation | mcp-google-cloud-translation | 100+ language translation, batch processing, adaptive translation |
+| lara-translate | mcp-lara-translate | Marketing-context translation, translation memories, brand consistency |
+
 ### Configuration Pattern
 
 ```json
@@ -610,7 +631,7 @@ Brand profiles follow schema version `1.0.0` (defined in `setup.py` as `SCHEMA_V
 }
 ```
 
-All 63 server credentials are referenced via `${ENV_VAR}` placeholders. Servers only activate when the corresponding environment variables are set. No credentials are stored in plugin code. The plugin works fully without any MCP servers enabled -- they add live data capabilities but are not required.
+All 67 server credentials are referenced via `${ENV_VAR}` placeholders. Servers only activate when the corresponding environment variables are set. No credentials are stored in plugin code. The plugin works fully without any MCP servers enabled -- they add live data capabilities but are not required.
 
 ---
 
@@ -828,6 +849,58 @@ v2.1.0 introduces capabilities that go beyond traditional marketing automation:
 - **Growth loop modeling** -- Model viral loops, referral mechanics, and compound growth systems with simulation
 - **Dark funnel intelligence** -- Track brand visibility and influence in unattributable channels (AI answers, podcasts, communities, word-of-mouth)
 - **Competitive narrative warfare** -- Monitor and counter competitor narratives across AI engines, review platforms, and social channels
+
+---
+
+## 16. Evaluation Layer
+
+The eval layer ensures content quality through automated multi-dimensional scoring before publication.
+
+### Components
+- **eval-runner.py** — Master orchestrator that runs the full eval suite via subprocess
+- **hallucination-detector.py** — Pattern-based detection of fabricated statistics, fake URLs, unsubstantiated claims
+- **claim-verifier.py** — Cross-checks claims against user-provided evidence files
+- **output-validator.py** — Validates content structure against 8 built-in schemas
+- **quality-tracker.py** — Persists eval scores, tracks trends, detects regression
+- **eval-config-manager.py** — Manages per-brand quality thresholds and weights
+- **prompt-ab-tester.py** — Tracks and compares quality across content variations
+
+### Eval Flow
+1. Content created by content-creator agent
+2. Write|Edit hook scans for hallucination indicators in real-time
+3. eval-runner.py runs full or quick eval (6 or 3 dimensions)
+4. Composite score computed with configurable weights → letter grade (A+ through F)
+5. quality-tracker.py logs result for trend tracking
+6. execution-coordinator checks score against auto-reject threshold before approval
+7. quality-assurance agent synthesizes results and recommends fixes
+
+### Quality Assurance Agent
+Orchestrates the full eval pipeline, maintains quality baselines, detects regression, and provides actionable fix recommendations.
+
+---
+
+## 17. Multilingual Layer
+
+The multilingual layer enables content creation, translation, and cultural adaptation across 35+ languages.
+
+### Translation MCP Servers
+- **DeepL** — 30+ languages, European/CJK strength, formality control, glossaries
+- **Sarvam AI** — 22 Indic languages (Hindi, Tamil, Telugu, Bengali, etc.), transliteration
+- **Google Cloud Translation** — 100+ languages, broadest coverage, batch translation
+- **Lara Translate** — Translation memories, context-aware marketing translation
+
+### Routing
+language-router.py automatically selects the optimal translation service:
+- Indic languages → Sarvam AI → Google Cloud (fallback)
+- European languages → DeepL → Lara → Google Cloud
+- CJK languages → DeepL → Google Cloud → Lara
+- Other → Google Cloud → Lara → DeepL
+
+### Localization Specialist Agent
+Manages translation routing, transcreation for emotional content, cultural adaptation, multilingual SEO, and translation quality assurance.
+
+### Transcreation
+For emotional content (CTAs, slogans, headlines), the framework supports cultural recreation rather than literal translation — using brief templates, cultural dimension mapping, and quality rubrics.
 
 ---
 

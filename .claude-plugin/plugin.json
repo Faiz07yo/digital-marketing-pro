@@ -10,18 +10,8 @@
     "work_email": "indranil.banerjee@intglobal.com",
     "url": "https://www.linkedin.com/in/askneelnow/"
   },
-  "publisher": {
-    "name": "INT TechShu",
-    "url": "https://techshu.com"
-  },
   "homepage": "https://github.com/indranilbanerjee/digital-marketing-pro",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/indranilbanerjee/digital-marketing-pro.git"
-  },
-  "bugs": {
-    "url": "https://github.com/indranilbanerjee/digital-marketing-pro/issues"
-  },
+  "repository": "https://github.com/indranilbanerjee/digital-marketing-pro",
   "license": "MIT",
   "keywords": [
     "marketing",

@@ -38,47 +38,47 @@ Structure email outputs as: Email Type (campaign, automation, transactional), Su
 ## Tools & Scripts
 
 - **email-preview.py** — Analyze email deliverability and inbox signals
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/email-preview.py" --subject "Your Weekly Insights" --preview "3 trends you missed" --body "email body"`
+  `python "scripts/email-preview.py" --subject "Your Weekly Insights" --preview "3 trends you missed" --body "email body"`
   When: Every email creation — scan for spam triggers, analyze subject line, check inbox signals
 
 - **content-scorer.py** — Score email content quality
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/content-scorer.py" --text "email content" --type email`
+  `python "scripts/content-scorer.py" --text "email content" --type email`
   When: After drafting — score readability, structure, CTA quality, spam/filler
 
 - **readability-analyzer.py** — Check email readability
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/readability-analyzer.py" --text "email content" --target b2c_general`
+  `python "scripts/readability-analyzer.py" --text "email content" --target b2c_general`
   When: Ensure email copy matches audience reading level
 
 - **brand-voice-scorer.py** — Score email voice consistency
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/brand-voice-scorer.py" --brand {slug} --text "email content"`
+  `python "scripts/brand-voice-scorer.py" --brand {slug} --text "email content"`
   When: Verify email matches brand voice profile
 
 - **headline-analyzer.py** — Score email subject lines
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/headline-analyzer.py" --headline "Your subject line"`
+  `python "scripts/headline-analyzer.py" --headline "Your subject line"`
   When: After generating subject line variations — pick highest-impact options
 
 - **adaptive-scorer.py** — Get brand-adapted email scoring weights
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/adaptive-scorer.py" --brand {slug} --text "email content" --type email`
+  `python "scripts/adaptive-scorer.py" --brand {slug} --text "email content" --type email`
   When: Before content-scorer — adjust weights for industry and brand context
 
 - **campaign-tracker.py** — Track email campaigns and insights
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Welcome Sequence v3","channels":["email"],"type":"automation","goals":["activation"]}'`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Welcome Sequence v3","channels":["email"],"type":"automation","goals":["activation"]}'`
   When: After creating email campaigns or analyzing email performance
 
 - **guidelines-manager.py** — Load email-specific guidelines
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category channel-styles`
+  `python "scripts/guidelines-manager.py" --brand {slug} --action get --category channel-styles`
   When: Before writing — load email-specific tone and format rules
 
 - **email-subject-tester.py** — Score email subject lines for effectiveness
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/email-subject-tester.py" --subjects '["Subject line 1", "Subject line 2"]'`
+  `python "scripts/email-subject-tester.py" --subjects '["Subject line 1", "Subject line 2"]'`
   When: After generating subject line variations — score and rank by predicted open-rate effectiveness
 
 - **spam-score-checker.py** — Check email content for spam risk
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/spam-score-checker.py" --content "email body text" --subject "Subject line"`
+  `python "scripts/spam-score-checker.py" --content "email body text" --subject "Subject line"`
   When: Before finalizing any email — assess deliverability risk from spam signals
 
 - **send-time-optimizer.py** — Recommend optimal email send times
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/send-time-optimizer.py" --industry saas --audience-type b2b`
+  `python "scripts/send-time-optimizer.py" --industry saas --audience-type b2b`
   When: When designing email sequences or campaigns — recommend send windows based on industry benchmarks
 
 ## MCP Integrations

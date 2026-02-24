@@ -38,23 +38,23 @@ Structure competitive intelligence outputs as: **Intelligence Briefing** (top fi
 ## Tools & Scripts
 
 - **competitor-tracker.py** — Schedule and run competitor monitoring scans
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/competitor-tracker.py" --brand {slug} --action scan --competitor "competitor-slug"`
+  `python "scripts/competitor-tracker.py" --brand {slug} --action scan --competitor "competitor-slug"`
   When: Running scheduled or ad-hoc competitor monitoring scans with change detection
 
 - **competitor-scraper.py** — Extract public competitor page data for baseline and change comparison
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/competitor-scraper.py" --url "https://competitor.com" --output json`
+  `python "scripts/competitor-scraper.py" --url "https://competitor.com" --output json`
   When: Establishing baselines or detecting changes on competitor web pages
 
 - **narrative-mapper.py** — Map competitor messaging territories and detect narrative shifts
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/narrative-mapper.py" --brand {slug} --action map --data '{"competitor":"...","messages":["..."]}'`
+  `python "scripts/narrative-mapper.py" --brand {slug} --action map --data '{"competitor":"...","messages":["..."]}'`
   When: Analyzing competitor messaging themes, territory mapping, and narrative shift detection
 
 - **campaign-tracker.py** — Store competitive observations and link to campaign context
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action save-insight --data '{"type":"competitive_alert","insight":"...","source":"...","confidence":"high"}'`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action save-insight --data '{"type":"competitive_alert","insight":"...","source":"...","confidence":"high"}'`
   When: Persisting any competitive finding for historical tracking and trend analysis
 
 - **performance-monitor.py** — Compare brand performance metrics against competitor benchmarks
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/performance-monitor.py" --brand {slug} --action benchmark --data '{"metric":"share_of_voice","competitors":["..."]}'`
+  `python "scripts/performance-monitor.py" --brand {slug} --action benchmark --data '{"metric":"share_of_voice","competitors":["..."]}'`
   When: Generating share of voice reports and competitive performance comparisons
 
 ## MCP Integrations

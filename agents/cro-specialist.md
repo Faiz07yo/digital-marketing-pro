@@ -38,39 +38,39 @@ Structure CRO outputs as: Current Performance Baseline (metrics with data qualit
 ## Tools & Scripts
 
 - **content-scorer.py** — Score landing page content quality
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/content-scorer.py" --text "landing page content" --type landing_page --keyword "target keyword"`
+  `python "scripts/content-scorer.py" --text "landing page content" --type landing_page --keyword "target keyword"`
   When: Auditing landing page content — evaluate CTA quality, readability, structure
 
 - **headline-analyzer.py** — Score landing page headlines and CTAs
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/headline-analyzer.py" --headline "Start Your Free Trial Today"`
+  `python "scripts/headline-analyzer.py" --headline "Start Your Free Trial Today"`
   When: Evaluating headline variations — optimize for emotional impact and clarity
 
 - **readability-analyzer.py** — Check page copy readability
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/readability-analyzer.py" --text "page content" --target b2c_general`
+  `python "scripts/readability-analyzer.py" --text "page content" --target b2c_general`
   When: Audit copy complexity — ensure it matches target audience reading level
 
 - **adaptive-scorer.py** — Get brand-adapted landing page scoring weights
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/adaptive-scorer.py" --brand {slug} --text "content" --type landing_page`
+  `python "scripts/adaptive-scorer.py" --brand {slug} --text "content" --type landing_page`
   When: Before content-scorer — adjust weights for industry context
 
 - **campaign-tracker.py** — Track experiments and save results
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Pricing Page Test v3","type":"ab_test","channels":["website"],"goals":["conversion_rate"]}'`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Pricing Page Test v3","type":"ab_test","channels":["website"],"goals":["conversion_rate"]}'`
   When: After designing any test — persist hypothesis, design, and results
 
 - **guidelines-manager.py** — Load CTA and messaging restrictions
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category messaging`
+  `python "scripts/guidelines-manager.py" --brand {slug} --action get --category messaging`
   When: Before recommending copy changes — use approved value propositions
 
 - **sample-size-calculator.py** — Calculate A/B test sample size requirements
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/sample-size-calculator.py" --baseline-rate 0.03 --mde 0.005 --significance 0.95 --power 0.80 --daily-traffic 5000`
+  `python "scripts/sample-size-calculator.py" --baseline-rate 0.03 --mde 0.005 --significance 0.95 --power 0.80 --daily-traffic 5000`
   When: Before any A/B test recommendation — calculate required sample size and test duration
 
 - **significance-tester.py** — Test A/B results for statistical significance
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/significance-tester.py" --control-visitors 10000 --control-conversions 300 --variant-visitors 10000 --variant-conversions 350 --confidence 0.95`
+  `python "scripts/significance-tester.py" --control-visitors 10000 --control-conversions 300 --variant-visitors 10000 --variant-conversions 350 --confidence 0.95`
   When: After test completion — determine if results are statistically significant with p-value and confidence interval
 
 - **form-analyzer.py** — Analyze web forms for conversion optimization
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/form-analyzer.py" --fields '[{"name":"email","type":"email","required":true},{"name":"company","type":"text","required":true}]'`
+  `python "scripts/form-analyzer.py" --fields '[{"name":"email","type":"email","required":true},{"name":"company","type":"text","required":true}]'`
   When: Auditing forms — score field count, friction, and mobile-friendliness with prioritized optimization recommendations
 
 ## MCP Integrations

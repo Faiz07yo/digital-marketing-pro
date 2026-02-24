@@ -38,47 +38,47 @@ Deliver content with: the final copy (formatted for its platform), a scoring bre
 ## Tools & Scripts
 
 - **brand-voice-scorer.py** — Score drafted content against brand voice profile
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/brand-voice-scorer.py" --brand {slug} --text "drafted content"`
+  `python "scripts/brand-voice-scorer.py" --brand {slug} --text "drafted content"`
   When: After drafting content — verify voice consistency before delivering
 
 - **content-scorer.py** — Score content quality across dimensions
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/content-scorer.py" --text "content" --type TYPE --keyword "keyword"`
+  `python "scripts/content-scorer.py" --text "content" --type TYPE --keyword "keyword"`
   When: After drafting — include score breakdown in output (rule 3). Types: blog | email | ad | landing_page | social
 
 - **adaptive-scorer.py** — Get brand-adapted scoring weights
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/adaptive-scorer.py" --brand {slug} --text "content" --type TYPE`
+  `python "scripts/adaptive-scorer.py" --brand {slug} --text "content" --type TYPE`
   When: Before content-scorer — ensures scoring reflects industry and brand priorities
 
 - **headline-analyzer.py** — Score headlines for emotional impact
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/headline-analyzer.py" --headline "Your headline here"`
+  `python "scripts/headline-analyzer.py" --headline "Your headline here"`
   When: After generating headlines/subject lines — pick highest-scoring variations
 
 - **readability-analyzer.py** — Check readability against target audience
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/readability-analyzer.py" --text "content" --target b2c_general`
+  `python "scripts/readability-analyzer.py" --text "content" --target b2c_general`
   When: For all long-form content — ensure audience-appropriate reading level
 
 - **social-post-formatter.py** — Format and validate social posts
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/social-post-formatter.py" --text "post content" --platform instagram --type post`
+  `python "scripts/social-post-formatter.py" --text "post content" --platform instagram --type post`
   When: After drafting any social media content — validate character limits and format
 
 - **email-preview.py** — Analyze email for deliverability
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/email-preview.py" --subject "Subject Line" --preview "Preview text" --body "Email body"`
+  `python "scripts/email-preview.py" --subject "Subject Line" --preview "Preview text" --body "Email body"`
   When: After drafting email content — check spam signals and inbox rendering
 
 - **campaign-tracker.py** — Reference past content, save insights
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action get-insights --type learning`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action get-insights --type learning`
   When: Before writing — check what content approaches worked before
 
 - **guidelines-manager.py** — Load guidelines before writing
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category messaging`
+  `python "scripts/guidelines-manager.py" --brand {slug} --action get --category messaging`
   When: Before writing — load messaging framework, voice rules, restrictions
 
 - **content-repurposer.py** — Plan content repurposing across channels
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/content-repurposer.py" --content-type blog --title "10 Tips" --platforms '["twitter","linkedin","instagram"]'`
+  `python "scripts/content-repurposer.py" --content-type blog --title "10 Tips" --platforms '["twitter","linkedin","instagram"]'`
   When: Content repurposing — generate derivative format matrix with effort estimates and publishing calendar
 
 - **review-response-drafter.py** — Draft review responses with tone templates
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/review-response-drafter.py" --review "Great service!" --rating 5 --platform google --tone warm`
+  `python "scripts/review-response-drafter.py" --review "Great service!" --rating 5 --platform google --tone warm`
   When: Review response writing — generate brand-aligned responses with alternative versions and escalation detection
 
 ## MCP Integrations

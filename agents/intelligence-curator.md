@@ -40,22 +40,22 @@ Structure intelligence outputs as: **Learning Records** (structured findings wit
 ## Tools & Scripts
 
 - **intelligence-graph.py** — Store, retrieve, and query the intelligence knowledge graph
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/intelligence-graph.py" --brand {slug} --action store-learning --data '{"insight":"...","confidence":0.75,"source_agent":"content-creator","conditions":{"channel":"email","audience":"developers"},"observations":5}'`
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/intelligence-graph.py" --brand {slug} --action query --conditions '{"channel":"email"}'`
+  `python "scripts/intelligence-graph.py" --brand {slug} --action store-learning --data '{"insight":"...","confidence":0.75,"source_agent":"content-creator","conditions":{"channel":"email","audience":"developers"},"observations":5}'`
+  `python "scripts/intelligence-graph.py" --brand {slug} --action query --conditions '{"channel":"email"}'`
   When: ALWAYS — every learning must be stored and every agent briefing must query relevant existing learnings
 
 - **campaign-tracker.py** — Retrieve campaign history for evidence gathering and pattern analysis
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action list-campaigns`
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action get-insights --type benchmark`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action list-campaigns`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action get-insights --type benchmark`
   When: Pattern recognition — access historical campaign data to identify recurring themes across multiple campaigns
 
 - **memory-manager.py** — Manage multi-layer memory persistence and retrieval
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/memory-manager.py" --brand {slug} --action store --layer knowledge-base --data '{"type":"playbook","channel":"email","rules":[...]}'`
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/memory-manager.py" --brand {slug} --action retrieve --layer vector-db --query "email subject line best practices"`
+  `python "scripts/memory-manager.py" --brand {slug} --action store --layer knowledge-base --data '{"type":"playbook","channel":"email","rules":[...]}'`
+  `python "scripts/memory-manager.py" --brand {slug} --action retrieve --layer vector-db --query "email subject line best practices"`
   When: Knowledge persistence — store playbooks and retrieve semantically similar learnings across the 5-layer memory architecture
 
 - **report-generator.py** — Format intelligence reports and playbooks for distribution
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/report-generator.py" --brand {slug} --type intelligence-summary`
+  `python "scripts/report-generator.py" --brand {slug} --type intelligence-summary`
   When: Report generation — compile intelligence base health reports and playbook documents for stakeholders
 
 ## MCP Integrations

@@ -36,19 +36,19 @@ Structure growth recommendations as: Current State Assessment (metrics, loops, b
 ## Tools & Scripts
 
 - **campaign-tracker.py** — Track experiments and save results
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Referral Loop v2","channels":["in-product","email"],"goals":["k_factor_improvement"],"type":"experiment"}'`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Referral Loop v2","channels":["in-product","email"],"goals":["k_factor_improvement"],"type":"experiment"}'`
   When: After designing any experiment — persist hypothesis, design, and results for learning
 
 - **content-scorer.py** — Score onboarding and activation content
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/content-scorer.py" --text "onboarding copy" --type landing_page --keyword "signup"`
+  `python "scripts/content-scorer.py" --text "onboarding copy" --type landing_page --keyword "signup"`
   When: Evaluating onboarding flows and activation messaging quality
 
 - **utm-generator.py** — Track referral and growth campaign sources
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/utm-generator.py" --base-url "https://app.example.com/invite" --campaign "referral-v2" --source "in-app" --medium "referral"`
+  `python "scripts/utm-generator.py" --base-url "https://app.example.com/invite" --campaign "referral-v2" --source "in-app" --medium "referral"`
   When: Setting up tracking for referral loops and growth experiments
 
 - **guidelines-manager.py** — Load restrictions for growth messaging
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category restrictions`
+  `python "scripts/guidelines-manager.py" --brand {slug} --action get --category restrictions`
   When: Before designing referral incentives or activation messaging — check for word restrictions
 
 ## MCP Integrations

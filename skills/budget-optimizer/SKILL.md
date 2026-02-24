@@ -26,7 +26,7 @@ The user must provide (or will be prompted for):
 ## Process
 
 1. **Load brand context**: Read `~/.claude-marketing/brands/_active-brand.json` for the active slug, then load `~/.claude-marketing/brands/{slug}/profile.json`. Apply brand voice, compliance rules for target markets (`skills/context-engine/compliance-rules.md`), and industry context. **Also check for guidelines** at `~/.claude-marketing/brands/{slug}/guidelines/_manifest.json` — if present, load restrictions and relevant category files. Check for custom templates at `~/.claude-marketing/brands/{slug}/templates/`. Check for agency SOPs at `~/.claude-marketing/sops/`. If no brand exists, ask: "Set up a brand first (/dm:brand-setup)?" — or proceed with defaults.
-2. **Run budget-optimizer.py script**: Execute `${CLAUDE_PLUGIN_ROOT}/scripts/budget-optimizer.py` with the provided channel data to compute baseline efficiency metrics and generate optimization scenarios
+2. **Run budget-optimizer.py script**: Execute `scripts/budget-optimizer.py` with the provided channel data to compute baseline efficiency metrics and generate optimization scenarios
 3. **Calculate efficiency metrics per channel**: Compute ROAS, CPA, cost per lead, revenue per dollar, contribution margin, and marginal cost of acquisition for each channel
 4. **Rank channels by marginal efficiency**: Order channels by incremental return per additional dollar spent, accounting for current saturation levels and historical performance trends
 5. **Apply diminishing returns model**: Model how each channel's efficiency degrades as spend increases — identify the inflection point and saturation ceiling for each channel

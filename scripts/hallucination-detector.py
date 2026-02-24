@@ -184,8 +184,9 @@ SEVERITY_DEDUCTIONS = {
 # ---------------------------------------------------------------------------
 def _split_sentences(text):
     """Split text into rough sentences using regex."""
-    # Split on sentence-ending punctuation followed by space or EOL
-    sentences = re.split(r'(?<=[.!?])\s+', text.strip())
+    # Split on sentence-ending punctuation followed by space and uppercase letter
+    # This avoids splitting on abbreviations like Dr., Inc., U.S., e.g., etc.
+    sentences = re.split(r'(?<=[.!?])\s+(?=[A-Z])', text.strip())
     return [s.strip() for s in sentences if s.strip()]
 
 

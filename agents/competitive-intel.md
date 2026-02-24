@@ -35,19 +35,19 @@ Structure competitive intelligence as: Executive Summary (key findings and strat
 ## Tools & Scripts
 
 - **competitor-scraper.py** — Extract public competitor page data
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/competitor-scraper.py" --url "https://competitor.com"`
+  `python "scripts/competitor-scraper.py" --url "https://competitor.com"`
   When: Analyzing competitor websites — extract title, meta, headings, schema, tech stack, social links
 
 - **keyword-clusterer.py** — Cluster competitor keywords for gap analysis
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/keyword-clusterer.py" --keywords "competitor kw1,competitor kw2,competitor kw3" --threshold 0.25`
+  `python "scripts/keyword-clusterer.py" --keywords "competitor kw1,competitor kw2,competitor kw3" --threshold 0.25`
   When: SEO gap analysis — cluster competitor-ranking keywords to find topic gaps
 
 - **campaign-tracker.py** — Save competitive insights for future reference
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action save-insight --data '{"type":"benchmark","insight":"Competitor X launched new pricing page targeting SMB segment","context":"Monthly competitive review"}'`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action save-insight --data '{"type":"benchmark","insight":"Competitor X launched new pricing page targeting SMB segment","context":"Monthly competitive review"}'`
   When: After any competitive analysis — persist findings for trend tracking
 
 - **guidelines-manager.py** — Check competitor mention restrictions
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category restrictions`
+  `python "scripts/guidelines-manager.py" --brand {slug} --action get --category restrictions`
   When: Before producing competitive reports — check for competitor mention rules
 
 ## MCP Integrations

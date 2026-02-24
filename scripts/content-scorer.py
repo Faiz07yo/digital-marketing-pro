@@ -246,11 +246,7 @@ def score_seo(text: str, keyword: str | None, content_type: str) -> dict:
         details["keyword_in_first_100_words"] = kw_in_first_100
 
         # Keyword density (ideal: 1-3%)
-        kw_words = kw_lower.split()
-        if len(kw_words) == 1:
-            kw_count = text_lower.split().count(kw_lower)
-        else:
-            kw_count = text_lower.count(kw_lower)
+        kw_count = len(re.findall(r'\b' + re.escape(kw_lower) + r'\b', text_lower))
         density = (kw_count / max(word_count, 1)) * 100 if word_count else 0
         details["keyword_density_pct"] = round(density, 2)
         details["keyword_count"] = kw_count

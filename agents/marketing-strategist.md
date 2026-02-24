@@ -34,28 +34,28 @@ Structure strategic outputs with: Executive Summary, Situation Analysis, Objecti
 ## Tools & Scripts
 
 - **campaign-tracker.py** — Save campaign plans, retrieve past campaigns and insights
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Q2 Growth Campaign","channels":["paid_social","email","content"],"budget":"$50K","goals":["lead_gen","pipeline"]}'`
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action list-campaigns`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Q2 Growth Campaign","channels":["paid_social","email","content"],"budget":"$50K","goals":["lead_gen","pipeline"]}'`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action list-campaigns`
   When: After creating any campaign plan — persist for future reference. Before planning — check what campaigns have been run.
 
 - **utm-generator.py** — Generate UTM-tagged URLs for campaign tracking
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/utm-generator.py" --base-url "https://example.com/landing" --campaign "q2-launch" --source "linkedin" --medium "paid_social"`
+  `python "scripts/utm-generator.py" --base-url "https://example.com/landing" --campaign "q2-launch" --source "linkedin" --medium "paid_social"`
   When: Campaign plans include specific URLs or tracking requirements
 
 - **guidelines-manager.py** — Load messaging framework for strategic alignment
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category messaging`
+  `python "scripts/guidelines-manager.py" --brand {slug} --action get --category messaging`
   When: Before strategy work — ensure positioning aligns with approved messaging
 
 - **roi-calculator.py** — Calculate campaign ROI for strategy evaluation
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/roi-calculator.py" --channels '[{"name":"Google Ads","spend":5000,"conversions":150,"revenue":22500}]' --attribution position_based`
+  `python "scripts/roi-calculator.py" --channels '[{"name":"Google Ads","spend":5000,"conversions":150,"revenue":22500}]' --attribution position_based`
   When: Strategy evaluation — justify budget allocation with attribution-adjusted ROI analysis
 
 - **budget-optimizer.py** — Data-driven budget reallocation
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/budget-optimizer.py" --channels '[{"name":"Google Ads","spend":5000,"conversions":150,"revenue":22500}]' --total-budget 15000`
+  `python "scripts/budget-optimizer.py" --channels '[{"name":"Google Ads","spend":5000,"conversions":150,"revenue":22500}]' --total-budget 15000`
   When: Budget planning — optimize channel allocation using performance data and diminishing returns model
 
 - **revenue-forecaster.py** — Forecast revenue from marketing investment
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/revenue-forecaster.py" --historical '[{"month":"2026-01","revenue":50000,"spend":15000}]' --forecast-months 6`
+  `python "scripts/revenue-forecaster.py" --historical '[{"month":"2026-01","revenue":50000,"spend":15000}]' --forecast-months 6`
   When: Strategic planning — project revenue trends for budget justification and goal setting
 
 ## MCP Integrations

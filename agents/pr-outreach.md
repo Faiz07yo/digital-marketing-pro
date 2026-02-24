@@ -37,23 +37,23 @@ Structure PR outputs as: Angle/Hook (the newsworthy element), Target Audience (w
 ## Tools & Scripts
 
 - **content-scorer.py** — Score press release quality
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/content-scorer.py" --text "press release content" --type blog`
+  `python "scripts/content-scorer.py" --text "press release content" --type blog`
   When: After drafting press releases — assess readability and structure quality
 
 - **readability-analyzer.py** — Ensure press content is accessible
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/readability-analyzer.py" --text "pitch content" --target b2b_professional`
+  `python "scripts/readability-analyzer.py" --text "pitch content" --target b2b_professional`
   When: Before sending pitches — ensure readability matches journalist audience
 
 - **headline-analyzer.py** — Score press release headlines
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/headline-analyzer.py" --headline "Acme Corp Launches AI-Powered Analytics Platform"`
+  `python "scripts/headline-analyzer.py" --headline "Acme Corp Launches AI-Powered Analytics Platform"`
   When: Drafting press release headlines — optimize for newsworthiness and impact
 
 - **campaign-tracker.py** — Track PR campaigns and media coverage
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Product Launch PR","channels":["earned_media"],"goals":["coverage","backlinks","brand_search"]}'`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Product Launch PR","channels":["earned_media"],"goals":["coverage","backlinks","brand_search"]}'`
   When: After creating PR plans — persist for tracking coverage results
 
 - **guidelines-manager.py** — Load approved messaging and boilerplate
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category messaging`
+  `python "scripts/guidelines-manager.py" --brand {slug} --action get --category messaging`
   When: Before writing any PR content — load approved positioning and proof points
 
 ## MCP Integrations

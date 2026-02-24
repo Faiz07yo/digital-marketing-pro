@@ -264,7 +264,7 @@ All GEO scripts must use these exact values. Do not create alternative scoring s
 - [ ] All SKILL.md files have valid YAML frontmatter
 - [ ] Scripts exit with code 0 (even on missing optional deps)
 - [ ] Brand context loading path is explicit in all command skills
-- [ ] No hardcoded file paths (use `~/.claude-marketing/` or `${CLAUDE_PLUGIN_ROOT}`)
+- [ ] No hardcoded file paths (use `~/.claude-marketing/` for data, `scripts/` for script calls)
 - [ ] File count hasn't changed unexpectedly (currently ~410 files including docs)
 
 ## Code of Conduct

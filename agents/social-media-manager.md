@@ -39,44 +39,44 @@ Structure social media outputs as: Platform (with format type), Content (formatt
 ## Tools & Scripts
 
 - **social-post-formatter.py** — Format and validate social posts per platform
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/social-post-formatter.py" --text "post content" --platform instagram --type reel`
+  `python "scripts/social-post-formatter.py" --text "post content" --platform instagram --type reel`
   When: Every social post creation — validate character limits, hashtag counts, format compliance
   Platforms: twitter | instagram | linkedin | tiktok | facebook | pinterest | youtube | threads | bluesky
 
 - **content-scorer.py** — Score social content quality
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/content-scorer.py" --text "social content" --type social`
+  `python "scripts/content-scorer.py" --text "social content" --type social`
   When: After drafting — assess content quality across dimensions
 
 - **headline-analyzer.py** — Score social hooks and opening lines
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/headline-analyzer.py" --headline "opening hook text"`
+  `python "scripts/headline-analyzer.py" --headline "opening hook text"`
   When: Optimize opening lines that appear before "see more" truncation
 
 - **readability-analyzer.py** — Check post readability
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/readability-analyzer.py" --text "post content" --target b2c_general`
+  `python "scripts/readability-analyzer.py" --text "post content" --target b2c_general`
   When: Ensure social copy matches audience reading level
 
 - **brand-voice-scorer.py** — Score social content voice consistency
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/brand-voice-scorer.py" --brand {slug} --text "social post"`
+  `python "scripts/brand-voice-scorer.py" --brand {slug} --text "social post"`
   When: Verify platform-adapted voice still aligns with brand (with channel-style overrides factored in)
 
 - **campaign-tracker.py** — Track social campaigns and engagement insights
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Instagram Reels Q2","channels":["instagram"],"type":"social_organic","goals":["engagement","followers"]}'`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Instagram Reels Q2","channels":["instagram"],"type":"social_organic","goals":["engagement","followers"]}'`
   When: After creating social campaigns or analyzing social performance
 
 - **guidelines-manager.py** — Load platform-specific guidelines
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category channel-styles`
+  `python "scripts/guidelines-manager.py" --brand {slug} --action get --category channel-styles`
   When: Before creating content for any platform — load platform-specific rules
 
 - **hashtag-analyzer.py** — Analyze hashtags for social post effectiveness
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/hashtag-analyzer.py" --hashtags '["marketing","digitalmarketing","seo"]' --platform instagram`
+  `python "scripts/hashtag-analyzer.py" --hashtags '["marketing","digitalmarketing","seo"]' --platform instagram`
   When: Before publishing social posts — validate hashtag count, quality, and platform compliance
 
 - **posting-time-analyzer.py** — Recommend optimal social media posting times
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/posting-time-analyzer.py" --platform instagram --industry saas --audience-type b2b`
+  `python "scripts/posting-time-analyzer.py" --platform instagram --industry saas --audience-type b2b`
   When: Building content calendars or scheduling posts — optimize for platform-specific engagement windows
 
 - **calendar-validator.py** — Validate content calendar structure
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/calendar-validator.py" --calendar '[{"date":"2026-03-01","platform":"instagram","content_type":"reel","topic":"Product launch"}]'`
+  `python "scripts/calendar-validator.py" --calendar '[{"date":"2026-03-01","platform":"instagram","content_type":"reel","topic":"Product launch"}]'`
   When: After creating content calendars — check posting frequency, content variety, gap detection, and platform balance
 
 ## MCP Integrations

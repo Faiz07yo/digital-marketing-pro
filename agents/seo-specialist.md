@@ -37,43 +37,43 @@ Structure SEO recommendations as: Priority (Quick Win / Strategic / Fill-In), Op
 ## Tools & Scripts
 
 - **keyword-clusterer.py** — Cluster keywords by semantic similarity and intent
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/keyword-clusterer.py" --keywords "seo tools,seo software,best seo,seo platform" --threshold 0.25`
+  `python "scripts/keyword-clusterer.py" --keywords "seo tools,seo software,best seo,seo platform" --threshold 0.25`
   When: During keyword research — group keywords into topics and map intent
 
 - **schema-generator.py** — Generate JSON-LD structured data
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/schema-generator.py" --type FAQPage --data '{"questions":[{"question":"What is SEO?","answer":"Search engine optimization is..."}]}'`
+  `python "scripts/schema-generator.py" --type FAQPage --data '{"questions":[{"question":"What is SEO?","answer":"Search engine optimization is..."}]}'`
   When: Recommending schema markup — provide ready-to-implement JSON-LD. Types: Article | FAQPage | HowTo | Product | LocalBusiness | Organization | Person | Event | VideoObject
 
 - **ai-visibility-checker.py** — Check brand visibility in AI responses
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/ai-visibility-checker.py" --brand "Brand Name" --mode manual --industry "saas"`
+  `python "scripts/ai-visibility-checker.py" --brand "Brand Name" --mode manual --industry "saas"`
   When: GEO/AEO audits — generate query templates and AI mention scoring checklists
 
 - **content-scorer.py** — Score content for SEO signals
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/content-scorer.py" --text "content" --type blog --keyword "target keyword"`
+  `python "scripts/content-scorer.py" --text "content" --type blog --keyword "target keyword"`
   When: Content optimization audits — assess SEO dimension scores
 
 - **competitor-scraper.py** — Extract competitor page SEO data
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/competitor-scraper.py" --url "https://competitor.com/page"`
+  `python "scripts/competitor-scraper.py" --url "https://competitor.com/page"`
   When: Competitive SEO analysis — extract title, meta, headings, schema, tech stack
 
 - **campaign-tracker.py** — Track SEO campaigns and save insights
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action save-insight --data '{"type":"benchmark","insight":"Organic traffic up 15% after title tag optimization","context":"Q1 SEO audit"}'`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action save-insight --data '{"type":"benchmark","insight":"Organic traffic up 15% after title tag optimization","context":"Q1 SEO audit"}'`
   When: After completing SEO audits or tracking results — persist learnings
 
 - **guidelines-manager.py** — Load restrictions for content optimization
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category restrictions`
+  `python "scripts/guidelines-manager.py" --brand {slug} --action get --category restrictions`
   When: Before recommending content changes — check for word restrictions
 
 - **tech-seo-auditor.py** — Audit URLs for technical SEO issues (status codes, redirects, meta tags, headers, security)
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/tech-seo-auditor.py" --url "https://example.com"`
+  `python "scripts/tech-seo-auditor.py" --url "https://example.com"`
   When: Technical SEO audits — check HTTP status, redirect chains, meta robots, canonical tags, viewport, HTTPS, HSTS, TTFB, compression
 
 - **local-seo-checker.py** — Score NAP consistency and GBP profile completeness
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/local-seo-checker.py" --nap '{"name":"Business","address":"123 Main St","phone":"555-1234"}' --citations '[{"source":"Yelp","name":"Business","address":"123 Main Street","phone":"5551234"}]'`
+  `python "scripts/local-seo-checker.py" --nap '{"name":"Business","address":"123 Main St","phone":"555-1234"}' --citations '[{"source":"Yelp","name":"Business","address":"123 Main Street","phone":"5551234"}]'`
   When: Local SEO audits — check NAP consistency across citations and score GBP completeness
 
 - **link-profile-analyzer.py** — Analyze backlink profile quality and health
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/link-profile-analyzer.py" --links '[{"url":"https://example.com","anchor_text":"brand name","domain":"example.com","da":45,"follow":true}]'`
+  `python "scripts/link-profile-analyzer.py" --links '[{"url":"https://example.com","anchor_text":"brand name","domain":"example.com","da":45,"follow":true}]'`
   When: Link audits — assess domain diversity, authority distribution, anchor text health, follow ratio
 
 ## MCP Integrations

@@ -38,33 +38,33 @@ Varies by operation type. **Portfolio Dashboard**: client list with health score
 ## Tools & Scripts
 
 - **credential-manager.py** — Create, switch, and validate credential profiles
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/credential-manager.py" --action switch-profile --id {slug}`
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/credential-manager.py" --action validate --id {slug}`
+  `python "scripts/credential-manager.py" --action switch-profile --id {slug}`
+  `python "scripts/credential-manager.py" --action validate --id {slug}`
   When: Every brand switch — always validate after switching
 
 - **team-manager.py** — Manage team members, roles, capacity, and task assignments
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/team-manager.py" --brand {slug} --action check-capacity`
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/team-manager.py" --brand {slug} --action assign-task --data '{"member":"...","task":"..."}'`
+  `python "scripts/team-manager.py" --brand {slug} --action check-capacity`
+  `python "scripts/team-manager.py" --brand {slug} --action assign-task --data '{"member":"...","task":"..."}'`
   When: Before assigning work — check capacity first
 
 - **campaign-tracker.py** — Load campaign data across brands for portfolio reporting
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action list-campaigns`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action list-campaigns`
   When: Building portfolio dashboards and client reports
 
 - **execution-tracker.py** — Check execution history for audit and compliance
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/execution-tracker.py" --brand {slug} --action list-executions`
+  `python "scripts/execution-tracker.py" --brand {slug} --action list-executions`
   When: SOP compliance checks and client activity audits
 
 - **performance-monitor.py** — Pull metrics for health scoring and reporting
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/performance-monitor.py" --brand {slug} --action check-health`
+  `python "scripts/performance-monitor.py" --brand {slug} --action check-health`
   When: Calculating per-client health scores for portfolio dashboard
 
 - **report-generator.py** — Generate formatted white-labeled client reports
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/report-generator.py" --brand {slug} --type client-report`
+  `python "scripts/report-generator.py" --brand {slug} --type client-report`
   When: Producing client-facing deliverables
 
 - **approval-manager.py** — Check pending approvals across brands
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/approval-manager.py" --brand {slug} --action list-pending`
+  `python "scripts/approval-manager.py" --brand {slug} --action list-pending`
   When: Portfolio-level approval queue review
 
 ## MCP Integrations

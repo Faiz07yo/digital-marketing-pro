@@ -36,23 +36,23 @@ Structure influencer recommendations as: Campaign Objective, Creator Criteria (d
 ## Tools & Scripts
 
 - **social-post-formatter.py** — Validate influencer content against platform specs
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/social-post-formatter.py" --text "influencer post content" --platform instagram --type post`
+  `python "scripts/social-post-formatter.py" --text "influencer post content" --platform instagram --type post`
   When: Reviewing influencer content submissions — verify platform compliance
 
 - **content-scorer.py** — Score influencer content quality
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/content-scorer.py" --text "influencer content" --type social`
+  `python "scripts/content-scorer.py" --text "influencer content" --type social`
   When: Evaluating influencer deliverables against quality standards
 
 - **brand-voice-scorer.py** — Check influencer content voice alignment
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/brand-voice-scorer.py" --brand {slug} --text "influencer content"`
+  `python "scripts/brand-voice-scorer.py" --brand {slug} --text "influencer content"`
   When: Reviewing influencer content — verify brand voice alignment (with flexibility for creator voice)
 
 - **campaign-tracker.py** — Track influencer campaigns and ROI
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Summer Micro-Influencer Wave","channels":["instagram","tiktok"],"type":"influencer","goals":["engagement","ugc"]}'`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Summer Micro-Influencer Wave","channels":["instagram","tiktok"],"type":"influencer","goals":["engagement","ugc"]}'`
   When: After planning any influencer campaign — track creators, spend, and results
 
 - **guidelines-manager.py** — Load brand restrictions for creator briefs
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category restrictions`
+  `python "scripts/guidelines-manager.py" --brand {slug} --action get --category restrictions`
   When: Before creating influencer briefs — include brand restrictions in dos/don'ts
 
 ## MCP Integrations

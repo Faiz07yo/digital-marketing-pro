@@ -33,14 +33,14 @@ The user must provide (or will be prompted for):
    (google-analytics, google-ads, meta-marketing, linkedin-marketing, tiktok-ads, mailchimp, stripe, mixpanel,
    amplitude, shopify, etc.) for all available metrics across the specified scan period. Include traffic, spend,
    conversions, CPA, ROAS, engagement rates, deliverability, and revenue metrics.
-3. **Load historical baselines**: Execute `${CLAUDE_PLUGIN_ROOT}/scripts/performance-monitor.py --brand {slug} --action get-baseline`
+3. **Load historical baselines**: Execute `scripts/performance-monitor.py --brand {slug} --action get-baseline`
    to retrieve rolling averages, standard deviations, and expected ranges for each metric. If no baseline exists yet,
    use the comparison period data to establish a temporary baseline and note this in the output.
-4. **Run anomaly detection**: Execute `${CLAUDE_PLUGIN_ROOT}/scripts/performance-monitor.py --brand {slug} --action detect-anomalies --sensitivity {level}`
+4. **Run anomaly detection**: Execute `scripts/performance-monitor.py --brand {slug} --action detect-anomalies --sensitivity {level}`
    to flag metrics that fall outside expected ranges based on the chosen sensitivity threshold.
    Apply day-of-week and seasonality adjustments where historical data supports it.
 5. **Cross-reference with recent executions**: Check execution history via
-   `${CLAUDE_PLUGIN_ROOT}/scripts/execution-tracker.py --brand {slug} --action get-history --days 14`
+   `scripts/execution-tracker.py --brand {slug} --action get-history --days 14`
    to correlate anomalies with recent changes — did a campaign launch, pause, budget shift, creative swap,
    landing page change, or audience expansion precede the anomaly?
 6. **Cross-reference with known factors**: Check for known platform outages, algorithm updates
@@ -55,7 +55,7 @@ The user must provide (or will be prompted for):
    (algorithm update, competitor action, seasonal shift), internal change (campaign modification, landing page
    update), or platform change (policy update, feature deprecation, auction dynamics shift).
 9. **Save critical anomalies as insights**: For critical and warning-level anomalies, persist via
-   `${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py --brand {slug} --action add-insight`
+   `scripts/campaign-tracker.py --brand {slug} --action add-insight`
    so they are tracked, surface in future reports, and can be referenced in post-mortems.
 
 ## Output

@@ -4,7 +4,7 @@
 
 Model Context Protocol (MCP) servers connect Claude to external services. Each MCP provides **tools** (functions Claude can call), **resources** (data Claude can read), and **prompts** (pre-defined interaction templates). MCP servers run as separate processes that communicate with Claude via JSON-RPC over stdin/stdout.
 
-In this plugin, MCPs are the execution bridge between the agent layer (Claude reasoning about marketing strategy) and external platforms (publishing a blog post, sending an email campaign, querying a CRM). The 46 MCP servers configured in `.mcp.json` cover social publishing, email, CRM, analytics, memory, knowledge, CMS, communication, project management, testing, and databases.
+In this plugin, MCPs are the execution bridge between the agent layer (Claude reasoning about marketing strategy) and external platforms (publishing a blog post, sending an email campaign, querying a CRM). The 67 MCP servers configured in `.mcp.json` cover social publishing, email, CRM, analytics, memory, knowledge, CMS, communication, project management, testing, and databases.
 
 ---
 

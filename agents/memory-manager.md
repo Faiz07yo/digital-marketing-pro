@@ -46,25 +46,25 @@ For health checks: Layer Status Dashboard (each layer's connection status, utili
 ## Tools & Scripts
 
 - **memory-manager.py** — Prepare storage payloads, search local index, manage graph entries, sync insights, check status
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/memory-manager.py" --brand {slug} --action prepare-store --data '{"content":"Email subject lines with numbers outperform by 22%","content_type":"campaign-learning","tags":["email","subject-lines","q4-2025"]}'`
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/memory-manager.py" --brand {slug} --action search --data '{"query":"what email subject line patterns work best","limit":10}'`
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/memory-manager.py" --brand {slug} --action prepare-graph-entry --data '{"entity":"Q4 Email Campaign","type":"campaign","relationships":[{"target":"Newsletter Subscribers","type":"targeted","valid_from":"2025-10-01"}]}'`
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/memory-manager.py" --brand {slug} --action sync-insights`
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/memory-manager.py" --brand {slug} --action get-memory-status`
+  `python "scripts/memory-manager.py" --brand {slug} --action prepare-store --data '{"content":"Email subject lines with numbers outperform by 22%","content_type":"campaign-learning","tags":["email","subject-lines","q4-2025"]}'`
+  `python "scripts/memory-manager.py" --brand {slug} --action search --data '{"query":"what email subject line patterns work best","limit":10}'`
+  `python "scripts/memory-manager.py" --brand {slug} --action prepare-graph-entry --data '{"entity":"Q4 Email Campaign","type":"campaign","relationships":[{"target":"Newsletter Subscribers","type":"targeted","valid_from":"2025-10-01"}]}'`
+  `python "scripts/memory-manager.py" --brand {slug} --action sync-insights`
+  `python "scripts/memory-manager.py" --brand {slug} --action get-memory-status`
   When: Every memory operation — store, search, graph entries, sync, and health checks
 
 - **campaign-tracker.py** — Load campaign insights for syncing to persistent memory
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action get-insights --type all`
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action list-campaigns`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action get-insights --type all`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action list-campaigns`
   When: Before sync — gather all session insights and campaign data that should be persisted
 
 - **guidelines-manager.py** — Load brand guidelines for knowledge indexing
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action list`
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category all`
+  `python "scripts/guidelines-manager.py" --brand {slug} --action list`
+  `python "scripts/guidelines-manager.py" --brand {slug} --action get --category all`
   When: After guideline updates — re-index affected knowledge entries with current brand context
 
 - **adaptive-scorer.py** — Get brand context for metadata enrichment
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/adaptive-scorer.py" --brand {slug} --type general --weights-only`
+  `python "scripts/adaptive-scorer.py" --brand {slug} --type general --weights-only`
   When: When storing performance insights — enrich metadata with industry and brand scoring context
 
 ## MCP Integrations

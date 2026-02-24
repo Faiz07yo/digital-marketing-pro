@@ -37,31 +37,31 @@ Structure every execution interaction as: **Pre-Execution Checklist** (platform,
 ## Tools & Scripts
 
 - **approval-manager.py** — Create and manage approval records before execution
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/approval-manager.py" --brand {slug} --action create-approval --data '{"platform":"wordpress","type":"blog_publish","risk":"low","content_summary":"...","rollback":"unpublish URL"}'`
+  `python "scripts/approval-manager.py" --brand {slug} --action create-approval --data '{"platform":"wordpress","type":"blog_publish","risk":"low","content_summary":"...","rollback":"unpublish URL"}'`
   When: ALWAYS before any execution — create the approval record first
 
 - **execution-tracker.py** — Log all execution attempts and outcomes
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/execution-tracker.py" --brand {slug} --action log-execution --data '{"approval_id":"...","platform":"wordpress","status":"success","response":"..."}'`
+  `python "scripts/execution-tracker.py" --brand {slug} --action log-execution --data '{"approval_id":"...","platform":"wordpress","status":"success","response":"..."}'`
   When: ALWAYS after every execution attempt — even failures must be logged
 
 - **campaign-tracker.py** — Link executions to active campaigns
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"...","channels":["..."]}'`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"...","channels":["..."]}'`
   When: When the execution is part of a tracked campaign
 
 - **brand-voice-scorer.py** — Score content for brand voice alignment before publishing
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/brand-voice-scorer.py" --brand {slug} --text "content to publish"`
+  `python "scripts/brand-voice-scorer.py" --brand {slug} --text "content to publish"`
   When: Before every content execution — verify voice alignment
 
 - **content-scorer.py** — Score content quality before publishing
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/content-scorer.py" --text "content to publish" --type blog`
+  `python "scripts/content-scorer.py" --text "content to publish" --type blog`
   When: Before every content execution — verify quality meets thresholds
 
 - **report-generator.py** — Format reports for delivery to stakeholders
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/report-generator.py" --brand {slug} --type performance`
+  `python "scripts/report-generator.py" --brand {slug} --type performance`
   When: When delivering reports via Slack, email, or Google Sheets
 
 - **eval-runner.py** — Run content quality evaluation before execution approval
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/eval-runner.py" --action run-quick --text "content to evaluate"`
+  `python "scripts/eval-runner.py" --action run-quick --text "content to evaluate"`
   When: ALWAYS before creating an approval record — block execution if composite score is below auto-reject threshold (default 40)
 
 ## MCP Integrations

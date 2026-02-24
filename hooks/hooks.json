@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "(python ${CLAUDE_PLUGIN_ROOT}/scripts/setup.py --check-deps --summary || python3 ${CLAUDE_PLUGIN_ROOT}/scripts/setup.py --check-deps --summary || echo Digital Marketing Pro loaded) && (python ${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py --brand $(python -c \"import json,pathlib;f=pathlib.Path.home()/'.claude-marketing'/'brands'/'_active-brand.json';print(json.loads(f.read_text())['active_slug'] if f.exists() else '')\" 2>/dev/null) --action summary 2>/dev/null || true)"
+            "command": "python scripts/setup.py --check-deps --summary"
           }
         ]
       }
@@ -35,7 +35,7 @@
         "hooks": [
           {
             "type": "prompt",
-            "command": "If marketing work was done this session (campaign plans created, content produced, performance analyses run, strategic decisions made, or brand positioning discussed): 1. Summarize 1-3 key marketing insights or decisions from this session. 2. If an active brand exists (check the session start context for the brand slug), save each insight by running: python \"${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py\" --brand {slug} --action save-insight --data '{\"type\":\"session_learning\",\"insight\":\"[the insight]\",\"source\":\"session\",\"context\":\"[what work produced this insight]\"}' — replace {slug} with the active brand slug, and fill in the insight and context fields with actual session data. 3. If any guideline violations were flagged during this session, save them by running: python \"${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py\" --brand {slug} --action save-violation --data '{\"rule\":\"[violated rule]\",\"category\":\"[guideline category]\",\"severity\":\"[low/medium/high]\",\"content\":\"[violating text snippet]\",\"suggestion\":\"[compliant alternative]\"}' for each violation. 4. Tell the user: 'Session insights saved. Key takeaways: [list them]. To update brand settings, just ask.' If no brand profile exists or no meaningful marketing work was done, skip silently. $ARGUMENTS"
+            "command": "If marketing work was done this session (campaign plans created, content produced, performance analyses run, strategic decisions made, or brand positioning discussed): 1. Summarize 1-3 key marketing insights or decisions from this session. 2. If an active brand exists (check the session start context for the brand slug), save each insight by running: python \"scripts/campaign-tracker.py\" --brand {slug} --action save-insight --data '{\"type\":\"session_learning\",\"insight\":\"[the insight]\",\"source\":\"session\",\"context\":\"[what work produced this insight]\"}' — replace {slug} with the active brand slug, and fill in the insight and context fields with actual session data. 3. If any guideline violations were flagged during this session, save them by running: python \"scripts/campaign-tracker.py\" --brand {slug} --action save-violation --data '{\"rule\":\"[violated rule]\",\"category\":\"[guideline category]\",\"severity\":\"[low/medium/high]\",\"content\":\"[violating text snippet]\",\"suggestion\":\"[compliant alternative]\"}' for each violation. 4. Tell the user: 'Session insights saved. Key takeaways: [list them]. To update brand settings, just ask.' If no brand profile exists or no meaningful marketing work was done, skip silently. $ARGUMENTS"
           }
         ]
       }

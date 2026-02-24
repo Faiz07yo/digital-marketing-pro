@@ -302,7 +302,7 @@ N. Check brand guidelines for content. [Load guidelines/_manifest.json,
 
 ## Tools & Scripts                         # NEW in v1.4.0
 [Which Python scripts to call, with exact CLI commands, arguments, and when to use them.
- All paths use ${CLAUDE_PLUGIN_ROOT}/scripts/script-name.py]
+ All paths use scripts/script-name.py]
 
 ## MCP Integrations                        # NEW in v1.4.0
 [Which MCP servers to query for live data. All marked as optional.]

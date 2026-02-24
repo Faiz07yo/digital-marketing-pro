@@ -36,23 +36,23 @@ Structure journey deliverables as: **Journey State Machine** (text-based diagram
 ## Tools & Scripts
 
 - **journey-engine.py** — Design and simulate journey state machines
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/journey-engine.py" --brand {slug} --action design --data '{"name":"...","states":["awareness","consideration","decision"],"entry_criteria":"...","exit_criteria":"..."}'`
+  `python "scripts/journey-engine.py" --brand {slug} --action design --data '{"name":"...","states":["awareness","consideration","decision"],"entry_criteria":"...","exit_criteria":"..."}'`
   When: Creating new journey definitions, running Monte Carlo simulations, and calculating expected conversion paths
 
 - **execution-tracker.py** — Track journey touchpoint execution status
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/execution-tracker.py" --brand {slug} --action log-execution --data '{"journey":"...","touchpoint":"...","state":"...","status":"sent","channel":"email"}'`
+  `python "scripts/execution-tracker.py" --brand {slug} --action log-execution --data '{"journey":"...","touchpoint":"...","state":"...","status":"sent","channel":"email"}'`
   When: Logging every touchpoint execution for journey performance monitoring and audit trail
 
 - **campaign-tracker.py** — Link journey touchpoints to active campaigns
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"...","type":"journey","channels":["email","sms","ads"],"journey_id":"..."}'`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"...","type":"journey","channels":["email","sms","ads"],"journey_id":"..."}'`
   When: Registering a journey as a campaign for cross-channel performance tracking
 
 - **approval-manager.py** — Get approval before launching journey touchpoints
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/approval-manager.py" --brand {slug} --action create-approval --data '{"type":"journey_launch","journey":"...","touchpoints":5,"channels":["email","sms"],"risk":"medium"}'`
+  `python "scripts/approval-manager.py" --brand {slug} --action create-approval --data '{"type":"journey_launch","journey":"...","touchpoints":5,"channels":["email","sms"],"risk":"medium"}'`
   When: Before launching any journey — all journeys require approval before the first touchpoint fires
 
 - **growth-loop-modeler.py** — Model growth loops and viral coefficients within journeys
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/growth-loop-modeler.py" --brand {slug} --action model --data '{"loop_type":"referral","journey":"...","viral_coefficient":0.3}'`
+  `python "scripts/growth-loop-modeler.py" --brand {slug} --action model --data '{"loop_type":"referral","journey":"...","viral_coefficient":0.3}'`
   When: Designing advocacy-stage journeys with referral loops or viral mechanics
 
 ## MCP Integrations

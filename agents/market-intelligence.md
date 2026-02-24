@@ -38,24 +38,24 @@ Structure intelligence outputs as: **Marketing Weather Report** (overall conditi
 ## Tools & Scripts
 
 - **competitor-tracker.py** — Track competitor activities, launches, and strategic moves
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/competitor-tracker.py" --brand {slug} --action track-competitor --data '{"competitor":"...","event":"product_launch","details":"..."}'`
+  `python "scripts/competitor-tracker.py" --brand {slug} --action track-competitor --data '{"competitor":"...","event":"product_launch","details":"..."}'`
   When: Industry signal tracking — log and retrieve competitor intelligence
 
 - **performance-monitor.py** — Detect performance anomalies that may indicate platform shifts
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/performance-monitor.py" --brand {slug} --action check-anomalies`
+  `python "scripts/performance-monitor.py" --brand {slug} --action check-anomalies`
   When: Platform algorithm shift detection — identify unusual performance patterns that correlate with platform changes
 
 - **campaign-tracker.py** — Access historical campaign timing and performance for seasonal pattern analysis
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action list-campaigns`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action list-campaigns`
   When: Seasonal analysis — compare current signals against historical campaign timing and performance
 
 - **intelligence-graph.py** — Store validated signals and retrieve historical signal patterns
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/intelligence-graph.py" --brand {slug} --action store-signal --data '{"type":"economic","signal":"consumer_confidence_drop","confidence":0.85,"source":"..."}'`
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/intelligence-graph.py" --brand {slug} --action query --conditions '{"type":"platform_change","channel":"instagram"}'`
+  `python "scripts/intelligence-graph.py" --brand {slug} --action store-signal --data '{"type":"economic","signal":"consumer_confidence_drop","confidence":0.85,"source":"..."}'`
+  `python "scripts/intelligence-graph.py" --brand {slug} --action query --conditions '{"type":"platform_change","channel":"instagram"}'`
   When: Signal persistence — store validated signals for trend analysis, accuracy tracking, and historical pattern retrieval
 
 - **report-generator.py** — Format Marketing Weather Reports for distribution
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/report-generator.py" --brand {slug} --type market-intelligence`
+  `python "scripts/report-generator.py" --brand {slug} --type market-intelligence`
   When: Report delivery — format weekly intelligence briefs for stakeholder distribution
 
 ## MCP Integrations

@@ -4,6 +4,32 @@ All notable changes to the Digital Marketing Pro plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses [Semantic Versioning](https://semver.org/).
 
+## [2.2.1] — 2026-02-24
+
+### Fixed — CLI Contract & Script Bugs
+- **CRITICAL: Removed undefined `${CLAUDE_PLUGIN_ROOT}` env var** from all 22+ SKILL.md files, 23 agent files, hooks.json, and 2 documentation files — replaced with relative `scripts/` paths that work across all environments
+- **Fixed CLI argument mismatches in 8 SKILL.md files** where script invocation commands did not match actual argparse definitions:
+  - eval-content: `--content`/`--type` → `--text`/`--content-type`, `--composite`/`--dimensions` → `--data '{json}'`
+  - verify-claims: removed non-existent `--brand` flag, `--content` → `--text`
+  - validate-output: removed non-existent `--brand` flag, `--content` → `--text`, `--action detect-schema` → `--action list-schemas`
+  - translate-content: `--content` → `--text`, `--source-lang`/`--target-lang` → `--source`/`--target`/`--original`/`--translated`, removed non-existent `--language`
+  - localize-campaign: `--content` → `--text`, removed non-existent `--language`
+  - eval-suite: `--content` → `--text`, quality-tracker `--action log --content-label --scores --suite-id` → `--action log-eval --data '{json}'`
+  - prompt-test: `--content` → `--text`
+  - quality-report: `--type` → `--content-type`
+- **Fixed content-scorer.py keyword density bug**: multi-word keywords used substring matching (`str.count()`) instead of word-boundary matching — "AI tools" would match inside "AI toolset". Now uses `re.findall()` with `\b` word boundaries
+- **Fixed hallucination-detector.py sentence splitting bug**: `re.split(r'(?<=[.!?])\s+', ...)` split on abbreviation periods (Dr., Inc., U.S.) — now requires uppercase letter after split point: `(?<=[.!?])\s+(?=[A-Z])`
+- **Fixed hooks.json SessionStart**: replaced fragile compound shell command with nested subshells and `2>/dev/null` (Unix-only) with simple `python scripts/setup.py --check-deps --summary`
+- **Fixed custom-mcp-guide.md**: stale "46 MCP servers" count updated to 67
+
+### Fixed — ContentForge Plugin
+- **Added YAML frontmatter** (`name` + `description`) to all 10 agent files for Claude Cowork routing compatibility
+- **Replaced 5 invented MCP tool names** in Output Manager agent (`mcp_google-drive_list_folders`, `mcp_google-drive_create_folder`, `mcp_google-drive_upload_file`, `mcp_google-sheets_read_row`, `mcp_google-sheets_update_row`) with adaptive MCP approach that checks available tools at runtime
+
+### Changed
+- Updated CONTRIBUTING.md verification checklist to reference `scripts/` instead of `${CLAUDE_PLUGIN_ROOT}`
+- Updated docs/architecture.md agent template to reference `scripts/` instead of `${CLAUDE_PLUGIN_ROOT}`
+
 ## [2.2.0] — 2026-02-13
 
 ### Added — Evaluation/QA Layer

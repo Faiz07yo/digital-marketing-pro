@@ -48,10 +48,10 @@ The user must provide (or will be prompted for):
 9. **Generate recommended actions**: Based on the data, produce 3-5 specific, actionable next steps — e.g., "Pause
    underperforming ad set X", "Increase budget on high-ROAS channel Y", "Investigate traffic drop on Z",
    "Scale winning creative variant", "Run /dm:anomaly-scan for deeper diagnosis".
-10. **Save performance snapshot**: Execute `${CLAUDE_PLUGIN_ROOT}/scripts/performance-monitor.py --brand {slug} --action save-snapshot`
+10. **Save performance snapshot**: Execute `scripts/performance-monitor.py --brand {slug} --action save-snapshot`
     to persist the snapshot for historical comparison and trend tracking across future runs.
 11. **Log significant insights**: For any metric with a notable deviation, save via
-    `${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py --brand {slug} --action add-insight`
+    `scripts/campaign-tracker.py --brand {slug} --action add-insight`
     so findings surface in future reports and campaign planning.
 
 ## Output

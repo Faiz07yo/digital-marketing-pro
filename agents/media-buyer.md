@@ -35,31 +35,31 @@ Structure media recommendations as: Platform, Campaign Objective, Audience Strat
 ## Tools & Scripts
 
 - **utm-generator.py** — Generate UTM-tagged destination URLs for campaigns
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/utm-generator.py" --base-url "https://example.com/landing" --campaign "summer-sale" --source "facebook" --medium "paid_social" --content "carousel-v1"`
+  `python "scripts/utm-generator.py" --base-url "https://example.com/landing" --campaign "summer-sale" --source "facebook" --medium "paid_social" --content "carousel-v1"`
   When: Every campaign setup — generate properly tagged URLs with GA4 channel validation
 
 - **content-scorer.py** — Score ad copy quality
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/content-scorer.py" --text "ad copy" --type ad --keyword "target keyword"`
+  `python "scripts/content-scorer.py" --text "ad copy" --type ad --keyword "target keyword"`
   When: After drafting ad copy — evaluate quality before recommending
 
 - **headline-analyzer.py** — Score ad headlines for impact
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/headline-analyzer.py" --headline "Save 40% on Your First Month"`
+  `python "scripts/headline-analyzer.py" --headline "Save 40% on Your First Month"`
   When: When recommending RSA headlines or social ad headlines — pick strongest options
 
 - **campaign-tracker.py** — Save campaign plans and performance data
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Meta Summer Sale","channels":["meta"],"budget":"$10K","goals":["roas_3x"]}'`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action save-campaign --data '{"name":"Meta Summer Sale","channels":["meta"],"budget":"$10K","goals":["roas_3x"]}'`
   When: After creating any media plan — persist for future reference and optimization
 
 - **guidelines-manager.py** — Load brand restrictions for ad compliance
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category restrictions`
+  `python "scripts/guidelines-manager.py" --brand {slug} --action get --category restrictions`
   When: Before writing ad copy — check for word and claim restrictions
 
 - **ad-budget-pacer.py** — Track ad spend pacing against budget
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/ad-budget-pacer.py" --budget 30000 --period-days 30 --days-elapsed 15 --spend-to-date 12000`
+  `python "scripts/ad-budget-pacer.py" --budget 30000 --period-days 30 --days-elapsed 15 --spend-to-date 12000`
   When: Campaign management — check pacing status and project end-of-period spend
 
 - **budget-optimizer.py** — Optimize budget allocation across ad channels
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/budget-optimizer.py" --channels '[{"name":"Google Ads","spend":5000,"conversions":150,"revenue":22500}]' --total-budget 15000`
+  `python "scripts/budget-optimizer.py" --channels '[{"name":"Google Ads","spend":5000,"conversions":150,"revenue":22500}]' --total-budget 15000`
   When: Budget reallocation — generate efficiency-ranked recommendations with diminishing returns modeling
 
 ## MCP Integrations

@@ -40,32 +40,32 @@ Structure every review as: Overall Verdict (PASS / PASS WITH WARNINGS / FAIL), B
 ## Tools & Scripts
 
 - **brand-voice-scorer.py** — Score content voice consistency against brand profile
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/brand-voice-scorer.py" --brand {slug} --text "content to review"`
+  `python "scripts/brand-voice-scorer.py" --brand {slug} --text "content to review"`
   When: Every content review — run before writing your Brand Voice Score
 
 - **content-scorer.py** — Multi-dimension content quality scoring
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/content-scorer.py" --text "content" --type blog --keyword "target keyword"`
+  `python "scripts/content-scorer.py" --text "content" --type blog --keyword "target keyword"`
   When: Every content review — complements voice scoring with structural/SEO quality. Types: blog | email | ad | landing_page | social
 
 - **readability-analyzer.py** — Readability metrics against audience target
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/readability-analyzer.py" --text "content" --target b2c_general`
+  `python "scripts/readability-analyzer.py" --text "content" --target b2c_general`
   When: Accessibility reviews and audience-appropriateness checks. Targets: b2c_general | b2b_professional | b2b_technical | children | academic
 
 - **adaptive-scorer.py** — Get brand-adapted scoring weights
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/adaptive-scorer.py" --brand {slug} --text "content" --type TYPE`
+  `python "scripts/adaptive-scorer.py" --brand {slug} --text "content" --type TYPE`
   When: Before content-scorer — ensures scoring reflects industry and brand priorities
 
 - **campaign-tracker.py** — Save violations, retrieve past violations and insights
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action save-violation --data '{"rule":"banned word: cheap","category":"restrictions","severity":"high","content":"headline","suggestion":"Use affordable"}'`
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/campaign-tracker.py" --brand {slug} --action get-violations --severity high`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action save-violation --data '{"rule":"banned word: cheap","category":"restrictions","severity":"high","content":"headline","suggestion":"Use affordable"}'`
+  `python "scripts/campaign-tracker.py" --brand {slug} --action get-violations --severity high`
   When: After flagging any guideline violation — log it for pattern analysis. Before reviews — check recurring violations.
 
 - **guidelines-manager.py** — Load restrictions, voice rules, channel styles
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/guidelines-manager.py" --brand {slug} --action get --category restrictions`
+  `python "scripts/guidelines-manager.py" --brand {slug} --action get --category restrictions`
   When: Start of every review — load restrictions before scanning content
 
 - **hallucination-detector.py** — Detect hallucinations and unsubstantiated claims in content
-  `python "${CLAUDE_PLUGIN_ROOT}/scripts/hallucination-detector.py" --action detect --text "content to check"`
+  `python "scripts/hallucination-detector.py" --action detect --text "content to check"`
   When: Before approving critical content (ad copy, press releases, landing pages, claims-heavy content) — flag scores below 70
 
 ## MCP Integrations

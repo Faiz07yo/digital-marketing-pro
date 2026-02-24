@@ -4,6 +4,12 @@ All notable changes to the Digital Marketing Pro plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses [Semantic Versioning](https://semver.org/).
 
+## [2.3.1] — 2026-02-25
+
+### Fixed
+
+- Added missing YAML frontmatter to `localization-specialist.md` and `quality-assurance.md` agents — without frontmatter, these agents failed to register during plugin installation, potentially causing installation rollback
+
 ## [2.3.0] — 2026-02-25
 
 ### Changed — HTTP Connector Architecture

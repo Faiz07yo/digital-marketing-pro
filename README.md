@@ -1,6 +1,6 @@
 # Digital Marketing Pro — Claude Code & Cowork Plugin
 
-[![Version](https://img.shields.io/badge/version-2.2.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.3.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-optional-yellow.svg)](#python-dependencies-optional)
 [![Cowork](https://img.shields.io/badge/cowork-compatible-purple.svg)](docs/claude-interfaces.md#claude-cowork-full-support)
@@ -59,20 +59,19 @@ Digital Marketing Pro transforms Claude into a full-stack marketing intelligence
 
 ## Installation
 
-### ⚠️ MCP Server Configuration (Optional - Opt-In Only)
+### Connectors (MCP Integrations)
 
-This plugin integrates with 67 external services via MCP servers (social media platforms, CRM systems, ad networks, analytics tools, marketing automation platforms, translation services, and more). **MCP integrations are 100% opt-in** and require manual configuration:
+The plugin ships with **14 HTTP connectors** that work in both Cowork and Claude Code — including Slack, Canva, Figma, HubSpot, Amplitude, Notion, Ahrefs, Similarweb, Klaviyo, Google Calendar, Gmail, Stripe, Asana, and Webflow. These appear in the Connectors panel and users connect what they need.
 
-**To enable MCP integrations:**
+**The plugin works fully WITHOUT any connectors** — all 115 skills, 25 agents, frameworks, and knowledge files function immediately. Connectors are only needed for live data and execution on external platforms.
 
-1. Install the plugin first (see options below)
-2. Navigate to the plugin directory: `~/.claude/plugins/digital-marketing-pro/` (or your installation path)
-3. Copy the example MCP config: `cp .mcp.json.example .mcp.json`
-4. Edit `.mcp.json` and add your API keys and credentials for the platforms you want to use
-5. Follow the [MCP Integration Guide](docs/integrations-guide.md) for detailed setup instructions
-6. Restart Claude Desktop to activate the integrations
+**Claude Code users** who want the full 67-server configuration (Google Ads, Meta Ads, analytics, social, and more via npx) can use the advanced setup:
 
-**The plugin works fully WITHOUT MCP servers** — all 115 skills, 25 agents, frameworks, and knowledge files function immediately. MCP is ONLY needed if you want to execute actions on external platforms (publish content, send emails, launch ads, sync CRM data, etc.). Most users will not need MCP configuration.
+```bash
+cp .mcp.json.example .mcp.json
+```
+
+See [CONNECTORS.md](CONNECTORS.md) for the full connector reference and [MCP Integration Guide](docs/integrations-guide.md) for detailed setup.
 
 ### Option A: Add from a local directory
 

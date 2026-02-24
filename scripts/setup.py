@@ -98,6 +98,9 @@ def print_brand_summary():
     if not ACTIVE_BRAND_FILE.exists():
         print("=== DIGITAL MARKETING PRO ===")
         print("No active brand. Run /dm:brand-setup to create one.")
+        scripts_dir = Path(__file__).resolve().parent
+        print(f"Scripts: {scripts_dir}")
+        print(f"Plugin root: {scripts_dir.parent}")
         print("===")
         return False
 
@@ -109,6 +112,9 @@ def print_brand_summary():
         if not profile_path.exists():
             print("=== DIGITAL MARKETING PRO ===")
             print(f"BROKEN_BRAND: '{slug}' profile not found. Run /dm:brand-setup.")
+            scripts_dir = Path(__file__).resolve().parent
+            print(f"Scripts: {scripts_dir}")
+            print(f"Plugin root: {scripts_dir.parent}")
             print("===")
             return False
 
@@ -208,12 +214,19 @@ def print_brand_summary():
             print("Guidelines: Not configured")
 
         print(f"Profile: {profile_path}")
+        # Output plugin paths so Claude can resolve script locations
+        scripts_dir = Path(__file__).resolve().parent
+        print(f"Scripts: {scripts_dir}")
+        print(f"Plugin root: {scripts_dir.parent}")
         print("===")
         return True
 
     except (json.JSONDecodeError, KeyError) as e:
         print("=== DIGITAL MARKETING PRO ===")
         print(f"BRAND_ERROR: {e}")
+        scripts_dir = Path(__file__).resolve().parent
+        print(f"Scripts: {scripts_dir}")
+        print(f"Plugin root: {scripts_dir.parent}")
         print("===")
         return False
 

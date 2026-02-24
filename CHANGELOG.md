@@ -4,6 +4,28 @@ All notable changes to the Digital Marketing Pro plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses [Semantic Versioning](https://semver.org/).
 
+## [2.3.0] — 2026-02-25
+
+### Changed — HTTP Connector Architecture
+
+This release rebuilds the MCP integration layer to follow Anthropic's official plugin pattern — HTTP-only connectors that work in both Cowork and Claude Code.
+
+- **New `.mcp.json` with 14 HTTP connectors**: Slack, Canva, Figma, HubSpot, Amplitude, Notion, Ahrefs, Similarweb, Klaviyo, Google Calendar, Gmail, Stripe, Asana, Webflow — all `"type": "http"`, all work through Cowork's VM NAT
+- **New `CONNECTORS.md`** documenting 12 connector categories with `~~category` placeholder pattern (matching Anthropic's official convention)
+- **`.mcp.json.example` preserved** for Claude Code users who want the full 67-server npx configuration
+- **Minimal `plugin.json`** — stripped to 4 fields (name, version, description, author) matching Anthropic's official plugin format. Removed non-standard fields: `author.title`, `author.organization`, `author.email`, `author.work_email`, `homepage`, `repository`, `license`, `keywords`
+- **Script path resolution** — `setup.py` now outputs the plugin root and scripts directory path at session start, so Claude can resolve relative script paths in both Cowork and Claude Code
+
+### Environment Compatibility
+
+| Feature | Cowork | Claude Code |
+|---------|--------|-------------|
+| 115 skills, 25 agents | Full | Full |
+| HTTP connectors (14) | Full | Full |
+| npx/stdio servers (67) | Not available | Full (via .mcp.json.example) |
+| Python scripts (64) | Works (Python 3.10 in VM) | Full |
+| Persistent brand data | Per-session | Persistent |
+
 ## [2.2.1] — 2026-02-24
 
 ### Fixed — CLI Contract & Script Bugs

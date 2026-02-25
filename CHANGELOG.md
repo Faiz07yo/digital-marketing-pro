@@ -4,6 +4,26 @@ All notable changes to the Digital Marketing Pro plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses [Semantic Versioning](https://semver.org/).
 
+## [2.4.0] — 2026-02-25
+
+### Added — Connector Discovery & Onboarding
+
+- **New `/dm:integrations` skill** — Status dashboard showing all connected vs available MCP connectors, grouped by category (CRM, SEO, advertising, email, social, etc.), with which skills each connector unlocks and quick-win recommendations
+- **New `/dm:connect` skill** — Guided setup for connecting specific services (e.g., `/dm:connect google-ads`). Provides platform-specific credential instructions, `.mcp.json` configuration, and post-setup verification. Handles HTTP (OAuth) vs npx (API key) connectors differently
+- **New `connector-status.py` script** — Backend for connector discovery. Maintains a registry of 45+ connectors across 17 categories, checks `.mcp.json` and environment variables to report connection status, and generates setup guides
+- **Updated `CONNECTORS.md`** — Added "Managing connectors" section linking to `/dm:integrations`, `/dm:connect`, `/dm:add-integration`, and `/dm:credential-switch` skills
+
+### How it works
+
+Users can now discover and manage integrations interactively:
+- `/dm:integrations` — "What's connected? What can I add?"
+- `/dm:connect salesforce` — "Walk me through connecting Salesforce"
+- `/dm:add-integration` — "I have a custom MCP server to add"
+
+All 14 HTTP connectors auto-load on install (Slack, Canva, Figma, HubSpot, etc.) and authenticate via OAuth on first use. The 45+ npx connectors are discoverable through these skills and require API keys.
+
+Skills that depend on connectors already handle missing connections gracefully — they check for connectivity at startup and guide users to setup if not connected.
+
 ## [2.3.1] — 2026-02-25
 
 ### Fixed

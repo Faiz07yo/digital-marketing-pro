@@ -36,6 +36,17 @@ The following categories require local npx/stdio MCP servers. They work in Claud
 | Translation | DeepL, Sarvam AI | Connect via Connectors panel when available |
 | Database | Supabase, PostgreSQL | Connect via Connectors panel when available |
 
+## Managing connectors
+
+Use these skills to discover and manage your integrations:
+
+| Skill | What it does |
+|-------|-------------|
+| `/dm:integrations` | Status dashboard — see what's connected, what's available, which skills each connector unlocks |
+| `/dm:connect <name>` | Guided setup — step-by-step instructions for connecting a specific service (e.g., `/dm:connect google-ads`) |
+| `/dm:add-integration` | Custom setup — add any MCP server not in the registry (npm packages or custom APIs) |
+| `/dm:credential-switch` | Agency mode — switch active credentials when managing multiple client accounts |
+
 ## Advanced configuration (Claude Code)
 
 For Claude Code CLI users who want the full 67-server configuration with npx/stdio transports, rename the example file:

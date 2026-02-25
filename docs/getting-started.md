@@ -1,6 +1,6 @@
 # Getting Started with Digital Marketing Pro
 
-**Version 2.2.0** | A plugin for Claude Code and Claude Cowork
+**Version 2.4.0** | A plugin for Claude Code and Claude Cowork
 
 Digital Marketing Pro transforms Claude into a marketing command center that knows your brand, understands your industry, and produces strategy and content that sounds like you wrote it. This guide walks you through installation, brand setup, and your first marketing task.
 
@@ -16,8 +16,9 @@ Digital Marketing Pro transforms Claude into a marketing command center that kno
 6. [Your First Marketing Task](#6-your-first-marketing-task)
 7. [Understanding the Session Lifecycle](#7-understanding-the-session-lifecycle)
 8. [Python Dependencies (Optional)](#8-python-dependencies-optional)
-9. [Available Commands](#9-available-commands)
-10. [Next Steps](#10-next-steps)
+9. [Connector Discovery (New in v2.4.0)](#9-connector-discovery-new-in-v240)
+10. [Available Commands](#10-available-commands)
+11. [Next Steps](#11-next-steps)
 
 ---
 
@@ -33,7 +34,7 @@ That is it. Everything else is optional.
 **Optional but nice to have:**
 
 - **Python 3.8 or newer** --- unlocks advanced scoring features like brand voice analysis and content readability. The plugin works perfectly without Python; you just get bonus capabilities if it is installed.
-- **No API keys required** --- the plugin ships with 143 reference knowledge files that power all 16 marketing modules. The optional MCP integrations (67 platform connections including Google Analytics, Search Console, Meta Ads, CRMs, email platforms, and others) use your own account credentials and can be configured later.
+- **No API keys required** --- the plugin ships with 143 reference knowledge files that power all 16 marketing modules. The optional MCP integrations (14 HTTP connectors that work in Cowork, plus 67 npx integrations for Claude Code) use your own account credentials and can be configured later. Run `/dm:integrations` to see which connectors are available and `/dm:connect <name>` for step-by-step setup.
 
 > **Bottom line:** If you can run Claude Code or Claude Cowork, you can use this plugin right now.
 
@@ -86,11 +87,11 @@ For full details on Cowork capabilities (document creation, visual review, app i
 After running either command, you should see output similar to this:
 
 ```
-Installing plugin: digital-marketing-pro v2.2.0
+Installing plugin: digital-marketing-pro v2.4.0
   - 16 marketing modules loaded
-  - 115 slash commands registered (/dm:*)
+  - 118 slash commands registered (/dm:*)
   - 25 specialist agents available
-  - 67 MCP integrations configured
+  - 14 HTTP connectors + 67 npx integrations configured
   - 3 event hooks configured (SessionStart, PreToolUse, SessionEnd)
 
 Plugin "digital-marketing-pro" installed successfully.
@@ -470,7 +471,7 @@ printed                  (just ask for things)        session
 
 ## 8. Python Dependencies (Optional)
 
-Digital Marketing Pro is designed to work at full capability without Python. All 16 marketing modules, 25 specialist agents, and 115 slash commands function using the plugin's built-in reference knowledge. Python adds bonus scoring and automation features.
+Digital Marketing Pro is designed to work at full capability without Python. All 16 marketing modules, 25 specialist agents, and 118 slash commands function using the plugin's built-in reference knowledge. Python adds bonus scoring and automation features.
 
 ### Three dependency modes
 
@@ -531,9 +532,61 @@ Python: full (all deps)        (full mode)
 
 ---
 
-## 9. Available Commands
+## 9. Connector Discovery (New in v2.4.0)
 
-Digital Marketing Pro provides 115 slash commands, all prefixed with `/dm:`. You can type these directly in your Claude Code session.
+Digital Marketing Pro v2.4.0 introduces a connector discovery system that makes it easy to see which external platforms are connected and set up new ones.
+
+### Checking your connector status
+
+```
+/dm:integrations
+```
+
+This shows a dashboard grouped by category (chat, design, CRM, SEO, advertising, analytics, and more) with each connector marked as **connected** or **available**. It also shows which skills gain capabilities from each connector.
+
+Example output:
+
+```
+=== CONNECTOR STATUS ===
+
+ Chat                           Connected
+  slack                         ✅ HTTP
+  intercom                      ○ npx (needs INTERCOM_ACCESS_TOKEN)
+
+ Design                         Connected
+  canva                         ✅ HTTP
+  figma                         ✅ HTTP
+
+ CRM                            Partial
+  hubspot                       ✅ HTTP
+  salesforce                    ○ npx (needs SALESFORCE_INSTANCE_URL, SALESFORCE_ACCESS_TOKEN)
+  pipedrive                     ○ npx (needs PIPEDRIVE_API_TOKEN)
+
+ ...
+
+Connected: 14 HTTP | Available: 33 npx
+Skills fully unlocked: 87/117 | Skills with enhanced capabilities: 117/117
+```
+
+### Setting up a new connector
+
+```
+/dm:connect slack
+```
+
+For HTTP connectors (like Slack, Canva, HubSpot), you get OAuth-based setup instructions that work in both Cowork and Claude Code. For npx connectors (like Salesforce, Google Ads), you get step-by-step credential setup instructions.
+
+### Platform-level integrations
+
+Some integrations (like Google Drive and Google Sheets) may be connected at the Claude platform level rather than through MCP. These platform-level integrations are managed in Claude Desktop settings and work automatically in Cowork sessions. The plugin can use these integrations even if they do not appear in the connector status dashboard.
+
+To check platform-level integrations: Open Claude Desktop → Settings → Integrations.
+
+---
+
+## 10. Available Commands
+
+Digital Marketing Pro provides 118 slash commands, all prefixed with `/dm:`. You can type these directly in your Claude Code session.
 
 ### Brand Management
 
@@ -670,6 +723,13 @@ Digital Marketing Pro provides 115 slash commands, all prefixed with `/dm:`. You
 | `/dm:region-config` | Configure regional settings --- timezone, language, compliance, currency |
 | `/dm:exec-summary` | Generate C-suite executive summary with portfolio ROI and strategic recommendations |
 
+### Connector Discovery (New in v2.4.0)
+
+| Command | What it does |
+|---------|-------------|
+| `/dm:integrations` | See which connectors are active, which are available, and what skills each unlocks |
+| `/dm:connect <name>` | Step-by-step setup guide for any connector (HTTP or npx) |
+
 ### Tip: You do not always need slash commands
 
 Slash commands are useful for structured, templated outputs. But you can also just describe what you need in natural language:
@@ -684,7 +744,7 @@ The plugin's 16 modules will activate based on the intent of your request, wheth
 
 ---
 
-## 10. Next Steps
+## 11. Next Steps
 
 You are set up and ready to go. Here are some resources for when you want to go deeper.
 
@@ -742,4 +802,4 @@ If something is not working as expected:
 
 ---
 
-*Digital Marketing Pro v2.2.0 --- Built for marketing professionals who want strategy, execution, and publishing that stays on-brand, every time. Plan it, approve it, execute it, monitor it --- all from Claude Code and Claude Cowork.*
+*Digital Marketing Pro v2.4.0 --- Built for marketing professionals who want strategy, execution, and publishing that stays on-brand, every time. Plan it, approve it, execute it, monitor it --- all from Claude Code and Claude Cowork.*

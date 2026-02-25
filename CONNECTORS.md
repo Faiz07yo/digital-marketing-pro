@@ -23,12 +23,24 @@ Plugins are **tool-agnostic** — they describe workflows in terms of categories
 | Project management | `~~project management` | Asana | Linear, Jira, Monday.com |
 | CMS | `~~CMS` | Webflow | WordPress, HubSpot CMS |
 
+## Platform-level integrations
+
+Some services are connected at the **Claude platform level** rather than through MCP. These are managed in Claude Desktop → Settings → Integrations and work automatically in Cowork sessions.
+
+| Service | Platform integration | MCP alternative |
+|---------|---------------------|-----------------|
+| Google Drive | Yes — connect in Settings → Integrations | Also available via npx (`mcp-google-drive`) |
+| Google Docs | Yes — connect in Settings → Integrations | Also available via npx (`mcp-google-docs`) |
+
+Platform-level integrations work even if they don't appear in the `/dm:integrations` connector dashboard.
+
 ## Categories without HTTP connectors (Claude Code only)
 
 The following categories require local npx/stdio MCP servers. They work in Claude Code but not in Cowork. See `.mcp.json.example` for configuration.
 
 | Category | Available via npx | When HTTP becomes available |
 |----------|------------------|---------------------------|
+| Productivity | Google Drive, Google Sheets, Google Docs | Google Drive/Docs also available as platform integration |
 | Advertising | Google Ads, Meta Ads, LinkedIn Ads, TikTok Ads | Connect via Connectors panel when available |
 | Analytics | Google Analytics, Google Search Console | Connect via Connectors panel when available |
 | Social media | Buffer, Twitter/X, LinkedIn | Connect via Connectors panel when available |

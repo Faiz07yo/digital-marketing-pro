@@ -537,6 +537,42 @@ CONNECTOR_REGISTRY = {
             },
         },
     },
+    "productivity": {
+        "description": "Document storage, spreadsheets, and collaboration",
+        "connectors": {
+            "google-drive": {
+                "transport": "npx",
+                "package": "mcp-google-drive",
+                "description": "Google Drive — docs, assets, brand knowledge vault, output delivery",
+                "env_vars": ["GOOGLE_APPLICATION_CREDENTIALS"],
+                "skills_unlocked": [
+                    "content-brief", "content-repurpose", "save-knowledge",
+                    "import-guidelines", "client-report",
+                ],
+                "note": "Also available as a native Claude platform integration (Settings > Integrations)",
+            },
+            "google-sheets": {
+                "transport": "npx",
+                "package": "mcp-google-sheets",
+                "description": "Google Sheets — reporting dashboards, data export, tracking",
+                "env_vars": ["GOOGLE_APPLICATION_CREDENTIALS"],
+                "skills_unlocked": [
+                    "data-export", "performance-report", "client-report",
+                    "live-dashboard",
+                ],
+            },
+            "google-docs": {
+                "transport": "npx",
+                "package": "mcp-google-docs",
+                "description": "Google Docs — collaborative content editing, deliverable output",
+                "env_vars": ["GOOGLE_APPLICATION_CREDENTIALS"],
+                "skills_unlocked": [
+                    "content-brief", "client-proposal", "client-report",
+                ],
+                "note": "Also available as a native Claude platform integration (Settings > Integrations)",
+            },
+        },
+    },
     "database": {
         "description": "Data storage and querying",
         "connectors": {
@@ -658,6 +694,8 @@ def status_dashboard():
                     entry["note"] = "Claude Code only (requires npx)"
                 else:
                     entry["note"] = "HTTP connector — works in Cowork + Claude Code"
+                if "note" in conn:
+                    entry["platform_note"] = conn["note"]
                 available.append(entry)
 
         categories.append({

@@ -1,11 +1,11 @@
 # Digital Marketing Pro — Claude Code & Cowork Plugin
 
-[![Version](https://img.shields.io/badge/version-2.3.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.4.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-optional-yellow.svg)](#python-dependencies-optional)
 [![Cowork](https://img.shields.io/badge/cowork-compatible-purple.svg)](docs/claude-interfaces.md#claude-cowork-full-support)
 
-The most comprehensive digital marketing plugin for Claude Code and Claude Cowork. 16 integrated modules covering the entire marketing spectrum from strategy to execution to measurement — including dedicated Technical SEO, Local SEO, and Marketing Automation modules. **v2.0 adds a full execution layer**: publish content, send emails, launch ads, schedule social, sync CRMs, manage persistent memory, and deliver reports — all with human-in-the-loop approval workflows. Multi-client agency operations with credential profiles, portfolio dashboards, and team management. **v2.1 adds predictive intelligence, GEO monitoring, competitor monitoring, SEO execution, self-healing campaigns, creative intelligence, compound intelligence, synthetic audience testing, journey orchestration, and more.** **v2.2 adds a comprehensive evaluation/QA layer (hallucination detection, claim verification, output validation, composite scoring, quality regression tracking) and full multilingual support (4 translation MCP servers, automatic language routing, transcreation, cultural adaptation, multilingual SEO).**
+The most comprehensive digital marketing plugin for Claude Code and Claude Cowork. 16 integrated modules covering the entire marketing spectrum from strategy to execution to measurement — including dedicated Technical SEO, Local SEO, and Marketing Automation modules. **v2.0 adds a full execution layer**: publish content, send emails, launch ads, schedule social, sync CRMs, manage persistent memory, and deliver reports — all with human-in-the-loop approval workflows. Multi-client agency operations with credential profiles, portfolio dashboards, and team management. **v2.1 adds predictive intelligence, GEO monitoring, competitor monitoring, SEO execution, self-healing campaigns, creative intelligence, compound intelligence, synthetic audience testing, journey orchestration, and more.** **v2.2 adds a comprehensive evaluation/QA layer (hallucination detection, claim verification, output validation, composite scoring, quality regression tracking) and full multilingual support (4 translation MCP servers, automatic language routing, transcreation, cultural adaptation, multilingual SEO).** **v2.3 introduces HTTP-only MCP connectors for Cowork compatibility (14 HTTP connectors that work in both Cowork and Claude Code).** **v2.4 adds connector discovery and onboarding (`/dm:integrations` status dashboard, `/dm:connect` guided setup, `/dm:help` quick reference).**
 
 ## What This Plugin Does
 
@@ -40,9 +40,9 @@ Digital Marketing Pro transforms Claude into a full-stack marketing intelligence
 - **25 specialist agents**, including 5 execution agents, 2 predictive intelligence agents, and agents for competitor intelligence, compound intelligence, journey orchestration, quality assurance, and localization, that activate based on conversation context, call 64 Python scripts for scoring, query MCP servers for live data, enforce brand guidelines, and persist campaign learnings
 - **Brand guidelines enforcement** — import voice guides, restrictions, channel styles, messaging frameworks; automatically applied across all modules
 - **Deliverable templates** and **agency SOPs** — custom output formats and workflow definitions
-- **115 slash commands** for direct access to common workflows — including execution, monitoring, predictive intelligence, GEO monitoring, competitor monitoring, SEO execution, creative intelligence, compound intelligence, journey orchestration, synthetic audience testing, evaluation/QA, multilingual support, and more
+- **118 slash commands** for direct access to common workflows — including execution, monitoring, predictive intelligence, GEO monitoring, competitor monitoring, SEO execution, creative intelligence, compound intelligence, journey orchestration, synthetic audience testing, evaluation/QA, multilingual support, connector discovery, and more
 - **64 Python scripts** for deterministic execution (scoring, analysis, generation, guidelines management, email testing, A/B testing, social optimization, technical SEO auditing, local SEO checking, ROI calculation, budget optimization, CLV analysis, revenue forecasting, content repurposing, review response drafting, link profile analysis, ad budget pacing, approval workflow, execution tracking, performance monitoring, CRM sync, credential management, team management, report generation, memory management, SEO execution, competitor tracking, GEO tracking, PDF generation, revenue simulation, churn prediction, macro signal tracking, creative fatigue prediction, intelligence graphing, journey engine, growth loop modeling, campaign health monitoring, narrative mapping, audience simulation, hallucination detection, claim verification, output validation, eval running, quality tracking, eval config management, prompt A/B testing, language routing)
-- **67 MCP integrations** for connecting your own marketing accounts AND executing actions (social publishing, email sending, CRM writes, ad campaign creation, SMS, vector databases, knowledge management, CRM platforms, PM/design tools, SEO/monitoring, marketing automation, translation services, and more)
+- **14 HTTP connectors + 67 npx integrations** for connecting your own marketing accounts AND executing actions (social publishing, email sending, CRM writes, ad campaign creation, SMS, vector databases, knowledge management, CRM platforms, PM/design tools, SEO/monitoring, marketing automation, translation services, and more). Run `/dm:integrations` to see your connector status
 - **Persistent brand memory** that learns across sessions
 - **5-layer memory architecture** — session context → vector DB RAG (Pinecone/Qdrant) → temporal knowledge graphs (Graphiti) → universal agent memory (Supermemory) → knowledge base (Notion/Google Drive)
 - **Human-in-the-loop execution** — every write action requires explicit approval with risk-level classification (low/medium/high/critical) and industry-specific compliance gates
@@ -63,7 +63,7 @@ Digital Marketing Pro transforms Claude into a full-stack marketing intelligence
 
 The plugin ships with **14 HTTP connectors** that work in both Cowork and Claude Code — including Slack, Canva, Figma, HubSpot, Amplitude, Notion, Ahrefs, Similarweb, Klaviyo, Google Calendar, Gmail, Stripe, Asana, and Webflow. These appear in the Connectors panel and users connect what they need.
 
-**The plugin works fully WITHOUT any connectors** — all 115 skills, 25 agents, frameworks, and knowledge files function immediately. Connectors are only needed for live data and execution on external platforms.
+**The plugin works fully WITHOUT any connectors** — all 118 skills, 25 agents, frameworks, and knowledge files function immediately. Connectors are only needed for live data and execution on external platforms.
 
 **Claude Code users** who want the full 67-server configuration (Google Ads, Meta Ads, analytics, social, and more via npx) can use the advanced setup:
 
@@ -110,7 +110,7 @@ On first use, the plugin will:
 The plugin works fully without any Python installation. All marketing knowledge, frameworks, agent capabilities, and slash commands work out of the box.
 
 **Knowledge-only mode (0 MB, no install)** — Default
-All 16 modules, 25 agents, 115 commands, and 143 reference knowledge files work with zero dependencies.
+All 16 modules, 25 agents, 118 commands, and 143 reference knowledge files work with zero dependencies.
 
 **Lite mode (~15 MB)** — Enables scoring scripts
 ```
@@ -463,8 +463,8 @@ The plugin stores brand data at `~/.claude-marketing/`:
 
 ```
 digital-marketing-pro/
-├── .claude-plugin/plugin.json    # Plugin manifest (v2.2.0)
-├── skills/                       # 132 skill directories (16 modules + 115 commands + context engine)
+├── .claude-plugin/plugin.json    # Plugin manifest (v2.4.0)
+├── skills/                       # 136 skill directories (16 modules + 118 commands + context engine + help)
 ├── agents/                       # 25 specialist agents
 ├── hooks/hooks.json              # Session lifecycle, compliance gates, guideline checks, and MCP write safety
 ├── scripts/                      # 64 Python execution scripts + requirements.txt

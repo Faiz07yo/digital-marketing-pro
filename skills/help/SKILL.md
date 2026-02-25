@@ -17,7 +17,7 @@ Display this quick orientation:
 ```
 === DIGITAL MARKETING PRO — HELP ===
 
-Version: 2.4.0
+Version: 2.5.0
 Agents: 25 specialist agents
 Skills: 118 slash commands (/dm:*)
 Modules: 16 marketing knowledge domains

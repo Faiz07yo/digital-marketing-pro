@@ -4,6 +4,26 @@ All notable changes to the Digital Marketing Pro plugin are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses [Semantic Versioning](https://semver.org/).
 
+## [2.5.0] — 2026-02-26
+
+### Added — Commands & Version Consistency
+
+- **7 command files** in `commands/` directory — visible in the Customize panel "Commands" section:
+  - `brand-setup` — Set up a new brand profile with voice, audience, competitors, and compliance rules
+  - `campaign-plan` — Generate a multi-channel campaign plan with objectives, audience, budget, and KPIs
+  - `seo-audit` — Run a comprehensive SEO audit covering technical, on-page, content, E-E-A-T, and link profile
+  - `content-engine` — Draft blog posts, ad copy, emails, social, landing pages, and video scripts
+  - `performance-report` — Generate marketing performance reports with KPI tracking and anomaly detection
+  - `competitor-analysis` — Multi-dimensional competitive analysis across content, SEO, ads, social, and AI visibility
+  - `email-sequence` — Design complete email sequences with subject lines, timing, and deliverability guidance
+- **New `/dm:help` skill** — Quick reference with all commands, examples, and troubleshooting
+
+### Fixed
+
+- Updated stale version references across docs (getting-started.md, architecture.md, integrations-guide.md) from v2.2.0/v2.4.0 to v2.5.0
+
+---
+
 ## [2.4.0] — 2026-02-25
 
 ### Added — Connector Discovery & Onboarding

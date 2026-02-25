@@ -1,6 +1,6 @@
 # Technical Architecture Reference
 
-**Digital Marketing Pro** -- Claude Code Plugin v2.2.0
+**Digital Marketing Pro** -- Claude Code Plugin v2.5.0
 
 This document describes the internal architecture of the Digital Marketing Pro plugin for developers and contributors. It covers file structure, the WAT framework mapping, component anatomy, the hook system, script conventions, data persistence, adaptive scoring, and extension points.
 
@@ -11,7 +11,7 @@ This document describes the internal architecture of the Digital Marketing Pro p
 ```
 digital-marketing-pro/
 ├── .claude-plugin/
-│   └── plugin.json                    # Plugin manifest (v2.2.0)
+│   └── plugin.json                    # Plugin manifest (v2.5.0)
 ├── .mcp.json                          # 67 MCP server configurations
 ├── hooks/
 │   └── hooks.json                     # 3 lifecycle hooks

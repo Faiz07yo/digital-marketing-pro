@@ -1,6 +1,6 @@
 # Getting Started with Digital Marketing Pro
 
-**Version 2.4.0** | A plugin for Claude Code and Claude Cowork
+**Version 2.5.0** | A plugin for Claude Code and Claude Cowork
 
 Digital Marketing Pro transforms Claude into a marketing command center that knows your brand, understands your industry, and produces strategy and content that sounds like you wrote it. This guide walks you through installation, brand setup, and your first marketing task.
 
@@ -87,7 +87,7 @@ For full details on Cowork capabilities (document creation, visual review, app i
 After running either command, you should see output similar to this:
 
 ```
-Installing plugin: digital-marketing-pro v2.4.0
+Installing plugin: digital-marketing-pro v2.5.0
   - 16 marketing modules loaded
   - 118 slash commands registered (/dm:*)
   - 25 specialist agents available
@@ -802,4 +802,4 @@ If something is not working as expected:
 
 ---
 
-*Digital Marketing Pro v2.4.0 --- Built for marketing professionals who want strategy, execution, and publishing that stays on-brand, every time. Plan it, approve it, execute it, monitor it --- all from Claude Code and Claude Cowork.*
+*Digital Marketing Pro v2.5.0 --- Built for marketing professionals who want strategy, execution, and publishing that stays on-brand, every time. Plan it, approve it, execute it, monitor it --- all from Claude Code and Claude Cowork.*

